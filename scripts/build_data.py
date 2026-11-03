@@ -97,6 +97,7 @@ def main() -> None:
     docs_json = os.path.join(base_dir, "docs", "data", "bilateral_matrix.json")
     docs_centres = os.path.join(base_dir, "docs", "data", "saarc_centres.csv")
     docs_quotas = os.path.join(base_dir, "docs", "data", "student_quotas.csv")
+    docs_master = os.path.join(base_dir, "docs", "data", "benefits_master.csv")
 
     # Overall scores, category-sliced scores, and rich provision details
     scores_total: Dict[str, Dict[str, int]] = create_empty_scores()
@@ -263,6 +264,9 @@ def main() -> None:
 
     if os.path.exists(quotas_csv):
         shutil.copyfile(quotas_csv, docs_quotas)
+
+    if os.path.exists(master_csv):
+        shutil.copyfile(master_csv, docs_master)
 
     print("Successfully generated bilateral_matrix.csv and bilateral_matrix.json")
 
