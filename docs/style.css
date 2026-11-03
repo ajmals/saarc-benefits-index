@@ -1821,6 +1821,17 @@ header p {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-black);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.filter-group .filter-sublabel {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-gray-500);
 }
 
 .filter-group select {

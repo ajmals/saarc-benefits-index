@@ -38,7 +38,7 @@ const COUNTRY_NAMES = {
 };
 
 const CATEGORY_LABELS = {
-  total: 'All Dimensions',
+  total: 'All Sectors',
   trade: 'Trade & Transit',
   tourism_culture: 'Tourism & Culture',
   education: 'Education & Scholarships',
@@ -523,7 +523,7 @@ function renderHeatmap() {
       const currentScore = rowScores[rowScores.length - 1];
       rowTexts.push(
         `<b>${COUNTRY_FLAGS[p] || ''} ${p} → ${COUNTRY_FLAGS[b] || ''} ${b}</b><br>` +
-        `Dimension: ${CATEGORY_LABELS[catFilter] || catFilter}<br>` +
+        `Sector: ${CATEGORY_LABELS[catFilter] || catFilter}<br>` +
         `Score: <b>${currentScore} pts</b><br>` +
         `Provisions: ${pairProvs.length}<br>` +
         `<i>Click to inspect</i>`
@@ -1434,7 +1434,7 @@ function displayDetails(provider, beneficiary) {
   if (filtered.length === 0) {
     const emptyNotice = document.createElement('p');
     emptyNotice.className = 'empty-notice';
-    emptyNotice.textContent = 'No provisions found matching the selected dimension and persona filters.';
+    emptyNotice.textContent = 'No provisions found matching the selected sector and audience filters.';
     container.querySelector('.provisions-container').appendChild(emptyNotice);
     return;
   }
