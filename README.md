@@ -2,7 +2,7 @@
 
 An open-source interactive data dashboard and legal registry mapping cross-border relations, bilateral treaties, visa privileges, trade concessions, and student quotas across South Asian states.
 
-🌐 **Live Demo:** Hosted on GitHub Pages via the [`docs/`](docs/) directory.
+🌐 **Live Demo:** [https://ajmals.github.io/saarc-benefits-index/](https://ajmals.github.io/saarc-benefits-index/)
 
 ---
 
