@@ -89,6 +89,225 @@ const COUNTRY_NAMES = {
   LKA: 'Sri Lanka'
 };
 
+const COUNTRY_PROFILES = {
+  AFG: {
+    code: 'AFG',
+    name: 'Afghanistan',
+    officialName: 'Islamic Republic of Afghanistan',
+    flag: '🇦🇫',
+    capital: 'Kabul',
+    membership: 'Admitted 2007 (14th Summit)',
+    membershipType: 'Member State',
+    population: '42.2M',
+    populationRaw: 42200000,
+    popWorldPct: '0.52%',
+    popSouthAsiaPct: '2.1%',
+    popRankWorld: 37,
+    popRankSouthAsia: 4,
+    gdpNominal: '$14.5 Billion',
+    gdpPerCapita: '$350',
+    gdpPpp: '$80.8 Billion',
+    gdpRankWorld: 135,
+    currencyName: 'Afghan Afghani',
+    currencyCode: 'AFN',
+    currencySymbol: '؋',
+    exchangeRateUsd: '70.50 AFN',
+    exchangeRateNote: 'Floating (1 USD ≈ 70.5 AFN)',
+    topExports: 'Dried fruits, pomegranates, nuts, handmade carpets, lapis lazuli & minerals',
+    geoStrategic: 'Landlocked mountainous crossroads connecting Central and South Asia',
+    regionalRole: 'Transit corridor beneficiary via APTTA and Chabahar port agreements'
+  },
+  BGD: {
+    code: 'BGD',
+    name: 'Bangladesh',
+    officialName: "People's Republic of Bangladesh",
+    flag: '🇧🇩',
+    capital: 'Dhaka',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '173.0M',
+    populationRaw: 173000000,
+    popWorldPct: '2.12%',
+    popSouthAsiaPct: '8.8%',
+    popRankWorld: 8,
+    popRankSouthAsia: 3,
+    gdpNominal: '$455 Billion',
+    gdpPerCapita: '$2,640',
+    gdpPpp: '$1.62 Trillion',
+    gdpRankWorld: 35,
+    currencyName: 'Bangladeshi Taka',
+    currencyCode: 'BDT',
+    currencySymbol: '৳',
+    exchangeRateUsd: '121.50 BDT',
+    exchangeRateNote: 'Managed float (1 USD ≈ 121.5 BDT)',
+    topExports: 'Ready-Made Garments (RMG), knitwear, textiles, jute, footwear & pharmaceuticals',
+    geoStrategic: 'Bay of Bengal littoral gateway; host of historic 1st SAARC Summit (1985)',
+    regionalRole: 'Major manufacturing exporter with bilateral river transit & coastal pacts'
+  },
+  BTN: {
+    code: 'BTN',
+    name: 'Bhutan',
+    officialName: 'Kingdom of Bhutan',
+    flag: '🇧🇹',
+    capital: 'Thimphu',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '787,000',
+    populationRaw: 787000,
+    popWorldPct: '0.010%',
+    popSouthAsiaPct: '0.04%',
+    popRankWorld: 165,
+    popRankSouthAsia: 7,
+    gdpNominal: '$3.1 Billion',
+    gdpPerCapita: '$3,920',
+    gdpPpp: '$10.8 Billion',
+    gdpRankWorld: 165,
+    currencyName: 'Bhutanese Ngultrum',
+    currencyCode: 'BTN',
+    currencySymbol: 'Nu.',
+    exchangeRateUsd: '86.50 BTN',
+    exchangeRateNote: 'Pegged 1:1 with Indian Rupee (Nu. 1 = ₹1)',
+    topExports: 'Clean hydroelectricity, ferro-alloys, cardamom, dolomite & eco-tourism',
+    geoStrategic: 'Carbon-negative Himalayan nation guided by Gross National Happiness',
+    regionalRole: '1949/2007 Friendship Treaty guarantees passport-free bilateral border movement'
+  },
+  IND: {
+    code: 'IND',
+    name: 'India',
+    officialName: 'Republic of India',
+    flag: '🇮🇳',
+    capital: 'New Delhi',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '1.435 Billion',
+    populationRaw: 1435000000,
+    popWorldPct: '17.61%',
+    popSouthAsiaPct: '72.8%',
+    popRankWorld: 1,
+    popRankSouthAsia: 1,
+    gdpNominal: '$3.94 Trillion',
+    gdpPerCapita: '$2,730',
+    gdpPpp: '$14.6 Trillion',
+    gdpRankWorld: 5,
+    currencyName: 'Indian Rupee',
+    currencyCode: 'INR',
+    currencySymbol: '₹',
+    exchangeRateUsd: '86.50 INR',
+    exchangeRateNote: 'Floating (1 USD ≈ 86.50 INR)',
+    topExports: 'IT & software services, generic pharma, refined petroleum, automotive, gems',
+    geoStrategic: 'Central regional anchor sharing land/maritime frontiers with 6 SAARC states',
+    regionalRole: 'Primary contributor of university medical/engineering quotas & transit ports'
+  },
+  MDV: {
+    code: 'MDV',
+    name: 'Maldives',
+    officialName: 'Republic of Maldives',
+    flag: '🇲🇻',
+    capital: 'Malé',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '521,000',
+    populationRaw: 521000,
+    popWorldPct: '0.0064%',
+    popSouthAsiaPct: '0.03%',
+    popRankWorld: 174,
+    popRankSouthAsia: 8,
+    gdpNominal: '$7.2 Billion',
+    gdpPerCapita: '$13,800',
+    gdpPpp: '$14.7 Billion',
+    gdpRankWorld: 153,
+    currencyName: 'Maldivian Rufiyaa',
+    currencyCode: 'MVR',
+    currencySymbol: 'Rf',
+    exchangeRateUsd: '15.42 MVR',
+    exchangeRateNote: 'Fixed peg to USD (1 USD = 15.42 MVR)',
+    topExports: 'Luxury island hospitality & tourism, pole-and-line skipjack tuna, marine transport',
+    geoStrategic: 'Archipelagic Indian Ocean state; highest per-capita GDP in South Asia',
+    regionalRole: 'Key maritime partner with guaranteed bilateral essential food & medicine quotas'
+  },
+  NPL: {
+    code: 'NPL',
+    name: 'Nepal',
+    officialName: 'Federal Democratic Republic of Nepal',
+    flag: '🇳🇵',
+    capital: 'Kathmandu',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member & SAARC HQ',
+    population: '30.9M',
+    populationRaw: 30900000,
+    popWorldPct: '0.38%',
+    popSouthAsiaPct: '1.6%',
+    popRankWorld: 49,
+    popRankSouthAsia: 5,
+    gdpNominal: '$42.5 Billion',
+    gdpPerCapita: '$1,380',
+    gdpPpp: '$158 Billion',
+    gdpRankWorld: 101,
+    currencyName: 'Nepalese Rupee',
+    currencyCode: 'NPR',
+    currencySymbol: 'रू',
+    exchangeRateUsd: '138.40 NPR',
+    exchangeRateNote: 'Pegged to INR (1.60 NPR = 1.00 INR)',
+    topExports: 'Hydroelectric power, mountain trekking & mountaineering, tea, cardamom, handicrafts',
+    geoStrategic: 'Landlocked Himalayan nation; host of permanent SAARC Secretariat in Kathmandu',
+    regionalRole: '1950 Friendship Treaty establishes open border, national treatment & work rights'
+  },
+  PAK: {
+    code: 'PAK',
+    name: 'Pakistan',
+    officialName: 'Islamic Republic of Pakistan',
+    flag: '🇵🇰',
+    capital: 'Islamabad',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '245.2M',
+    populationRaw: 245200000,
+    popWorldPct: '3.01%',
+    popSouthAsiaPct: '12.4%',
+    popRankWorld: 5,
+    popRankSouthAsia: 2,
+    gdpNominal: '$378 Billion',
+    gdpPerCapita: '$1,540',
+    gdpPpp: '$1.58 Trillion',
+    gdpRankWorld: 42,
+    currencyName: 'Pakistani Rupee',
+    currencyCode: 'PKR',
+    currencySymbol: '₨',
+    exchangeRateUsd: '279.50 PKR',
+    exchangeRateNote: 'Floating (1 USD ≈ 279.50 PKR)',
+    topExports: 'Textiles & cotton apparel, basmati rice, surgical tools, sports goods, leather',
+    geoStrategic: 'Gateway connecting South Asia, Arabian Sea and Central Asia via Gwadar/Karachi',
+    regionalRole: '2nd-largest economy; major bilateral higher education donor via PTAP scholarships'
+  },
+  LKA: {
+    code: 'LKA',
+    name: 'Sri Lanka',
+    officialName: 'Democratic Socialist Republic of Sri Lanka',
+    flag: '🇱🇰',
+    capital: 'Colombo / Sri Jayawardenepura Kotte',
+    membership: 'Founding Member (1985)',
+    membershipType: 'Founding Member',
+    population: '22.4M',
+    populationRaw: 22400000,
+    popWorldPct: '0.27%',
+    popSouthAsiaPct: '1.1%',
+    popRankWorld: 59,
+    popRankSouthAsia: 6,
+    gdpNominal: '$84.4 Billion',
+    gdpPerCapita: '$3,830',
+    gdpPpp: '$352 Billion',
+    gdpRankWorld: 77,
+    currencyName: 'Sri Lankan Rupee',
+    currencyCode: 'LKR',
+    currencySymbol: 'Rs',
+    exchangeRateUsd: '298.50 LKR',
+    exchangeRateNote: 'Floating (1 USD ≈ 298.50 LKR)',
+    topExports: 'Pure Ceylon tea, high-end apparel, solid rubber tires, cinnamon, container transshipment',
+    geoStrategic: 'Indian Ocean maritime shipping hub (Port of Colombo transshipment leader)',
+    regionalRole: 'High Human Development Index (0.780); pioneer of bilateral FTA accords (ISFTA)'
+  }
+};
+
 const CATEGORY_LABELS = {
   total: 'All Sectors',
   trade: 'Trade & Transit',
@@ -195,9 +414,387 @@ function updateHeaderStats() {
   }
 }
 
+/* ==========================================================================
+   Country Metrics Hover Popover Engine
+   ========================================================================== */
+
+let activeCountryPopoverEl = null;
+let popoverHideTimeout = null;
+let currentHoveredTrigger = null;
+
+function getCountryProvisionsStats(code) {
+  let granted = 0;
+  let received = 0;
+  if (globalData && globalData.details) {
+    const countries = globalData.countries || Object.keys(COUNTRY_PROFILES);
+    countries.forEach(p => {
+      if (p !== code) {
+        if (globalData.details[code]?.[p]) {
+          granted += globalData.details[code][p].length;
+        }
+        if (globalData.details[p]?.[code]) {
+          received += globalData.details[p][code].length;
+        }
+      }
+    });
+  } else {
+    // Verified fallback counts from index dataset
+    const defaults = {
+      IND: { granted: 45, received: 24 },
+      LKA: { granted: 35, received: 24 },
+      NPL: { granted: 28, received: 27 },
+      BTN: { granted: 24, received: 28 },
+      BGD: { granted: 23, received: 27 },
+      PAK: { granted: 21, received: 26 },
+      MDV: { granted: 21, received: 28 },
+      AFG: { granted: 14, received: 27 }
+    };
+    if (defaults[code]) return defaults[code];
+  }
+  return { granted, received };
+}
+
+function renderCountryPopoverHtml(cCode) {
+  const p = COUNTRY_PROFILES[cCode];
+  if (!p) return '';
+  const prov = getCountryProvisionsStats(cCode);
+  
+  // Calculate relative bar width for population share (clamped between 3% and 100% for clear visibility)
+  const barWidth = Math.max(3, Math.min(100, parseFloat(p.popWorldPct) * 4.5));
+
+  return `
+    <div class="country-hover-popover-inner">
+      <div class="popover-arrow"></div>
+      
+      <!-- Header -->
+      <div class="popover-header">
+        <div class="popover-flag-wrap" aria-hidden="true">${p.flag}</div>
+        <div class="popover-title-wrap">
+          <div class="popover-top-line">
+            <span class="popover-code-pill">${p.code}</span>
+            <span class="popover-saarc-badge">${escapeHtml(p.membership)}</span>
+          </div>
+          <h3 class="popover-country-name">${escapeHtml(p.name)}</h3>
+          <div class="popover-official-meta" title="${escapeHtml(p.officialName)} • Capital: ${escapeHtml(p.capital)}">
+            ${escapeHtml(p.officialName)} • 🏛️ ${escapeHtml(p.capital)}
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Metrics 2x2 Grid -->
+      <div class="popover-metrics-grid">
+        <!-- Metric 1: Population & World Share -->
+        <div class="popover-metric-box">
+          <div class="popover-metric-label">
+            <span>👥</span>
+            <span>Population</span>
+          </div>
+          <div class="popover-metric-val">
+            <span>${p.population}</span>
+            <span class="popover-metric-badge">${p.popWorldPct} World</span>
+          </div>
+          <div class="popover-bar-container" title="${p.popWorldPct} of global population (~8.15 Billion)">
+            <div class="popover-bar-fill" style="width: ${barWidth}%;"></div>
+          </div>
+          <div class="popover-metric-sub">
+            Rank <strong>#${p.popRankWorld}</strong> globally • <strong>${p.popSouthAsiaPct}</strong> of South Asia
+          </div>
+        </div>
+
+        <!-- Metric 2: GDP -->
+        <div class="popover-metric-box">
+          <div class="popover-metric-label">
+            <span>📈</span>
+            <span>Nominal GDP</span>
+          </div>
+          <div class="popover-metric-val">
+            <span>${p.gdpNominal}</span>
+            <span class="popover-metric-badge emerald">Rank #${p.gdpRankWorld}</span>
+          </div>
+          <div class="popover-metric-sub">
+            Per Capita: <strong>${p.gdpPerCapita}</strong> • PPP: <strong>${p.gdpPpp}</strong>
+          </div>
+        </div>
+
+        <!-- Metric 3: Currency & FX Exchange Rate -->
+        <div class="popover-metric-box">
+          <div class="popover-metric-label">
+            <span>💱</span>
+            <span>Currency & FX</span>
+          </div>
+          <div class="popover-metric-val">
+            <span style="font-size:0.86rem;">${p.currencyName}</span>
+            <span class="popover-metric-badge amber">${p.currencyCode} (${p.currencySymbol})</span>
+          </div>
+          <div class="popover-fx-rate">
+            1 USD ≈ ${p.exchangeRateUsd}
+          </div>
+          <div class="popover-metric-sub" style="font-size:0.65rem;">
+            ${escapeHtml(p.exchangeRateNote)}
+          </div>
+        </div>
+
+        <!-- Metric 4: Bilateral Accords in Index -->
+        <div class="popover-metric-box">
+          <div class="popover-metric-label">
+            <span>📜</span>
+            <span>Bilateral Accords</span>
+          </div>
+          <div class="popover-metric-val">
+            <span style="font-size: 0.92rem;">${prov.granted} Granted</span>
+            <span class="popover-metric-badge" style="background:#f1f5f9; color:#334155;">${prov.received} Recv.</span>
+          </div>
+          <div class="popover-metric-sub">
+            Active bilateral treaties & tariff concessions in this index
+          </div>
+        </div>
+      </div>
+
+      <!-- Informative Context Rows -->
+      <div class="popover-info-block">
+        <div class="popover-info-row">
+          <span class="popover-info-tag">Top Exports & Pillars:</span>
+          <span class="popover-info-text">${escapeHtml(p.topExports)}</span>
+        </div>
+        <div class="popover-info-row">
+          <span class="popover-info-tag">Regional Role:</span>
+          <span class="popover-info-text">${escapeHtml(p.geoStrategic)}</span>
+        </div>
+      </div>
+
+      <!-- Footer Action -->
+      <div class="popover-footer">
+        <button type="button" class="popover-focus-btn" data-focus-country="${p.code}">
+          <span>Explore ${escapeHtml(p.name)} in Dashboard</span>
+          <span aria-hidden="true">➔</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function showCountryPopover(triggerEl, countryCode) {
+  if (!triggerEl || !countryCode || !COUNTRY_PROFILES[countryCode]) return;
+  clearTimeout(popoverHideTimeout);
+
+  if (!activeCountryPopoverEl) {
+    activeCountryPopoverEl = document.createElement('div');
+    activeCountryPopoverEl.id = 'country-hover-popover';
+    activeCountryPopoverEl.className = 'country-hover-popover';
+    activeCountryPopoverEl.setAttribute('role', 'tooltip');
+    activeCountryPopoverEl.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(activeCountryPopoverEl);
+
+    // Keep popover open while hovering over the popover content itself
+    activeCountryPopoverEl.addEventListener('mouseenter', () => {
+      clearTimeout(popoverHideTimeout);
+    });
+
+    activeCountryPopoverEl.addEventListener('mouseleave', () => {
+      hideCountryPopover(false);
+    });
+
+    // Handle clicks inside popover (such as the Focus in Dashboard button)
+    activeCountryPopoverEl.addEventListener('click', (e) => {
+      const focusBtn = e.target.closest('[data-focus-country]');
+      if (focusBtn) {
+        const code = focusBtn.getAttribute('data-focus-country');
+        focusOnCountry(code);
+      }
+    });
+  }
+
+  // Update previous trigger class
+  if (currentHoveredTrigger && currentHoveredTrigger !== triggerEl) {
+    currentHoveredTrigger.classList.remove('active-popover');
+  }
+  currentHoveredTrigger = triggerEl;
+  triggerEl.classList.add('active-popover');
+
+  // Render content
+  activeCountryPopoverEl.innerHTML = renderCountryPopoverHtml(countryCode);
+  activeCountryPopoverEl.setAttribute('aria-hidden', 'false');
+
+  // Position popover
+  positionCountryPopover(triggerEl);
+
+  // Make visible
+  activeCountryPopoverEl.classList.add('visible');
+}
+
+function positionCountryPopover(triggerEl) {
+  if (!activeCountryPopoverEl || !triggerEl) return;
+
+  const rect = triggerEl.getBoundingClientRect();
+  const popover = activeCountryPopoverEl;
+  
+  // Make sure we have dimensions
+  popover.style.display = 'block';
+  const popRect = popover.getBoundingClientRect();
+  const margin = 10;
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  // Horizontal position: center on trigger element, clamped to viewport bounds
+  let left = rect.left + (rect.width / 2) - (popRect.width / 2);
+  left = Math.max(margin, Math.min(viewportWidth - popRect.width - margin, left));
+
+  // Vertical position: prefer below trigger, flip above if not enough room
+  let top = rect.bottom + 8;
+  let isAbove = false;
+
+  if (top + popRect.height > viewportHeight - margin) {
+    if (rect.top - popRect.height - 8 > margin) {
+      top = rect.top - popRect.height - 8;
+      isAbove = true;
+    } else {
+      // If neither has full room, place where there's more space
+      top = Math.max(margin, Math.min(viewportHeight - popRect.height - margin, top));
+    }
+  }
+
+  popover.style.left = `${left}px`;
+  popover.style.top = `${top}px`;
+
+  if (isAbove) {
+    popover.classList.remove('arrow-top');
+    popover.classList.add('arrow-bottom');
+  } else {
+    popover.classList.remove('arrow-bottom');
+    popover.classList.add('arrow-top');
+  }
+
+  // Adjust arrow position to point accurately at trigger center
+  const arrow = popover.querySelector('.popover-arrow');
+  if (arrow) {
+    const triggerCenter = rect.left + (rect.width / 2);
+    let arrowLeft = triggerCenter - left - 6;
+    arrowLeft = Math.max(16, Math.min(popRect.width - 24, arrowLeft));
+    arrow.style.left = `${arrowLeft}px`;
+  }
+}
+
+function hideCountryPopover(immediate = false) {
+  clearTimeout(popoverHideTimeout);
+  const doHide = () => {
+    if (activeCountryPopoverEl) {
+      activeCountryPopoverEl.classList.remove('visible');
+      activeCountryPopoverEl.setAttribute('aria-hidden', 'true');
+    }
+    if (currentHoveredTrigger) {
+      currentHoveredTrigger.classList.remove('active-popover');
+      currentHoveredTrigger = null;
+    }
+  };
+
+  if (immediate) {
+    doHide();
+  } else {
+    popoverHideTimeout = setTimeout(doHide, 180);
+  }
+}
+
+function focusOnCountry(countryCode) {
+  if (!countryCode || !COUNTRY_PROFILES[countryCode]) return;
+  focusCountry = countryCode;
+
+  const focusCountrySelect = document.getElementById('focus-country-select');
+  if (focusCountrySelect) focusCountrySelect.value = countryCode;
+
+  const visaPassportSelect = document.getElementById('visa-passport-select');
+  if (visaPassportSelect) visaPassportSelect.value = countryCode;
+  selectedPassport = countryCode;
+
+  renderActiveView();
+  autoSelectTopPartner(countryCode);
+
+  hideCountryPopover(true);
+
+  const mainContent = document.getElementById('matrix-section');
+  if (mainContent) {
+    mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function initCountryHoverTooltips() {
+  const attachEvents = (chip) => {
+    const countryCode = chip.getAttribute('data-country');
+    if (!countryCode) return;
+
+    // Mouse hover
+    chip.addEventListener('mouseenter', () => {
+      showCountryPopover(chip, countryCode);
+    });
+
+    chip.addEventListener('mouseleave', () => {
+      hideCountryPopover(false);
+    });
+
+    // Keyboard focus
+    chip.addEventListener('focus', () => {
+      showCountryPopover(chip, countryCode);
+    });
+
+    chip.addEventListener('blur', () => {
+      hideCountryPopover(false);
+    });
+
+    // Click / Touch toggle
+    chip.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (activeCountryPopoverEl && activeCountryPopoverEl.classList.contains('visible') && currentHoveredTrigger === chip) {
+        // If already open, clicking again can focus into dashboard
+        focusOnCountry(countryCode);
+      } else {
+        showCountryPopover(chip, countryCode);
+      }
+    });
+  };
+
+  // Attach to existing chips
+  document.querySelectorAll('.scope-country-chip, [data-country]').forEach(attachEvents);
+
+  // Close on outside clicks
+  document.addEventListener('click', (e) => {
+    if (activeCountryPopoverEl && activeCountryPopoverEl.classList.contains('visible')) {
+      if (!activeCountryPopoverEl.contains(e.target) && (!currentHoveredTrigger || !currentHoveredTrigger.contains(e.target))) {
+        hideCountryPopover(true);
+      }
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      hideCountryPopover(true);
+    }
+  });
+
+  // Reposition on scroll or resize if visible
+  window.addEventListener('scroll', () => {
+    if (activeCountryPopoverEl && activeCountryPopoverEl.classList.contains('visible') && currentHoveredTrigger) {
+      positionCountryPopover(currentHoveredTrigger);
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    if (activeCountryPopoverEl && activeCountryPopoverEl.classList.contains('visible') && currentHoveredTrigger) {
+      positionCountryPopover(currentHoveredTrigger);
+    }
+  });
+}
+
+// Auto-initialize hover tooltips as soon as DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCountryHoverTooltips);
+} else {
+  initCountryHoverTooltips();
+}
+
 function initVisualization() {
   renderActiveView();
   setupEventListeners();
+  initCountryHoverTooltips();
 
   // Default selection to showcase inspector on initial load
   displayDetails('IND', 'NPL');

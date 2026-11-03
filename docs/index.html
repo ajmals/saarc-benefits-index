@@ -64,24 +64,43 @@
 
         <!-- 8 Member Countries with Flags -->
         <div class="scope-countries-wrap">
-          <span class="scope-countries-label">Covered Member States:</span>
-          <div class="scope-countries-list">
-            <span class="scope-country-chip" title="Afghanistan"><span class="chip-flag">🇦🇫</span> <span
-                class="chip-name">Afghanistan</span></span>
-            <span class="scope-country-chip" title="Bangladesh"><span class="chip-flag">🇧🇩</span> <span
-                class="chip-name">Bangladesh</span></span>
-            <span class="scope-country-chip" title="Bhutan"><span class="chip-flag">🇧🇹</span> <span
-                class="chip-name">Bhutan</span></span>
-            <span class="scope-country-chip" title="India"><span class="chip-flag">🇮🇳</span> <span
-                class="chip-name">India</span></span>
-            <span class="scope-country-chip" title="Maldives"><span class="chip-flag">🇲🇻</span> <span
-                class="chip-name">Maldives</span></span>
-            <span class="scope-country-chip" title="Nepal"><span class="chip-flag">🇳🇵</span> <span
-                class="chip-name">Nepal</span></span>
-            <span class="scope-country-chip" title="Pakistan"><span class="chip-flag">🇵🇰</span> <span
-                class="chip-name">Pakistan</span></span>
-            <span class="scope-country-chip" title="Sri Lanka"><span class="chip-flag">🇱🇰</span> <span
-                class="chip-name">Sri Lanka</span></span>
+          <div class="scope-countries-header-group">
+            <span class="scope-countries-label">Covered Member States:</span>
+            <span class="scope-countries-hint">Hover country for population, GDP & currency metrics</span>
+          </div>
+          <div class="scope-countries-list" id="scope-countries-list">
+            <button class="scope-country-chip" type="button" data-country="AFG" aria-label="Afghanistan: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇦🇫</span>
+              <span class="chip-name">Afghanistan</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="BGD" aria-label="Bangladesh: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇧🇩</span>
+              <span class="chip-name">Bangladesh</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="BTN" aria-label="Bhutan: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇧🇹</span>
+              <span class="chip-name">Bhutan</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="IND" aria-label="India: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇮🇳</span>
+              <span class="chip-name">India</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="MDV" aria-label="Maldives: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇲🇻</span>
+              <span class="chip-name">Maldives</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="NPL" aria-label="Nepal: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇳🇵</span>
+              <span class="chip-name">Nepal</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="PAK" aria-label="Pakistan: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇵🇰</span>
+              <span class="chip-name">Pakistan</span>
+            </button>
+            <button class="scope-country-chip" type="button" data-country="LKA" aria-label="Sri Lanka: view population, GDP, and currency exchange rate">
+              <span class="chip-flag">🇱🇰</span>
+              <span class="chip-name">Sri Lanka</span>
+            </button>
           </div>
         </div>
 
@@ -492,7 +511,16 @@
       <div class="footer-inner">
         <div class="footer-badge">OPEN RESEARCH REPOSITORY</div>
         <p>South Asian Bilateral Relations & Benefits Index</p>
-        <p class="footer-sub">Member States: AFG • BGD • BTN • IND • MDV • NPL • PAK • LKA</p>
+        <p class="footer-sub">Member States: 
+          <span class="footer-country-pill" data-country="AFG" title="Afghanistan">AFG</span> • 
+          <span class="footer-country-pill" data-country="BGD" title="Bangladesh">BGD</span> • 
+          <span class="footer-country-pill" data-country="BTN" title="Bhutan">BTN</span> • 
+          <span class="footer-country-pill" data-country="IND" title="India">IND</span> • 
+          <span class="footer-country-pill" data-country="MDV" title="Maldives">MDV</span> • 
+          <span class="footer-country-pill" data-country="NPL" title="Nepal">NPL</span> • 
+          <span class="footer-country-pill" data-country="PAK" title="Pakistan">PAK</span> • 
+          <span class="footer-country-pill" data-country="LKA" title="Sri Lanka">LKA</span>
+        </p>
         <div class="footer-downloads">
           <button id="btn-open-methodology" class="footer-data-link" type="button"
             style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;text-decoration:underline;">📘
