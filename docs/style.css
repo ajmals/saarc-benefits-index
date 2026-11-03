@@ -1165,3 +1165,373 @@ body {
     font-size: 1rem;
   }
 }
+
+
+/* ==========================================================================
+   Header, Toolbar, Layout Container, and Regional Centres Components
+   ========================================================================== */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  background-color: var(--color-card);
+  border: var(--border-solid);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-subtle);
+  max-width: 1400px;
+  margin: 1.5rem auto 1.25rem auto;
+}
+
+header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+header p {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+  max-width: 750px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-gray-200);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.filter-group label {
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-black);
+}
+
+.filter-group select {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1.25rem 0.45rem 0.85rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.filter-group select:focus,
+.filter-group select:hover {
+  background-color: var(--color-hover);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Two-column Layout Container */
+.layout-container {
+  max-width: 1400px;
+  margin: 0 auto 1.5rem auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(360px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.visual-panel {
+  background-color: var(--color-card);
+  border: var(--border-solid);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-subtle);
+  min-height: 580px;
+}
+
+#matrix-heatmap {
+  width: 100%;
+  height: 540px;
+}
+
+/* Inspector Panel */
+.inspector-panel {
+  background-color: var(--color-card);
+  border: var(--border-solid);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-subtle);
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inspector-panel h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  border-bottom: 1.5px solid var(--color-black);
+  padding-bottom: 0.5rem;
+}
+
+.inspector-panel h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#placeholder-msg {
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: var(--color-gray-100);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px dashed var(--color-gray-400);
+}
+
+.empty-notice {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  padding: 0.75rem 0;
+  font-style: italic;
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cards-list .provision-card {
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: var(--transition);
+}
+
+.cards-list .provision-card:hover {
+  border-color: var(--color-black);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cards-list .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cards-list .badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+}
+
+.cards-list .badge.trade { color: var(--data-trade); border-color: var(--data-trade); }
+.cards-list .badge.tourism_culture { color: var(--data-tourism); border-color: var(--data-tourism); }
+.cards-list .badge.education { color: var(--data-education); border-color: var(--data-education); }
+.cards-list .badge.mobility_visa { color: var(--data-mobility); border-color: var(--data-mobility); }
+.cards-list .badge.finance_bilateral { color: var(--data-finance); border-color: var(--data-finance); }
+
+.cards-list .badge-level {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.cards-list h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.35;
+}
+
+.cards-list .desc {
+  font-size: 0.825rem;
+  color: var(--color-gray-600);
+  line-height: 1.4;
+}
+
+.cards-list .metric {
+  font-size: 0.8rem;
+  color: var(--color-black);
+  background: var(--color-gray-100);
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.cards-list .card-footer {
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--color-gray-200);
+}
+
+.cards-list .card-footer a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* SAARC Regional Centres Section */
+.centres-section {
+  max-width: 1400px;
+  margin: 1.5rem auto 3rem auto;
+  background-color: var(--color-card);
+  border: var(--border-solid);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.centres-section h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  border-bottom: 1.5px solid var(--color-black);
+  padding-bottom: 0.5rem;
+}
+
+.centres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.centre-card {
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transition: var(--transition);
+}
+
+.centre-card:hover {
+  border-color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.centre-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.centre-top .code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.centre-top .location {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gray-600);
+}
+
+.centre-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-black);
+}
+
+.centre-card .focus {
+  font-size: 0.825rem;
+  color: var(--color-gray-600);
+}
+
+.centre-card .program {
+  font-size: 0.85rem;
+  color: var(--color-black);
+  background-color: var(--color-gray-100);
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-black);
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+.centre-link {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 960px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+  }
+  .inspector-panel {
+    position: static;
+    max-height: none;
+  }
+  #matrix-heatmap {
+    height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  header, .centres-section, .visual-panel, .inspector-panel {
+    padding: 1.15rem;
+  }
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-group select {
+    width: 100%;
+  }
+}
