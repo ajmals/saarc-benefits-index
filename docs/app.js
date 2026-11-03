@@ -364,45 +364,18 @@ function setupEventListeners() {
   // Modal & Methodology triggers
   const modalClose = document.getElementById('modal-close');
   const aboutModal = document.getElementById('about-modal');
-  const dockAbout = document.getElementById('dock-btn-about');
-
-  const scrollToMethodology = () => {
-    const methSection = document.getElementById('top-methodology-guide') || document.getElementById('methodology-section');
-    if (methSection) {
-      methSection.scrollIntoView({ behavior: 'smooth' });
-      methSection.style.transition = 'box-shadow 0.3s ease';
-      methSection.style.boxShadow = '0 0 0 2px var(--color-black)';
-      setTimeout(() => {
-        methSection.style.boxShadow = '';
-      }, 1500);
-    }
-  };
+  const btnOpenMethodology = document.getElementById('btn-open-methodology');
 
   const openModal = () => { if (aboutModal) aboutModal.style.display = 'flex'; };
   const closeModal = () => { if (aboutModal) aboutModal.style.display = 'none'; };
 
-  if (dockAbout) {
-    dockAbout.addEventListener('click', () => {
-      updateActiveDock(dockAbout);
-      scrollToMethodology();
-    });
-  }
+  if (btnOpenMethodology) btnOpenMethodology.addEventListener('click', openModal);
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (aboutModal) {
     aboutModal.addEventListener('click', (e) => {
       if (e.target === aboutModal) closeModal();
     });
   }
-
-  // Bottom dock handlers
-  const dockMatrix = document.getElementById('dock-btn-matrix');
-  const dockInspector = document.getElementById('dock-btn-inspector');
-  const dockCentres = document.getElementById('dock-btn-centres');
-
-  const updateActiveDock = (activeBtn) => {
-    document.querySelectorAll('.nav-dock-item').forEach(el => el.classList.remove('active'));
-    if (activeBtn) activeBtn.classList.add('active');
-  };
 
   // Centres collapsible header toggle
   const centresSection = document.getElementById('centres-section');
@@ -415,30 +388,6 @@ function setupEventListeners() {
       if (toggleText) {
         toggleText.textContent = isCollapsed ? 'Show Directory' : 'Hide Directory';
       }
-    });
-  }
-
-  if (dockMatrix) {
-    dockMatrix.addEventListener('click', () => {
-      updateActiveDock(dockMatrix);
-      document.getElementById('matrix-section')?.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-  if (dockInspector) {
-    dockInspector.addEventListener('click', () => {
-      updateActiveDock(dockInspector);
-      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-  if (dockCentres) {
-    dockCentres.addEventListener('click', () => {
-      updateActiveDock(dockCentres);
-      if (centresSection && centresSection.classList.contains('collapsed')) {
-        centresSection.classList.remove('collapsed');
-        const toggleText = btnToggleCentres?.querySelector('.toggle-text');
-        if (toggleText) toggleText.textContent = 'Hide Directory';
-      }
-      centresSection?.scrollIntoView({ behavior: 'smooth' });
     });
   }
 }
@@ -720,6 +669,8 @@ function renderHeatmap() {
     [1.0, '#064e3b']
   ];
 
+  const isMobile = window.innerWidth <= 640;
+
   const plotData = [{
     z: zValues,
     x: countries,
@@ -733,11 +684,11 @@ function renderHeatmap() {
     colorbar: {
       title: {
         text: 'Score',
-        font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' }
+        font: { color: '#111827', size: isMobile ? 10 : 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' }
       },
-      tickfont: { color: '#4b5563', size: 10 },
-      thickness: 12,
-      len: 0.9,
+      tickfont: { color: '#4b5563', size: isMobile ? 8 : 10 },
+      thickness: isMobile ? 10 : 12,
+      len: isMobile ? 0.75 : 0.9,
       outlinecolor: '#111111',
       outlinewidth: 1,
       bordercolor: '#ffffff'
@@ -749,17 +700,17 @@ function renderHeatmap() {
   const layout = {
     paper_bgcolor: '#ffffff',
     plot_bgcolor: '#ffffff',
-    margin: { t: 40, r: 25, l: 80, b: 65 },
+    margin: isMobile ? { t: 25, r: 15, l: 50, b: 45 } : { t: 40, r: 25, l: 80, b: 65 },
     xaxis: {
       title: {
-        text: 'Beneficiary State (Recipient)',
-        font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
-        standoff: 15
+        text: isMobile ? 'Recipient State' : 'Beneficiary State (Recipient)',
+        font: { color: '#111827', size: isMobile ? 10 : 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
+        standoff: isMobile ? 8 : 15
       },
       tickmode: 'array',
       tickvals: countries,
-      ticktext: countries.map(c => `${COUNTRY_FLAGS[c] || ''} ${c}`),
-      tickfont: { color: '#111827', size: 11, family: 'monospace', weight: '700' },
+      ticktext: countries.map(c => isMobile ? c : `${COUNTRY_FLAGS[c] || ''} ${c}`),
+      tickfont: { color: '#111827', size: isMobile ? 9 : 11, family: 'monospace', weight: '700' },
       gridcolor: '#f3f4f6',
       zeroline: false,
       linecolor: '#111111',
@@ -768,15 +719,15 @@ function renderHeatmap() {
     },
     yaxis: {
       title: {
-        text: 'Provider State (Grantor)',
-        font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
-        standoff: 15
+        text: isMobile ? 'Grantor State' : 'Provider State (Grantor)',
+        font: { color: '#111827', size: isMobile ? 10 : 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
+        standoff: isMobile ? 8 : 15
       },
       autorange: 'reversed',
       tickmode: 'array',
       tickvals: countries,
-      ticktext: countries.map(c => `${COUNTRY_FLAGS[c] || ''} ${c}`),
-      tickfont: { color: '#111827', size: 11, family: 'monospace', weight: '700' },
+      ticktext: countries.map(c => isMobile ? c : `${COUNTRY_FLAGS[c] || ''} ${c}`),
+      tickfont: { color: '#111827', size: isMobile ? 9 : 11, family: 'monospace', weight: '700' },
       gridcolor: '#f3f4f6',
       zeroline: false,
       linecolor: '#111111',
@@ -852,28 +803,30 @@ function renderPartnerRankings() {
     hoverinfo: 'x+name+y'
   }));
 
+  const isMobile = window.innerWidth <= 640;
+
   const layout = {
     barmode: 'stack',
     paper_bgcolor: '#ffffff',
     plot_bgcolor: '#ffffff',
-    margin: { t: 30, r: 25, l: 90, b: 60 },
+    margin: isMobile ? { t: 25, r: 15, l: 65, b: 45 } : { t: 30, r: 25, l: 90, b: 60 },
     legend: {
       orientation: 'h',
-      y: 1.15,
+      y: isMobile ? 1.25 : 1.15,
       x: 0,
-      font: { size: 11, color: '#111827' }
+      font: { size: isMobile ? 9 : 11, color: '#111827' }
     },
     xaxis: {
       title: {
-        text: 'Total Weighted Benefit Score (Points)',
-        font: { color: '#111827', size: 12 }
+        text: isMobile ? 'Total Score (Points)' : 'Total Weighted Benefit Score (Points)',
+        font: { color: '#111827', size: isMobile ? 10 : 12 }
       },
       gridcolor: '#f3f4f6',
       zeroline: true,
       zerolinecolor: '#111111'
     },
     yaxis: {
-      tickfont: { color: '#111827', size: 12, family: 'monospace', weight: '700' },
+      tickfont: { color: '#111827', size: isMobile ? 10 : 12, family: 'monospace', weight: '700' },
       linecolor: '#111111',
       linewidth: 1.5
     },
@@ -954,21 +907,23 @@ function renderReciprocityBalance() {
     hoverinfo: 'text'
   };
 
+  const isMobile = window.innerWidth <= 640;
+
   const layout = {
     barmode: 'relative',
     paper_bgcolor: '#ffffff',
     plot_bgcolor: '#ffffff',
-    margin: { t: 30, r: 35, l: 90, b: 60 },
+    margin: isMobile ? { t: 25, r: 15, l: 65, b: 45 } : { t: 30, r: 35, l: 90, b: 60 },
     legend: {
       orientation: 'h',
-      y: 1.15,
-      x: 0.15,
-      font: { size: 11, color: '#111827' }
+      y: isMobile ? 1.25 : 1.15,
+      x: 0,
+      font: { size: isMobile ? 9 : 11, color: '#111827' }
     },
     xaxis: {
       title: {
-        text: '← Received Points (Inbound) &nbsp;|&nbsp; Given Points (Outbound) →',
-        font: { color: '#111827', size: 12 }
+        text: isMobile ? '← Inbound &nbsp;|&nbsp; Outbound →' : '← Received Points (Inbound) &nbsp;|&nbsp; Given Points (Outbound) →',
+        font: { color: '#111827', size: isMobile ? 10 : 12 }
       },
       tickformat: s => Math.abs(s),
       gridcolor: '#f3f4f6',
@@ -977,7 +932,7 @@ function renderReciprocityBalance() {
       zerolinewidth: 2
     },
     yaxis: {
-      tickfont: { color: '#111827', size: 12, family: 'monospace', weight: '700' },
+      tickfont: { color: '#111827', size: isMobile ? 10 : 12, family: 'monospace', weight: '700' },
       linecolor: '#111111',
       linewidth: 1.5
     },
@@ -1056,17 +1011,19 @@ function renderSectorRadar() {
 
   const maxVal = Math.max(...outboundScores, ...inboundScores, 3);
 
+  const isMobile = window.innerWidth <= 640;
+
   const layout = {
     polar: {
       radialaxis: {
         visible: true,
         range: [0, maxVal + 1],
-        tickfont: { size: 9, color: '#4b5563' },
+        tickfont: { size: isMobile ? 8 : 9, color: '#4b5563' },
         linecolor: '#e4e4e7',
         gridcolor: '#f3f4f6'
       },
       angularaxis: {
-        tickfont: { size: 10, color: '#111827', weight: '700' },
+        tickfont: { size: isMobile ? 9 : 10, color: '#111827', weight: '700' },
         rotation: 90,
         direction: 'clockwise',
         gridcolor: '#e4e4e7'
@@ -1074,12 +1031,12 @@ function renderSectorRadar() {
     },
     paper_bgcolor: '#ffffff',
     plot_bgcolor: '#ffffff',
-    margin: { t: 40, r: 40, l: 40, b: 40 },
+    margin: isMobile ? { t: 25, r: 20, l: 20, b: 25 } : { t: 40, r: 40, l: 40, b: 40 },
     legend: {
       orientation: 'h',
-      y: 1.15,
-      x: 0.1,
-      font: { size: 11, color: '#111827' }
+      y: isMobile ? 1.25 : 1.15,
+      x: 0,
+      font: { size: isMobile ? 9 : 11, color: '#111827' }
     },
     hoverlabel: {
       bgcolor: '#111111',
@@ -1300,30 +1257,34 @@ function renderStudentQuotasCapacity() {
     };
   }).filter(t => t.y.some(val => val > 0));
 
+  const isMobile = window.innerWidth <= 640;
+
   const layout = {
     barmode: 'stack',
     paper_bgcolor: '#ffffff',
     plot_bgcolor: '#ffffff',
-    margin: { t: 30, r: 25, l: 60, b: 65 },
+    margin: isMobile ? { t: 25, r: 15, l: 45, b: 50 } : { t: 30, r: 25, l: 60, b: 65 },
     legend: {
       orientation: 'h',
-      y: 1.15,
+      y: isMobile ? 1.25 : 1.15,
       x: 0,
-      font: { size: 11, color: '#111827' }
+      font: { size: isMobile ? 9 : 11, color: '#111827' }
     },
     xaxis: {
       title: {
-        text: isByProvider ? 'Host / Provider State' : 'Beneficiary / Recipient State',
-        font: { color: '#111827', size: 12 }
+        text: isByProvider
+          ? (isMobile ? 'Host State' : 'Host / Provider State')
+          : (isMobile ? 'Recipient State' : 'Beneficiary / Recipient State'),
+        font: { color: '#111827', size: isMobile ? 10 : 12 }
       },
-      tickfont: { color: '#111827', size: 12, weight: '700' },
+      tickfont: { color: '#111827', size: isMobile ? 10 : 12, weight: '700' },
       linecolor: '#111111',
       linewidth: 1.5
     },
     yaxis: {
       title: {
-        text: 'Total Reserved Seats (Annual Quota)',
-        font: { color: '#111827', size: 12 }
+        text: isMobile ? 'Seats' : 'Total Reserved Seats (Annual Quota)',
+        font: { color: '#111827', size: isMobile ? 10 : 12 }
       },
       gridcolor: '#f3f4f6',
       zeroline: true,
@@ -1356,6 +1317,12 @@ function displayCountryQuotaDossier(countryIso, role = 'provider') {
   const placeholder = document.getElementById('placeholder-msg');
   const container = document.getElementById('provisions-container');
   if (placeholder) placeholder.style.display = 'none';
+
+  if (window.innerWidth <= 960) {
+    setTimeout(() => {
+      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
 
   const flag = COUNTRY_FLAGS[countryIso] || '';
   const name = COUNTRY_NAMES[countryIso] || countryIso;
@@ -1486,6 +1453,12 @@ function displayDetails(provider, beneficiary) {
   const placeholder = document.getElementById('placeholder-msg');
   const container = document.getElementById('provisions-container');
   if (placeholder) placeholder.style.display = 'none';
+
+  if (window.innerWidth <= 960) {
+    setTimeout(() => {
+      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
 
   if (activeView === 'visas' && visaData) {
     displayVisaDossier(provider, beneficiary);
@@ -1876,6 +1849,7 @@ function renderVisaMatrix(container) {
 
   let tableHtml = `
     <div class="visa-matrix-container">
+      <div class="visa-mobile-scroll-hint">← Swipe table horizontally to view all member states →</div>
       <div class="visa-matrix-layout">
         <aside class="visa-matrix-side-axis" aria-label="Origin Passport Axis" title="Passport Origin (Rows): Country of citizen/traveler">
           <div class="visa-side-axis-badge">
@@ -2261,6 +2235,12 @@ function displayVisaDossier(orig, dest) {
   if (placeholder) placeholder.style.display = 'none';
   if (!container) return;
 
+  if (window.innerWidth <= 960) {
+    setTimeout(() => {
+      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+
   const origFlag = COUNTRY_FLAGS[orig] || '';
   const destFlag = COUNTRY_FLAGS[dest] || '';
   const origName = COUNTRY_NAMES[orig] || orig;
@@ -2410,3 +2390,14 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+// Responsive Plotly Resize on Orientation or Viewport Size Change
+window.addEventListener('resize', () => {
+  clearTimeout(window.__chartResizeTimeout);
+  window.__chartResizeTimeout = setTimeout(() => {
+    const heatmapEl = document.getElementById('matrix-heatmap');
+    if (heatmapEl && typeof Plotly !== 'undefined' && heatmapEl.data) {
+      Plotly.Plots.resize(heatmapEl);
+    }
+  }, 150);
+});
