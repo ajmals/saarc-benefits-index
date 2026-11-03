@@ -124,7 +124,15 @@ The dashboard includes a dedicated **Visa & Mobility Regimes Explorer** covering
 - **Passport Freedom Explorer:** Allows selecting any of the 8 national passports to view a breakdown of allowable stay durations, entry fees, accepted ID documents, and special border conditions across the other 7 South Asian destinations.
 - **SVES vs. Citizen Integration Paradox:** Visualizes the contrast between ordinary citizen border friction (46% of regional borders require consular visas or security clearances) and the multilateral **SAARC Visa Exemption Scheme (SVES)** granting 90-day multi-entry visa fee waivers across 24 designated dignitary, judicial, academic, media, and commerce categories.
 
-### 5. Bilateral Deep Dive / Accord Inspector
+### 5. Tourism & Culture / Heritage Access Visualizer
+
+A specialized regional heritage access and tourist levy engine mapping:
+- **Monument Entry Parity Explorer:** Side-by-side fee comparison across 24 UNESCO World Heritage cultural sites and ancient monuments (Taj Mahal, Red Fort, Sigiriya, Polonnaruwa, Bhaktapur, Lumbini, Lahore Fort, Taxila, Paharpur, Tiger's Nest). Demonstrates the regional discount (average 78.4% savings), including **100% domestic rate parity across all 143 Indian ASI ticketed monuments** (e.g., SAARC citizens pay ₹50 / $0.60 vs ₹1,100 / $13.25 for third-country tourists at the Taj Mahal—a 95.5% saving).
+- **Bhutan Sustainable Development Fee (SDF) Simulator:** Interactive cost calculator quantifying the financial impact of Bhutan's *Tourism Levy Act of 2022 / 2023 Amendment*. Compares the statutory international tourist rate ($100/night) with the bilateral concessionary rate for Indian nationals (₹1,200/night ~$14.40), showing that an Indian family of four on a 7-day tour saves **~$2,400 in direct government tourism taxes alone**.
+- **Cross-Border Heritage Circuits:** Tracks cumulative admission expenses and savings trajectories across multi-country itineraries, including the *Pan-South Asian Buddhist Pilgrimage Circuit* (Bodh Gaya $\rightarrow$ Nalanda $\rightarrow$ Sarnath $\rightarrow$ Kushinagar $\rightarrow$ Lumbini $\rightarrow$ Kathmandu), the *Grand UNESCO Cultural Flagships*, and the *Eastern Himalayas & Dragon Kingdom* route.
+- **$8 \times 8$ Bilateral Heritage Reciprocity Grid:** Visualizes destination monument policies across 4 tiers: Full Domestic Parity (India ASI), Regional Concession 50–85% off (Sri Lanka CCF, Nepal Municipalities, Pakistan Antiquities, Bangladesh Archaeology), Bilateral Strategic Waiver (Bhutan SDF), and Standard Foreign Tariff.
+
+### 6. Bilateral Deep Dive / Accord Inspector
 - Click any cell or select any two nations to inspect verified legal instruments.
 - View official treaty titles, legal basis (statutory acts, Gazette notifications, bilateral treaties), eligibility criteria, target audiences (commercial traders, students, diplomats, general public), and live source citations.
 
@@ -152,6 +160,7 @@ All datasets in this repository are open and backed by primary government and in
 | [`data/saarc_centres.csv`](data/saarc_centres.csv) | CSV | Directory of specialized SAARC institutional centres and funds. | `centre_code`, `name`, `host_country_iso`, `city`, `focus_area`, `eligibility`, `key_program`, `source_name`, `source_url` |
 | [`data/bilateral_matrix.csv`](data/bilateral_matrix.csv) | CSV | Computed pair-wise intensity score matrix ($8 \times 8$). | `provider_iso`, `AFG`, `BGD`, `BTN`, `IND`, `MDV`, `NPL`, `PAK`, `LKA` |
 | [`data/visa_matrix.json`](data/visa_matrix.json) | JSON | Complete 56-pair bilateral visa regimes and SVES statutory rules. | `metadata`, `tiers`, `sves`, `passport_power`, `matrix` |
+| [`data/tourism_data.json`](data/tourism_data.json) | JSON | UNESCO monument admission schedules, Bhutan SDF levy comparison, circuits, and reciprocity. | `monuments`, `bhutan_sdf`, `heritage_circuits`, `reciprocity_matrix` |
 | [`data/bilateral_matrix.json`](data/bilateral_matrix.json) | JSON | Complete compiled payload including total scores, category slices, and itemized records. | `countries`, `categories`, `scores`, `category_scores`, `records`, `metadata` |
 | [`docs/data/`](docs/data/) | CSV / JSON | Production-ready mirrored data files consumed directly by the static web dashboard. | Mirrored from `data/` for zero-backend GitHub Pages hosting. |
 

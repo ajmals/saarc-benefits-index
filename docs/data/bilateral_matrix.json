@@ -8573,6 +8573,1455 @@
       }
     }
   },
+  "tourism": {
+    "metadata": {
+      "title": "SAARC Tourism & Culture Concessions and Heritage Parity Index",
+      "version": "1.0.0",
+      "generated_date": "2026-11-03",
+      "countries": [
+        "AFG",
+        "BGD",
+        "BTN",
+        "IND",
+        "MDV",
+        "NPL",
+        "PAK",
+        "LKA"
+      ],
+      "country_names": {
+        "AFG": "Afghanistan",
+        "BGD": "Bangladesh",
+        "BTN": "Bhutan",
+        "IND": "India",
+        "MDV": "Maldives",
+        "NPL": "Nepal",
+        "PAK": "Pakistan",
+        "LKA": "Sri Lanka"
+      },
+      "country_flags": {
+        "AFG": "🇦🇫",
+        "BGD": "🇧🇩",
+        "BTN": "🇧🇹",
+        "IND": "🇮🇳",
+        "MDV": "🇲🇻",
+        "NPL": "🇳🇵",
+        "PAK": "🇵🇰",
+        "LKA": "🇱🇰"
+      }
+    },
+    "monuments": [
+      {
+        "id": "IND_TAJ_MAHAL",
+        "country": "IND",
+        "name": "Taj Mahal, Agra",
+        "state_region": "Uttar Pradesh",
+        "unesco_year": 1983,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 50,
+        "foreign_fee": 1100,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.6,
+        "saarc_usd": 0.6,
+        "foreign_usd": 13.25,
+        "savings_usd": 12.65,
+        "savings_pct": 95.5,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+        "authority": "Archaeological Survey of India (ASI)",
+        "source_url": "https://asi.nic.in",
+        "notes": "SAARC citizens pay identical ticket rates as Indian citizens (₹50 vs ₹1,100 foreign visitors). Additional ₹200 fee for main mausoleum dome applies uniformly."
+      },
+      {
+        "id": "IND_RED_FORT",
+        "country": "IND",
+        "name": "Red Fort Complex, Delhi",
+        "state_region": "National Capital Territory",
+        "unesco_year": 2007,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 50,
+        "foreign_fee": 600,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.6,
+        "saarc_usd": 0.6,
+        "foreign_usd": 7.23,
+        "savings_usd": 6.63,
+        "savings_pct": 91.7,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "ASI Ticketed Monuments Schedule 2018; Section 38 of AMASR Act",
+        "authority": "Archaeological Survey of India (ASI)",
+        "source_url": "https://asi.nic.in",
+        "notes": "Online cashless booking parity: SAARC visitors use Indian domestic portal tier without foreign card surcharges."
+      },
+      {
+        "id": "IND_QUTUB_MINAR",
+        "country": "IND",
+        "name": "Qutub Minar and its Monuments",
+        "state_region": "Delhi",
+        "unesco_year": 1993,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 50,
+        "foreign_fee": 600,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.6,
+        "saarc_usd": 0.6,
+        "foreign_usd": 7.23,
+        "savings_usd": 6.63,
+        "savings_pct": 91.7,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "ASI Schedule A Monuments Notification",
+        "authority": "Archaeological Survey of India (ASI)",
+        "source_url": "https://asi.nic.in",
+        "notes": "Includes access to Iron Pillar and Quwwat-ul-Islam mosque complex at domestic rates."
+      },
+      {
+        "id": "IND_AJANTA_ELLORA",
+        "country": "IND",
+        "name": "Ajanta & Ellora Caves",
+        "state_region": "Maharashtra",
+        "unesco_year": 1983,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 40,
+        "saarc_fee": 40,
+        "foreign_fee": 600,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.48,
+        "saarc_usd": 0.48,
+        "foreign_usd": 7.23,
+        "savings_usd": 6.75,
+        "savings_pct": 93.3,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "ASI Group B Monument Tariff Classification",
+        "authority": "Archaeological Survey of India (ASI)",
+        "source_url": "https://asi.nic.in",
+        "notes": "Covers rock-cut Buddhist, Hindu, and Jain monuments carved between 2nd century BCE and 10th century CE."
+      },
+      {
+        "id": "IND_MAHABODHI",
+        "country": "IND",
+        "name": "Mahabodhi Temple Complex & Nalanda",
+        "state_region": "Bihar",
+        "unesco_year": 2002,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 50,
+        "foreign_fee": 600,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.6,
+        "saarc_usd": 0.6,
+        "foreign_usd": 7.23,
+        "savings_usd": 6.63,
+        "savings_pct": 91.7,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "Bodh Gaya Temple Management Act & ASI Nalanda Excavated Site Rules",
+        "authority": "ASI & Bodhgaya Temple Management Committee",
+        "source_url": "https://asi.nic.in",
+        "notes": "Epicentre of the Pan-South Asian Buddhist pilgrimage circuit; domestic entry parity extended to all SAARC pilgrims."
+      },
+      {
+        "id": "IND_FATEHPUR_SIKRI",
+        "country": "IND",
+        "name": "Fatehpur Sikri Imperial Complex",
+        "state_region": "Uttar Pradesh",
+        "unesco_year": 1986,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 50,
+        "foreign_fee": 610,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "domestic_usd": 0.6,
+        "saarc_usd": 0.6,
+        "foreign_usd": 7.35,
+        "savings_usd": 6.75,
+        "savings_pct": 91.8,
+        "parity_tier": "domestic_parity",
+        "parity_tier_label": "Full Domestic Parity",
+        "legal_basis": "ASI Ticketed Monuments Schedule 2018",
+        "authority": "Archaeological Survey of India (ASI)",
+        "source_url": "https://asi.nic.in",
+        "notes": "Preserves Mughal Emperor Akbar's 16th-century ceremonial capital and Buland Darwaza."
+      },
+      {
+        "id": "LKA_SIGIRIYA",
+        "country": "LKA",
+        "name": "Sigiriya Rock Fortress",
+        "state_region": "Central Province (Matale)",
+        "unesco_year": 1982,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 250,
+        "saarc_fee": 5400,
+        "foreign_fee": 10800,
+        "currency": "LKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.83,
+        "saarc_usd": 18.0,
+        "foreign_usd": 36.0,
+        "savings_usd": 18.0,
+        "savings_pct": 50.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "50% Regional Concession",
+        "legal_basis": "Central Cultural Fund Act No. 57 of 1980; CCF Tariff Directive 2024",
+        "authority": "Central Cultural Fund (CCF) Sri Lanka",
+        "source_url": "https://www.ccf.gov.lk",
+        "notes": "Standard foreign adult fee is $36 (approx LKR 10,800). SAARC passport holders pay exactly 50% ($18)."
+      },
+      {
+        "id": "LKA_POLONNARUWA",
+        "country": "LKA",
+        "name": "Ancient City of Polonnaruwa",
+        "state_region": "North Central Province",
+        "unesco_year": 1982,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 200,
+        "saarc_fee": 4500,
+        "foreign_fee": 9000,
+        "currency": "LKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.67,
+        "saarc_usd": 15.0,
+        "foreign_usd": 30.0,
+        "savings_usd": 15.0,
+        "savings_pct": 50.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "50% Regional Concession",
+        "legal_basis": "CCF Cultural Triangle Concessionary Tariff Regulations",
+        "authority": "Central Cultural Fund (CCF) Sri Lanka",
+        "source_url": "https://www.ccf.gov.lk",
+        "notes": "Covers Gal Vihara, Quadrangle, and Royal Palace complex at flat $15 SAARC rate vs $30 foreign rate."
+      },
+      {
+        "id": "LKA_ANURADHAPURA",
+        "country": "LKA",
+        "name": "Sacred City of Anuradhapura",
+        "state_region": "North Central Province",
+        "unesco_year": 1982,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 200,
+        "saarc_fee": 4500,
+        "foreign_fee": 9000,
+        "currency": "LKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.67,
+        "saarc_usd": 15.0,
+        "foreign_usd": 30.0,
+        "savings_usd": 15.0,
+        "savings_pct": 50.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "50% Regional Concession",
+        "legal_basis": "CCF Sacred Sites Regulatory Tariff",
+        "authority": "Central Cultural Fund (CCF) Sri Lanka",
+        "source_url": "https://www.ccf.gov.lk",
+        "notes": "Access to ancient monastic stupas including Ruwanwelisaya and Jetavanaramaya."
+      },
+      {
+        "id": "LKA_DAMBULLA",
+        "country": "LKA",
+        "name": "Rangiri Dambulla Cave Temple",
+        "state_region": "Central Province",
+        "unesco_year": 1991,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 1500,
+        "foreign_fee": 2000,
+        "currency": "LKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.0,
+        "saarc_usd": 5.0,
+        "foreign_usd": 6.67,
+        "savings_usd": 1.67,
+        "savings_pct": 25.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "25% Regional Concession",
+        "legal_basis": "Dambulla Temple Trust Board Bylaws",
+        "authority": "Dambulla Golden Temple Administrative Trust",
+        "source_url": "https://www.ccf.gov.lk",
+        "notes": "Largest cave temple complex in Sri Lanka containing 153 Buddha statues and ancient murals."
+      },
+      {
+        "id": "NPL_BHAKTAPUR",
+        "country": "NPL",
+        "name": "Bhaktapur Durbar Square",
+        "state_region": "Bagmati (Kathmandu Valley)",
+        "unesco_year": 1979,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 500,
+        "foreign_fee": 1800,
+        "currency": "NPR",
+        "currency_symbol": "रू",
+        "domestic_usd": 0.0,
+        "saarc_usd": 3.75,
+        "foreign_usd": 13.5,
+        "savings_usd": 9.75,
+        "savings_pct": 72.2,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "72% Regional Concession",
+        "legal_basis": "Bhaktapur Municipality Tourism Entry Service Fee Bylaws",
+        "authority": "Bhaktapur Municipality Heritage Section",
+        "source_url": "https://bhaktapurmun.gov.np",
+        "notes": "Preserves 55-Window Palace, Nyatapola Temple, and pottery squares. Free for Nepalese citizens."
+      },
+      {
+        "id": "NPL_KATHMANDU_DURBAR",
+        "country": "NPL",
+        "name": "Kathmandu (Hanuman Dhoka) Durbar Square",
+        "state_region": "Kathmandu District",
+        "unesco_year": 1979,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 500,
+        "foreign_fee": 1000,
+        "currency": "NPR",
+        "currency_symbol": "रू",
+        "domestic_usd": 0.0,
+        "saarc_usd": 3.75,
+        "foreign_usd": 7.5,
+        "savings_usd": 3.75,
+        "savings_pct": 50.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "50% Regional Concession",
+        "legal_basis": "Kathmandu Metropolitan City (KMC) Heritage Service Charge Directive",
+        "authority": "Kathmandu Metropolitan City",
+        "source_url": "https://kathmandu.gov.np",
+        "notes": "Historical seat of Malla and Shah dynasties; SAARC nationals receive a 50% discount on municipal entry tickets."
+      },
+      {
+        "id": "NPL_PATAN_DURBAR",
+        "country": "NPL",
+        "name": "Patan Durbar Square & Museum",
+        "state_region": "Lalitpur District",
+        "unesco_year": 1979,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 250,
+        "foreign_fee": 1000,
+        "currency": "NPR",
+        "currency_symbol": "रू",
+        "domestic_usd": 0.0,
+        "saarc_usd": 1.88,
+        "foreign_usd": 7.5,
+        "savings_usd": 5.62,
+        "savings_pct": 75.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "75% Regional Concession",
+        "legal_basis": "Lalitpur Metropolitan City Heritage Conservation Rules",
+        "authority": "Lalitpur Metropolitan City & Patan Museum Board",
+        "source_url": "https://patanmuseum.gov.np",
+        "notes": "Renowned for Newar metalcraft and Krishna Mandir stone temple; SAARC passport holders pay NPR 250 vs NPR 1,000."
+      },
+      {
+        "id": "NPL_LUMBINI",
+        "country": "NPL",
+        "name": "Lumbini (Birthplace of Lord Buddha)",
+        "state_region": "Lumbini Province (Rupandehi)",
+        "unesco_year": 1997,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 200,
+        "foreign_fee": 500,
+        "currency": "NPR",
+        "currency_symbol": "रू",
+        "domestic_usd": 0.0,
+        "saarc_usd": 1.5,
+        "foreign_usd": 3.75,
+        "savings_usd": 2.25,
+        "savings_pct": 60.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "60% Regional Concession",
+        "legal_basis": "Lumbini Development Trust Act 2042 (1985); Fee Schedule 2023",
+        "authority": "Lumbini Development Trust",
+        "source_url": "https://lumbinidevtrust.gov.np",
+        "notes": "Sacred Garden and Maya Devi Temple complex; SAARC rate is NPR 200 vs NPR 500 for third-country tourists."
+      },
+      {
+        "id": "NPL_SWAYAMBHUNATH",
+        "country": "NPL",
+        "name": "Swayambhunath Maha Chaitya (Monkey Temple)",
+        "state_region": "Kathmandu Valley",
+        "unesco_year": 1979,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 0,
+        "saarc_fee": 50,
+        "foreign_fee": 200,
+        "currency": "NPR",
+        "currency_symbol": "रू",
+        "domestic_usd": 0.0,
+        "saarc_usd": 0.38,
+        "foreign_usd": 1.5,
+        "savings_usd": 1.12,
+        "savings_pct": 75.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "75% Regional Concession",
+        "legal_basis": "Federation of Swayambhu Peace Committee Management Schedule",
+        "authority": "Swayambhu Management & Conservation Committee",
+        "source_url": "https://ntb.gov.np",
+        "notes": "Ancient hilltop stupa sacred to both Buddhists and Hindus."
+      },
+      {
+        "id": "PAK_LAHORE_FORT",
+        "country": "PAK",
+        "name": "Fort & Shalamar Gardens in Lahore",
+        "state_region": "Punjab",
+        "unesco_year": 1981,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 150,
+        "foreign_fee": 1000,
+        "currency": "PKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.18,
+        "saarc_usd": 0.54,
+        "foreign_usd": 3.6,
+        "savings_usd": 3.06,
+        "savings_pct": 85.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "85% Regional Concession",
+        "legal_basis": "Walled City of Lahore Authority (WCLA) Act 2012; Punjab Tourism Tariff",
+        "authority": "Walled City of Lahore Authority & Directorate General of Archaeology",
+        "source_url": "https://walledcitylahore.gop.pk",
+        "notes": "Mughal monument complex featuring Sheesh Mahal (Palace of Mirrors) and Naulakha Pavilion."
+      },
+      {
+        "id": "PAK_TAXILA",
+        "country": "PAK",
+        "name": "Taxila Archaeological Complex & Museum",
+        "state_region": "Punjab (Rawalpindi)",
+        "unesco_year": 1980,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 150,
+        "foreign_fee": 1000,
+        "currency": "PKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.18,
+        "saarc_usd": 0.54,
+        "foreign_usd": 3.6,
+        "savings_usd": 3.06,
+        "savings_pct": 85.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "85% Regional Concession",
+        "legal_basis": "Antiquities Act 1975; Federal Department of Archaeology & Museums Notification",
+        "authority": "Department of Archaeology and Museums Pakistan",
+        "source_url": "https://heritage.pakistan.gov.pk",
+        "notes": "Ancient Gandhara seat of Vedic and Buddhist learning, including Dharmarajika Stupa and Jaulian monastery."
+      },
+      {
+        "id": "PAK_ROHTAS_FORT",
+        "country": "PAK",
+        "name": "Rohtas Fort",
+        "state_region": "Punjab (Jhelum)",
+        "unesco_year": 1997,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 100,
+        "foreign_fee": 500,
+        "currency": "PKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.18,
+        "saarc_usd": 0.36,
+        "foreign_usd": 1.8,
+        "savings_usd": 1.44,
+        "savings_pct": 80.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "80% Regional Concession",
+        "legal_basis": "Punjab Archaeology & Tourism Service Bylaws",
+        "authority": "Directorate of Archaeology Punjab",
+        "source_url": "https://heritage.pakistan.gov.pk",
+        "notes": "Massive 16th-century military citadel built by Sher Shah Suri."
+      },
+      {
+        "id": "PAK_MOHENJO_DARO",
+        "country": "PAK",
+        "name": "Archaeological Ruins at Moenjodaro",
+        "state_region": "Sindh (Larkana)",
+        "unesco_year": 1980,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 50,
+        "saarc_fee": 150,
+        "foreign_fee": 1000,
+        "currency": "PKR",
+        "currency_symbol": "Rs",
+        "domestic_usd": 0.18,
+        "saarc_usd": 0.54,
+        "foreign_usd": 3.6,
+        "savings_usd": 3.06,
+        "savings_pct": 85.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "85% Regional Concession",
+        "legal_basis": "Sindh Cultural Heritage (Preservation) Act 1994",
+        "authority": "Culture, Tourism & Antiquities Department Sindh",
+        "source_url": "https://heritage.pakistan.gov.pk",
+        "notes": "Bronze Age metropolis of the Indus Valley Civilisation dating back to 2500 BCE."
+      },
+      {
+        "id": "BGD_PAHARPUR",
+        "country": "BGD",
+        "name": "Ruins of the Buddhist Vihara at Paharpur",
+        "state_region": "Rajshahi (Naogaon)",
+        "unesco_year": 1985,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 30,
+        "saarc_fee": 100,
+        "foreign_fee": 500,
+        "currency": "BDT",
+        "currency_symbol": "৳",
+        "domestic_usd": 0.25,
+        "saarc_usd": 0.83,
+        "foreign_usd": 4.17,
+        "savings_usd": 3.34,
+        "savings_pct": 80.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "80% Regional Concession",
+        "legal_basis": "Antiquities Act 1968 (amended 1976); Dept of Archaeology SRO 2021",
+        "authority": "Department of Archaeology Bangladesh",
+        "source_url": "http://www.archaeology.gov.bd",
+        "notes": "Somapura Mahavihara, the 8th-century intellectual hub that influenced Buddhist architecture throughout Southeast Asia."
+      },
+      {
+        "id": "BGD_BAGERHAT",
+        "country": "BGD",
+        "name": "Historic Mosque City of Bagerhat",
+        "state_region": "Khulna (Bagerhat)",
+        "unesco_year": 1985,
+        "category": "Cultural World Heritage",
+        "domestic_fee": 30,
+        "saarc_fee": 100,
+        "foreign_fee": 500,
+        "currency": "BDT",
+        "currency_symbol": "৳",
+        "domestic_usd": 0.25,
+        "saarc_usd": 0.83,
+        "foreign_usd": 4.17,
+        "savings_usd": 3.34,
+        "savings_pct": 80.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "80% Regional Concession",
+        "legal_basis": "Department of Archaeology Ticket Tariff Schedule",
+        "authority": "Department of Archaeology Bangladesh",
+        "source_url": "http://www.archaeology.gov.bd",
+        "notes": "Includes Sixty Dome Mosque (Shat Gombuj Masjid) and Khan Jahan Ali mausoleum."
+      },
+      {
+        "id": "BGD_LALBAGH_FORT",
+        "country": "BGD",
+        "name": "Lalbagh Fort Archaeological Museum",
+        "state_region": "Dhaka Division",
+        "unesco_year": null,
+        "category": "National Cultural Heritage",
+        "domestic_fee": 30,
+        "saarc_fee": 100,
+        "foreign_fee": 500,
+        "currency": "BDT",
+        "currency_symbol": "৳",
+        "domestic_usd": 0.25,
+        "saarc_usd": 0.83,
+        "foreign_usd": 4.17,
+        "savings_usd": 3.34,
+        "savings_pct": 80.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "80% Regional Concession",
+        "legal_basis": "Department of Archaeology Entry Fee Schedule",
+        "authority": "Department of Archaeology Bangladesh",
+        "source_url": "http://www.archaeology.gov.bd",
+        "notes": "17th-century Mughal fort complex of Prince Muhammad Azam in Old Dhaka."
+      },
+      {
+        "id": "BTN_TAKTSANG",
+        "country": "BTN",
+        "name": "Paro Taktsang (Tiger's Nest Monastery)",
+        "state_region": "Paro Dzongkhag",
+        "unesco_year": null,
+        "category": "Sacred Heritage Monument",
+        "domestic_fee": 0,
+        "saarc_fee": 1000,
+        "foreign_fee": 2000,
+        "currency": "BTN",
+        "currency_symbol": "Nu.",
+        "domestic_usd": 0.0,
+        "saarc_usd": 12.0,
+        "foreign_usd": 24.0,
+        "savings_usd": 12.0,
+        "savings_pct": 50.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "50% Regional Concession",
+        "legal_basis": "Department of Culture & Dzongkha Development Monument Entry Fee Schedule 2022",
+        "authority": "Department of Tourism & Central Monastic Body Bhutan",
+        "source_url": "https://bhutan.travel",
+        "notes": "Himalayan cliffside sacred site; SAARC passport holders pay Nu 1,000 (~$12) vs Nu 2,000 (~$24) third-country tourists."
+      },
+      {
+        "id": "BTN_PUNAKHA",
+        "country": "BTN",
+        "name": "Punakha Dzong (Palace of Great Happiness)",
+        "state_region": "Punakha Dzongkhag",
+        "unesco_year": null,
+        "category": "Fortress & Monastic Centre",
+        "domestic_fee": 0,
+        "saarc_fee": 1000,
+        "foreign_fee": 1000,
+        "currency": "BTN",
+        "currency_symbol": "Nu.",
+        "domestic_usd": 0.0,
+        "saarc_usd": 12.0,
+        "foreign_usd": 12.0,
+        "savings_usd": 0.0,
+        "savings_pct": 0.0,
+        "parity_tier": "concession_tier",
+        "parity_tier_label": "Flat Fee (Domestic Free)",
+        "legal_basis": "National Monument Entry Regulations",
+        "authority": "Department of Tourism Bhutan",
+        "source_url": "https://bhutan.travel",
+        "notes": "Winter residence of the Je Khenpo and Central Monastic Body; free for Bhutanese citizens."
+      }
+    ],
+    "bhutan_sdf": {
+      "title": "Bhutan Sustainable Development Fee (SDF) Regional Concession",
+      "legal_framework": "Tourism Levy Act of Bhutan 2022 (Act No. 13 of 2022) as amended by Tourism Levy Amendment Act 2023",
+      "authority": "Department of Tourism, Royal Government of Bhutan",
+      "official_url": "https://bhutan.travel",
+      "rates_per_night": {
+        "international": {
+          "rate_usd": 100.0,
+          "currency": "USD",
+          "display": "$100 / night",
+          "description": "Standard statutory SDF for international tourists (reduced from $200 under 50% incentive directive effective Sept 2023 to Aug 2027)."
+        },
+        "indian": {
+          "rate_usd": 14.4,
+          "rate_local": 1200,
+          "currency": "BTN / INR",
+          "display": "₹1,200 / night (~$14.40)",
+          "discount_vs_intl": 85.6,
+          "description": "Special concessionary levy capped under bilateral agreement. Indian citizens pay in INR or Ngultrum directly."
+        },
+        "bangladesh_maldives": {
+          "rate_usd": 15.0,
+          "rate_local": 1200,
+          "currency": "USD equivalent",
+          "display": "$15 / night (concessionary quota)",
+          "discount_vs_intl": 85.0,
+          "description": "Bilateral tourism MoU regime granting reciprocal subsidized entry rates for visiting Bangladeshi and Maldivian nationals."
+        },
+        "other_saarc": {
+          "rate_usd": 100.0,
+          "currency": "USD",
+          "display": "$100 / night",
+          "discount_vs_intl": 0.0,
+          "description": "Subject to standard international SDF unless traveling under official SVES protocol or diplomatic bilateral waivers."
+        }
+      },
+      "stay_durations": [
+        {
+          "nights": 1,
+          "intl_usd": 100,
+          "indian_usd": 14.4,
+          "savings_usd": 85.6,
+          "savings_pct": 85.6
+        },
+        {
+          "nights": 3,
+          "intl_usd": 300,
+          "indian_usd": 43.2,
+          "savings_usd": 256.8,
+          "savings_pct": 85.6
+        },
+        {
+          "nights": 5,
+          "intl_usd": 500,
+          "indian_usd": 72.0,
+          "savings_usd": 428.0,
+          "savings_pct": 85.6
+        },
+        {
+          "nights": 7,
+          "intl_usd": 700,
+          "indian_usd": 100.8,
+          "savings_usd": 599.2,
+          "savings_pct": 85.6
+        },
+        {
+          "nights": 10,
+          "intl_usd": 1000,
+          "indian_usd": 144.0,
+          "savings_usd": 856.0,
+          "savings_pct": 85.6
+        },
+        {
+          "nights": 14,
+          "intl_usd": 1400,
+          "indian_usd": 201.6,
+          "savings_usd": 1198.4,
+          "savings_pct": 85.6
+        }
+      ],
+      "family_comparison_7nights": {
+        "scenario": "Family of 4 traveling for 7 nights in Bhutan",
+        "intl_family_total_usd": 2800.0,
+        "indian_family_total_usd": 403.2,
+        "net_savings_usd": 2396.8,
+        "savings_percentage": 85.6,
+        "summary": "An Indian family saves nearly $2,400 in direct government tourism taxes alone on a 1-week holiday compared to a non-regional international family."
+      }
+    },
+    "heritage_circuits": [
+      {
+        "id": "buddhist_circuit",
+        "name": "Pan-South Asian Buddhist Pilgrimage Circuit",
+        "theme": "Sacred Buddhist Heritage & Universities",
+        "countries_involved": [
+          "IND",
+          "NPL"
+        ],
+        "route_description": "Bodh Gaya (Mahabodhi) → Nalanda Mahavihara → Sarnath Archaeological Site → Kushinagar Parinirvana → Lumbini Sacred Garden & Maya Devi Temple",
+        "stops": [
+          {
+            "stop": 1,
+            "name": "Mahabodhi Temple & Nalanda",
+            "country": "IND",
+            "flag": "🇮🇳",
+            "intl_usd": 7.23,
+            "saarc_usd": 0.6
+          },
+          {
+            "stop": 2,
+            "name": "Sarnath Archaeological Site & Museum",
+            "country": "IND",
+            "flag": "🇮🇳",
+            "intl_usd": 7.23,
+            "saarc_usd": 0.6
+          },
+          {
+            "stop": 3,
+            "name": "Kushinagar Parinirvana Stupa",
+            "country": "IND",
+            "flag": "🇮🇳",
+            "intl_usd": 7.23,
+            "saarc_usd": 0.6
+          },
+          {
+            "stop": 4,
+            "name": "Lumbini Sacred Garden (Maya Devi)",
+            "country": "NPL",
+            "flag": "🇳🇵",
+            "intl_usd": 3.75,
+            "saarc_usd": 1.5
+          },
+          {
+            "stop": 5,
+            "name": "Swayambhunath Stupa (Kathmandu)",
+            "country": "NPL",
+            "flag": "🇳🇵",
+            "intl_usd": 1.5,
+            "saarc_usd": 0.38
+          }
+        ],
+        "total_intl_usd": 26.94,
+        "total_saarc_usd": 3.68,
+        "total_savings_usd": 23.26,
+        "savings_pct": 86.3,
+        "key_benefit": "SAARC pilgrims pay only 13.7% of standard international ticket tariffs across the integrated cross-border Buddhist trail."
+      },
+      {
+        "id": "unesco_flagships",
+        "name": "South Asian Grand UNESCO Heritage Circuit",
+        "theme": "Flagship Cultural Citadels & Ancient Capitals",
+        "countries_involved": [
+          "IND",
+          "LKA",
+          "NPL",
+          "PAK",
+          "BGD"
+        ],
+        "route_description": "Taj Mahal (Agra) → Red Fort (Delhi) → Sigiriya Rock Fortress (Sri Lanka) → Polonnaruwa (Sri Lanka) → Bhaktapur Durbar Square (Nepal) → Lahore Fort (Pakistan) → Taxila Ruins (Pakistan) → Somapura Mahavihara (Bangladesh)",
+        "stops": [
+          {
+            "stop": 1,
+            "name": "Taj Mahal (Agra)",
+            "country": "IND",
+            "flag": "🇮🇳",
+            "intl_usd": 13.25,
+            "saarc_usd": 0.6
+          },
+          {
+            "stop": 2,
+            "name": "Red Fort (Delhi)",
+            "country": "IND",
+            "flag": "🇮🇳",
+            "intl_usd": 7.23,
+            "saarc_usd": 0.6
+          },
+          {
+            "stop": 3,
+            "name": "Sigiriya Rock Fortress",
+            "country": "LKA",
+            "flag": "🇱🇰",
+            "intl_usd": 36.0,
+            "saarc_usd": 18.0
+          },
+          {
+            "stop": 4,
+            "name": "Ancient City of Polonnaruwa",
+            "country": "LKA",
+            "flag": "🇱🇰",
+            "intl_usd": 30.0,
+            "saarc_usd": 15.0
+          },
+          {
+            "stop": 5,
+            "name": "Bhaktapur Durbar Square",
+            "country": "NPL",
+            "flag": "🇳🇵",
+            "intl_usd": 13.5,
+            "saarc_usd": 3.75
+          },
+          {
+            "stop": 6,
+            "name": "Lahore Fort & Gardens",
+            "country": "PAK",
+            "flag": "🇵🇰",
+            "intl_usd": 3.6,
+            "saarc_usd": 0.54
+          },
+          {
+            "stop": 7,
+            "name": "Taxila Archaeological Site",
+            "country": "PAK",
+            "flag": "🇵🇰",
+            "intl_usd": 3.6,
+            "saarc_usd": 0.54
+          },
+          {
+            "stop": 8,
+            "name": "Paharpur Buddhist Vihara",
+            "country": "BGD",
+            "flag": "🇧🇩",
+            "intl_usd": 4.17,
+            "saarc_usd": 0.83
+          }
+        ],
+        "total_intl_usd": 111.35,
+        "total_saarc_usd": 39.86,
+        "total_savings_usd": 71.49,
+        "savings_pct": 64.2,
+        "key_benefit": "Visiting all 8 flagship cultural sites across 5 nations costs a SAARC national under $40 in monument tickets vs over $111 for standard foreign visitors."
+      },
+      {
+        "id": "himalayan_kingdoms",
+        "name": "Eastern Himalayas & Dragon Kingdom Itinerary",
+        "theme": "Mountain Monasteries, Dzongs & Bhutan SDF Concession",
+        "countries_involved": [
+          "IND",
+          "BTN",
+          "NPL"
+        ],
+        "route_description": "Kathmandu & Patan Durbar Squares (Nepal) → Paro Taktsang & Punakha Dzong (Bhutan) + 4 Nights Bhutan Tourism SDF Levy",
+        "stops": [
+          {
+            "stop": 1,
+            "name": "Kathmandu Durbar Square",
+            "country": "NPL",
+            "flag": "🇳🇵",
+            "intl_usd": 7.5,
+            "saarc_usd": 3.75
+          },
+          {
+            "stop": 2,
+            "name": "Patan Durbar Square",
+            "country": "NPL",
+            "flag": "🇳🇵",
+            "intl_usd": 7.5,
+            "saarc_usd": 1.88
+          },
+          {
+            "stop": 3,
+            "name": "Paro Taktsang Tiger's Nest",
+            "country": "BTN",
+            "flag": "🇧🇹",
+            "intl_usd": 24.0,
+            "saarc_usd": 12.0
+          },
+          {
+            "stop": 4,
+            "name": "Punakha Dzong",
+            "country": "BTN",
+            "flag": "🇧🇹",
+            "intl_usd": 12.0,
+            "saarc_usd": 12.0
+          },
+          {
+            "stop": 5,
+            "name": "Bhutan SDF Levy (4 Nights Stay)",
+            "country": "BTN",
+            "flag": "🇧🇹",
+            "intl_usd": 400.0,
+            "saarc_usd": 57.6
+          }
+        ],
+        "total_intl_usd": 451.0,
+        "total_saarc_usd": 87.23,
+        "total_savings_usd": 363.77,
+        "savings_pct": 80.7,
+        "key_benefit": "Factoring in Bhutan's Sustainable Development Fee, regional travelers save over $360 per person on a short Himalayan mountain itinerary."
+      }
+    ],
+    "reciprocity_tiers": {
+      "domestic_parity": {
+        "id": "domestic_parity",
+        "label": "Full Domestic Rate Parity",
+        "badge_color": "#059669",
+        "bg_color": "#ecfdf5",
+        "border_color": "#a7f3d0",
+        "score": 3,
+        "desc": "SAARC citizens pay the exact same entry ticket price as domestic citizens across all federally protected World Heritage monuments."
+      },
+      "regional_concession": {
+        "id": "regional_concession",
+        "label": "Substantial Regional Concession (50–85% off)",
+        "badge_color": "#2563eb",
+        "bg_color": "#eff6ff",
+        "border_color": "#bfdbfe",
+        "score": 2,
+        "desc": "A dedicated SAARC tariff tier granting 50% to 85% discount compared to general third-country international tourists."
+      },
+      "bilateral_waiver": {
+        "id": "bilateral_waiver",
+        "label": "Bilateral Strategic Fee Waiver",
+        "badge_color": "#d97706",
+        "bg_color": "#fffbeb",
+        "border_color": "#fde68a",
+        "score": 3,
+        "desc": "Exemption from statutory foreign tourism levies (e.g., Bhutan SDF capped at ₹1,200/night vs $100/night international standard)."
+      },
+      "standard_foreign": {
+        "id": "standard_foreign",
+        "label": "Standard Foreign Tourist Tariff",
+        "badge_color": "#64748b",
+        "bg_color": "#f8fafc",
+        "border_color": "#e2e8f0",
+        "score": 1,
+        "desc": "Standard third-country foreigner tariff applies; no active bilateral or multilateral concession enacted."
+      }
+    },
+    "reciprocity_matrix": {
+      "AFG": {
+        "AFG": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "BGD": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Bangladesh.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "BTN": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Bhutan.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "IND": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for India.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "MDV": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Maldives.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "NPL": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Nepal.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "PAK": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Pakistan.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        },
+        "LKA": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Entry / Non-Differentiated",
+          "discount_est": "0%",
+          "legal_instrument": "National Museum of Afghanistan Regulations",
+          "summary": "No active reciprocal SAARC monument discount mechanism currently operational for Sri Lanka.",
+          "examples": "Standard ticketing policies apply across protected sites."
+        }
+      },
+      "BGD": {
+        "AFG": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Afghanistan pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "BGD": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "BTN": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Bhutan pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "IND": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of India pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "MDV": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Maldives pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "NPL": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Nepal pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "PAK": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Pakistan pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        },
+        "LKA": {
+          "tier": "regional_concession",
+          "tier_label": "70–80% Regional Concession",
+          "discount_est": "70–80%",
+          "legal_instrument": "Antiquities Act 1968 & Department of Archaeology SRO 2021",
+          "summary": "Citizens of Sri Lanka pay BDT 100 at Paharpur, Bagerhat, and Lalbagh Fort compared to BDT 500 for third-country tourists.",
+          "examples": "Paharpur Buddhist Vihara: BDT 100 (vs BDT 500 foreign); Bagerhat Mosque City: BDT 100 (vs BDT 500 foreign)."
+        }
+      },
+      "BTN": {
+        "AFG": {
+          "tier": "standard_foreign",
+          "tier_label": "Standard Foreign SDF Tier",
+          "discount_est": "0%",
+          "legal_instrument": "Tourism Levy Act of Bhutan 2022",
+          "summary": "Citizens of Afghanistan are subject to standard international visitor rules ($100/night SDF) unless visiting on diplomatic/SVES status.",
+          "examples": "Standard $100/night SDF applies; Tiger's Nest Nu 2,000 standard entry."
+        },
+        "BGD": {
+          "tier": "bilateral_waiver",
+          "tier_label": "Bilateral SDF Concession MoU",
+          "discount_est": "85.0%",
+          "legal_instrument": "Bilateral Tourism Cooperation Agreement & Bhutan Tourism Levy Framework",
+          "summary": "Citizens of Bangladesh enjoy concessionary visitor terms (~$15/night equivalence) and monument discounts.",
+          "examples": "Tiger's Nest: Nu 1,000 concession rate; Subsidized daily levy terms."
+        },
+        "BTN": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "IND": {
+          "tier": "bilateral_waiver",
+          "tier_label": "Bilateral SDF Cap + Heritage Concession",
+          "discount_est": "85.6%",
+          "legal_instrument": "Tourism Levy Act of Bhutan 2022; India-Bhutan Friendship Treaty Provisions",
+          "summary": "Indian nationals are exempt from the standard $100/night SDF, paying only BTN 1,200 (~$14.40) per night, plus 50% discount on heritage sites.",
+          "examples": "Bhutan SDF: ₹1,200/night (vs $100/night foreign); Tiger's Nest (Paro Taktsang): Nu 1,000 (vs Nu 2,000)."
+        },
+        "MDV": {
+          "tier": "bilateral_waiver",
+          "tier_label": "Bilateral SDF Concession MoU",
+          "discount_est": "85.0%",
+          "legal_instrument": "Bilateral Tourism Cooperation Agreement & Bhutan Tourism Levy Framework",
+          "summary": "Citizens of Maldives enjoy concessionary visitor terms (~$15/night equivalence) and monument discounts.",
+          "examples": "Tiger's Nest: Nu 1,000 concession rate; Subsidized daily levy terms."
+        },
+        "NPL": {
+          "tier": "standard_foreign",
+          "tier_label": "Standard Foreign SDF Tier",
+          "discount_est": "0%",
+          "legal_instrument": "Tourism Levy Act of Bhutan 2022",
+          "summary": "Citizens of Nepal are subject to standard international visitor rules ($100/night SDF) unless visiting on diplomatic/SVES status.",
+          "examples": "Standard $100/night SDF applies; Tiger's Nest Nu 2,000 standard entry."
+        },
+        "PAK": {
+          "tier": "standard_foreign",
+          "tier_label": "Standard Foreign SDF Tier",
+          "discount_est": "0%",
+          "legal_instrument": "Tourism Levy Act of Bhutan 2022",
+          "summary": "Citizens of Pakistan are subject to standard international visitor rules ($100/night SDF) unless visiting on diplomatic/SVES status.",
+          "examples": "Standard $100/night SDF applies; Tiger's Nest Nu 2,000 standard entry."
+        },
+        "LKA": {
+          "tier": "standard_foreign",
+          "tier_label": "Standard Foreign SDF Tier",
+          "discount_est": "0%",
+          "legal_instrument": "Tourism Levy Act of Bhutan 2022",
+          "summary": "Citizens of Sri Lanka are subject to standard international visitor rules ($100/night SDF) unless visiting on diplomatic/SVES status.",
+          "examples": "Standard $100/night SDF applies; Tiger's Nest Nu 2,000 standard entry."
+        }
+      },
+      "IND": {
+        "AFG": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Afghanistan enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "BGD": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Bangladesh enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "BTN": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Bhutan enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "IND": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "MDV": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Maldives enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "NPL": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Nepal enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "PAK": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Pakistan enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        },
+        "LKA": {
+          "tier": "domestic_parity",
+          "tier_label": "Full Domestic Parity",
+          "discount_est": "90–95%",
+          "legal_instrument": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
+          "summary": "Citizens of Sri Lanka enter all 143 ticketed ASI monuments and UNESCO World Heritage sites in India at the domestic citizen rate.",
+          "examples": "Taj Mahal: ₹50 (vs ₹1,100 foreign); Red Fort: ₹50 (vs ₹600 foreign); Qutub Minar: ₹50 (vs ₹600 foreign)."
+        }
+      },
+      "MDV": {
+        "AFG": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Afghanistan pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "BGD": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Bangladesh pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "BTN": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Bhutan pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "IND": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of India pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "MDV": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "NPL": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Nepal pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "PAK": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Pakistan pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        },
+        "LKA": {
+          "tier": "standard_foreign",
+          "tier_label": "Uniform Non-Resident Tourism Tax",
+          "discount_est": "0%",
+          "legal_instrument": "Maldives Tourism Act (Law No. 2/99) & Green Tax Provisions",
+          "summary": "Citizens of Sri Lanka pay the standard Tourism Goods & Services Tax (TGST 16%) and Green Tax ($6/night) without regional distinction.",
+          "examples": "Male Heritage & National Museum entries have limited fee differentiation."
+        }
+      },
+      "NPL": {
+        "AFG": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Afghanistan pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "BGD": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Bangladesh pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "BTN": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Bhutan pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "IND": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of India pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "MDV": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Maldives pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "NPL": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "PAK": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Pakistan pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        },
+        "LKA": {
+          "tier": "regional_concession",
+          "tier_label": "50–75% Regional Concession",
+          "discount_est": "50–75%",
+          "legal_instrument": "Kathmandu, Lalitpur, and Bhaktapur Municipal Tourism Service Bylaws",
+          "summary": "Citizens of Sri Lanka pay subsidized SAARC rates across Kathmandu Valley Durbar Squares and Lumbini Sacred Garden.",
+          "examples": "Bhaktapur Durbar: NPR 500 (vs NPR 1,800 foreign); Patan: NPR 250 (vs NPR 1,000 foreign); Lumbini: NPR 200 (vs NPR 500)."
+        }
+      },
+      "PAK": {
+        "AFG": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Afghanistan receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "BGD": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Bangladesh receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "BTN": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Bhutan receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "IND": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of India receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "MDV": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Maldives receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "NPL": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Nepal receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        },
+        "PAK": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        },
+        "LKA": {
+          "tier": "regional_concession",
+          "tier_label": "75–85% Regional Concession",
+          "discount_est": "80–85%",
+          "legal_instrument": "Antiquities Act 1975 & Walled City of Lahore Authority Fee Schedules",
+          "summary": "Citizens of Sri Lanka receive regional concessions at Lahore Fort, Taxila, and Mohenjo-daro upon presenting SAARC passport.",
+          "examples": "Lahore Fort: PKR 150 (vs PKR 1,000 foreign); Taxila: PKR 150 (vs PKR 1,000 foreign)."
+        }
+      },
+      "LKA": {
+        "AFG": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Afghanistan receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "BGD": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Bangladesh receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "BTN": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Bhutan receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "IND": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of India receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "MDV": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Maldives receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "NPL": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Nepal receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "PAK": {
+          "tier": "regional_concession",
+          "tier_label": "50% Regional Concession",
+          "discount_est": "50%",
+          "legal_instrument": "Central Cultural Fund Act No. 57 of 1980 & CCF Tariff Directives",
+          "summary": "Citizens of Pakistan receive a 50% discount off standard foreign tourist entry across Sri Lanka's Cultural Triangle.",
+          "examples": "Sigiriya Rock: $18 (vs $36 foreign); Polonnaruwa: $15 (vs $30 foreign); Anuradhapura: $15 (vs $30 foreign)."
+        },
+        "LKA": {
+          "tier": "self",
+          "title": "Domestic Jurisdiction",
+          "summary": "Domestic citizens pay regular municipal/ASI resident rates."
+        }
+      }
+    }
+  },
   "metadata": {
     "title": "SAARC Bilateral Benefits & Concessions Index",
     "countries": [

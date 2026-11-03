@@ -211,6 +211,20 @@ def main() -> None:
         with open(visa_json, mode="r", encoding="utf-8") as f:
             visa_data = json.load(f)
 
+    tourism_json = os.path.join(base_dir, "data", "tourism_data.json")
+    docs_tourism = os.path.join(base_dir, "docs", "data", "tourism_data.json")
+    tourism_data: Dict[str, Any] = {}
+    if not os.path.exists(tourism_json):
+        try:
+            import generate_tourism_data
+            generate_tourism_data.main()
+        except Exception as e:
+            print(f"Warning: generate_tourism_data failed: {e}")
+
+    if os.path.exists(tourism_json):
+        with open(tourism_json, mode="r", encoding="utf-8") as f:
+            tourism_data = json.load(f)
+
     # 3. Export Wide Matrix CSV (Total Scores)
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)
     os.makedirs(os.path.dirname(docs_csv), exist_ok=True)
@@ -263,6 +277,7 @@ def main() -> None:
         "centres": centres,
         "quotas": quotas,
         "visas": visa_data,
+        "tourism": tourism_data,
         # Metadata and legacy matrix for zero-downtime frontend continuity
         "metadata": {
             "title": "SAARC Bilateral Benefits & Concessions Index",
@@ -291,6 +306,9 @@ def main() -> None:
 
     if os.path.exists(visa_json):
         shutil.copyfile(visa_json, docs_visa)
+
+    if os.path.exists(tourism_json):
+        shutil.copyfile(tourism_json, docs_tourism)
 
     print("Successfully generated bilateral_matrix.csv and bilateral_matrix.json")
 

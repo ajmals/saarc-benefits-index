@@ -270,6 +270,9 @@
               <button class="view-tab-btn" data-view="visas" role="tab" aria-selected="false">
                 <span>🛂</span> Visa Regimes
               </button>
+              <button class="view-tab-btn" data-view="tourism" role="tab" aria-selected="false">
+                <span>🏛️</span> Tourism & Heritage
+              </button>
             </div>
 
             <!-- Focus Country Dropdown (Active in Partner Rankings / Reciprocity / Radar views) -->
@@ -357,6 +360,50 @@
                   <option value="concessionary_eta">🟡 Concessionary ETA</option>
                   <option value="consular_visa">🟠 Consular Visa</option>
                   <option value="restricted_prior_approval">🔴 Restricted / Security</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tourism & Heritage Controls (Active in Tourism View) -->
+            <div class="view-tourism-controls" id="view-tourism-controls" style="display: none;">
+              <div class="tourism-subview-toggle" role="group" aria-label="Tourism Visualization Mode">
+                <button class="tourism-toggle-btn active" data-subview="monuments" type="button"
+                  title="UNESCO Monument Entry Fees">
+                  <span>🏛️</span> Monument Parity
+                </button>
+                <button class="tourism-toggle-btn" data-subview="sdf" type="button"
+                  title="Bhutan SDF & Tourism Levies">
+                  <span>🇧🇹</span> Bhutan SDF
+                </button>
+                <button class="tourism-toggle-btn" data-subview="circuit" type="button"
+                  title="Cross-Border Heritage Circuits">
+                  <span>🗺️</span> Heritage Circuits
+                </button>
+                <button class="tourism-toggle-btn" data-subview="matrix" type="button"
+                  title="Heritage Reciprocity Matrix">
+                  <span>⊞</span> Reciprocity Grid
+                </button>
+              </div>
+
+              <div class="tourism-filter-group" id="tourism-country-filter-cont">
+                <label for="tourism-country-select" class="tourism-filter-label">Host State:</label>
+                <select id="tourism-country-select" class="tourism-filter-select">
+                  <option value="all">All Host States (24 Monuments)</option>
+                  <option value="IND">🇮🇳 India (ASI Sites - 100% Parity)</option>
+                  <option value="LKA">🇱🇰 Sri Lanka (Cultural Triangle - 50% Concession)</option>
+                  <option value="NPL">🇳🇵 Nepal (Kathmandu & Lumbini - 50–75% Concession)</option>
+                  <option value="PAK">🇵🇰 Pakistan (Taxila & Lahore - 85% Concession)</option>
+                  <option value="BGD">🇧🇩 Bangladesh (Archeology Sites - 80% Concession)</option>
+                  <option value="BTN">🇧🇹 Bhutan (Dzongs & Heritage)</option>
+                </select>
+              </div>
+
+              <div class="tourism-filter-group" id="tourism-circuit-filter-cont" style="display: none;">
+                <label for="tourism-circuit-select" class="tourism-filter-label">Circuit Route:</label>
+                <select id="tourism-circuit-select" class="tourism-filter-select">
+                  <option value="buddhist_circuit">☸️ Pan-South Asian Buddhist Pilgrimage</option>
+                  <option value="unesco_flagships">🏛️ Grand UNESCO Cultural Flagships</option>
+                  <option value="himalayan_kingdoms">🏔️ Eastern Himalayas & Dragon Kingdom</option>
                 </select>
               </div>
             </div>
@@ -491,6 +538,9 @@
               <a href="data/student_quotas.csv" download class="dataset-download-pill">
                 <span>🎓</span> student_quotas.csv (44 Quotas) ⬇
               </a>
+              <a href="data/tourism_data.json" download class="dataset-download-pill">
+                <span>🏛️</span> tourism_data.json (24 Monuments & Levies) ⬇
+              </a>
               <a href="data/benefits_master.csv" download class="dataset-download-pill">
                 <span>⚖️</span> benefits_master.csv (Master Accords) ⬇
               </a>
@@ -527,6 +577,8 @@
             Methodology & Guide</button>
           <span style="color: var(--color-gray-400);">•</span>
           <a href="data/student_quotas.csv" download class="footer-data-link">🎓 student_quotas.csv ⬇</a>
+          <span style="color: var(--color-gray-400);">•</span>
+          <a href="data/tourism_data.json" download class="footer-data-link">🏛️ tourism_data.json ⬇</a>
           <span style="color: var(--color-gray-400);">•</span>
           <a href="data/benefits_master.csv" download class="footer-data-link">⚖️ benefits_master.csv ⬇</a>
           <span style="color: var(--color-gray-400);">•</span>

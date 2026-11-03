@@ -3633,6 +3633,583 @@ gap: 0.5rem;
 }
 
 /* ==========================================================================
+   Tourism & Culture Heritage Visualization Styles
+   ========================================================================== */
+
+.view-tourism-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tourism-subview-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--color-gray-100);
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-gray-200);
+}
+
+.tourism-toggle-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--transition);
+}
+
+.tourism-toggle-btn:hover {
+  color: var(--color-black);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.tourism-toggle-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.tourism-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tourism-filter-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+}
+
+.tourism-filter-select {
+  font-family: inherit;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.tourism-filter-select:hover,
+.tourism-filter-select:focus {
+  background-color: var(--color-hover);
+}
+
+/* Tourism View Container */
+#matrix-heatmap.tourism-view-active {
+  height: auto !important;
+  min-height: 480px;
+  overflow: visible !important;
+}
+
+.tourism-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Top Stats Summary Banner */
+.tourism-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.tourism-stat-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: var(--transition);
+}
+
+.tourism-stat-card:hover {
+  border-color: var(--color-black);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tourism-stat-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-black);
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.tourism-stat-num .stat-unit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gray-600);
+}
+
+.tourism-stat-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tourism-stat-hint {
+  font-size: 0.7rem;
+  color: var(--color-gray-600);
+  line-height: 1.3;
+}
+
+/* Chart Wrap Card */
+.tourism-chart-wrapper {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  min-height: 380px;
+  position: relative;
+}
+
+/* Monument Cards Grid */
+.tourism-monuments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tourism-monuments-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tourism-monuments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.tourism-monument-card {
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.tourism-monument-card:hover {
+  border-color: var(--color-black);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.tourism-monument-card.selected {
+  border-color: var(--color-black);
+  background-color: var(--color-hover);
+  box-shadow: 0 0 0 1px var(--color-black);
+}
+
+.monument-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.monument-name {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.25;
+}
+
+.monument-location {
+  font-size: 0.725rem;
+  color: var(--color-gray-600);
+  margin-top: 0.15rem;
+}
+
+.monument-tier-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.monument-tier-badge.parity {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.monument-tier-badge.concession {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.monument-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+  font-size: 0.725rem;
+}
+
+.monument-price-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.monument-price-label {
+  font-size: 0.625rem;
+  color: var(--color-gray-600);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.monument-price-val {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.monument-savings-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding-top: 0.2rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.monument-savings-highlight {
+  color: #047857;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Bhutan SDF Interactive Component */
+.sdf-scenario-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.sdf-controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sdf-control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sdf-control-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.sdf-pills-wrap {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--color-gray-100);
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+}
+
+.sdf-pill-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sdf-pill-btn.active {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.sdf-impact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.sdf-impact-card {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sdf-impact-card.international {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.sdf-impact-card.indian {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.sdf-impact-card.savings {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.sdf-card-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sdf-impact-card.international .sdf-card-badge { color: #dc2626; }
+.sdf-impact-card.indian .sdf-card-badge { color: #059669; }
+.sdf-impact-card.savings .sdf-card-badge { color: #2563eb; }
+
+.sdf-card-amount {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-black);
+  line-height: 1.1;
+}
+
+.sdf-card-detail {
+  font-size: 0.725rem;
+  color: var(--color-gray-600);
+  line-height: 1.3;
+}
+
+/* Heritage Circuits Itinerary Components */
+.circuit-itinerary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.circuit-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.circuit-route-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.circuit-route-desc {
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+  margin-top: 0.2rem;
+}
+
+.circuit-stops-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.circuit-stop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-hover);
+  transition: var(--transition);
+  gap: 0.5rem;
+}
+
+.circuit-stop-row:hover {
+  border-color: var(--color-black);
+}
+
+.circuit-stop-index {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.circuit-stop-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-black);
+  flex-grow: 1;
+}
+
+.circuit-stop-fees {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.circuit-stop-intl {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.circuit-stop-saarc {
+  color: #059669;
+  font-weight: 800;
+}
+
+/* Tourism Reciprocity Matrix Table */
+.tourism-matrix-layout {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.tourism-matrix-scroll {
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.tourism-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.tourism-matrix-table th,
+.tourism-matrix-table td {
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+  border: 1px solid var(--color-border);
+}
+
+.tourism-matrix-table th {
+  background: var(--color-gray-100);
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.tourism-matrix-cell {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tourism-matrix-cell:hover {
+  outline: 2px solid var(--color-black);
+  z-index: 2;
+  position: relative;
+}
+
+.tourism-cell-badge {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tourism-cell-badge.domestic_parity {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.tourism-cell-badge.regional_concession {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.tourism-cell-badge.bilateral_waiver {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.tourism-cell-badge.standard_foreign {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+/* ==========================================================================
    Comprehensive Mobile & Tablet Responsive Engine
    ========================================================================== */
 @media (max-width: 960px) {
@@ -3992,6 +4569,36 @@ gap: 0.5rem;
               align-items: stretch;
               width: 100%;
               gap: 0.5rem;
+            }
+
+            /* Tourism & Heritage Controls */
+            .view-tourism-controls {
+              flex-direction: column;
+              align-items: stretch;
+              width: 100%;
+              gap: 0.5rem;
+            }
+
+            .tourism-subview-toggle {
+              display: flex;
+              width: 100%;
+            }
+
+            .tourism-toggle-btn {
+              flex: 1;
+              justify-content: center;
+              font-size: 0.7rem;
+              padding: 0.35rem 0.35rem;
+              white-space: nowrap;
+            }
+
+            .tourism-filter-group {
+              flex-direction: column;
+              align-items: stretch;
+            }
+
+            .tourism-filter-select {
+              width: 100%;
             }
 
             .visa-subview-toggle {

@@ -19,6 +19,15 @@ let selectedPassport = 'IND';
 let selectedVisaTier = 'all';
 let visaData = null;
 
+// Tourism & Culture state
+let tourismData = null;
+let activeTourismSubview = 'monuments'; // 'monuments' | 'sdf' | 'circuit' | 'matrix'
+let selectedTourismCountry = 'all';
+let selectedTourismCircuit = 'buddhist_circuit';
+let selectedSdfNights = 7;
+let selectedSdfTravelers = 1;
+let selectedMonumentId = 'IND_TAJ_MAHAL';
+
 const VISA_TIER_CONFIG = {
   freedom_of_movement: {
     label: 'Freedom of Movement',
@@ -379,6 +388,26 @@ function handleDataLoaded(data) {
             visaData = vd;
             if (activeView === 'visas') renderActiveView();
           });
+      });
+  }
+
+  if (data && data.tourism) {
+    tourismData = data.tourism;
+  } else {
+    fetch('./data/tourism_data.json')
+      .then(res => res.json())
+      .then(td => {
+        tourismData = td;
+        if (activeView === 'tourism') renderActiveView();
+      })
+      .catch(() => {
+        fetch('data/tourism_data.json')
+          .then(res => res.json())
+          .then(td => {
+            tourismData = td;
+            if (activeView === 'tourism') renderActiveView();
+          })
+          .catch(err => console.warn('Could not load tourism_data.json:', err));
       });
   }
   initVisualization();
@@ -916,6 +945,42 @@ function setupEventListeners() {
     });
   }
 
+  // Tourism & Culture sub-view controls
+  const tourismToggleBtns = document.querySelectorAll('.tourism-toggle-btn');
+  const tourismCountryCont = document.getElementById('tourism-country-filter-cont');
+  const tourismCircuitCont = document.getElementById('tourism-circuit-filter-cont');
+  tourismToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tourismToggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTourismSubview = btn.dataset.subview;
+      if (tourismCountryCont) {
+        tourismCountryCont.style.display = activeTourismSubview === 'monuments' ? 'flex' : 'none';
+      }
+      if (tourismCircuitCont) {
+        tourismCircuitCont.style.display = activeTourismSubview === 'circuit' ? 'flex' : 'none';
+      }
+      updateViewChrome();
+      renderActiveView();
+    });
+  });
+
+  const tourismCountrySelect = document.getElementById('tourism-country-select');
+  if (tourismCountrySelect) {
+    tourismCountrySelect.addEventListener('change', (e) => {
+      selectedTourismCountry = e.target.value;
+      renderActiveView();
+    });
+  }
+
+  const tourismCircuitSelect = document.getElementById('tourism-circuit-select');
+  if (tourismCircuitSelect) {
+    tourismCircuitSelect.addEventListener('change', (e) => {
+      selectedTourismCircuit = e.target.value;
+      renderActiveView();
+    });
+  }
+
   // Quick Chips
   document.querySelectorAll('[data-pair]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1001,6 +1066,7 @@ function updateViewChrome() {
   const focusControls = document.getElementById('view-focus-controls');
   const quotaControls = document.getElementById('view-quota-controls');
   const visaControls = document.getElementById('view-visa-controls');
+  const tourismControls = document.getElementById('view-tourism-controls');
   const mainTitle = document.getElementById('view-main-title');
   const caption = document.getElementById('view-caption');
   const hintText = document.getElementById('view-hint-text');
@@ -1011,6 +1077,9 @@ function updateViewChrome() {
 
   if (visaControls && activeView !== 'visas') {
     visaControls.style.display = 'none';
+  }
+  if (tourismControls && activeView !== 'tourism') {
+    tourismControls.style.display = 'none';
   }
 
   if (activeView === 'matrix') {
@@ -1139,6 +1208,57 @@ function updateViewChrome() {
         hintText.innerHTML = `<span class="hint-bullet">●</span> Explore the 24 statutory categories eligible for the 90-day multi-entry SVES visa sticker across all 8 member states.`;
       }
     }
+  } else if (activeView === 'tourism') {
+    if (focusControls) focusControls.style.display = 'none';
+    if (quotaControls) quotaControls.style.display = 'none';
+    if (visaControls) visaControls.style.display = 'none';
+    if (tourismControls) tourismControls.style.display = 'flex';
+    if (badgeType) badgeType.textContent = 'TOURISM & HERITAGE CONCESSIONS';
+
+    const tourismCountryCont = document.getElementById('tourism-country-filter-cont');
+    const tourismCircuitCont = document.getElementById('tourism-circuit-filter-cont');
+
+    if (activeTourismSubview === 'monuments') {
+      if (tourismCountryCont) tourismCountryCont.style.display = 'flex';
+      if (tourismCircuitCont) tourismCircuitCont.style.display = 'none';
+      if (mainTitle) mainTitle.textContent = '🏛️ UNESCO World Heritage Monument Entry Parity & Concessions';
+      if (caption) {
+        caption.innerHTML = `Comparing Domestic Citizen rates, SAARC Regional rates, and International Foreign Visitor ticket prices across 24 flagship cultural sites.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Click any monument card below to inspect its primary statutory notification, Archaeological Survey of India (ASI) schedule, or Central Cultural Fund decree.`;
+      }
+    } else if (activeTourismSubview === 'sdf') {
+      if (tourismCountryCont) tourismCountryCont.style.display = 'none';
+      if (tourismCircuitCont) tourismCircuitCont.style.display = 'none';
+      if (mainTitle) mainTitle.textContent = '🇧🇹 Bhutan Sustainable Development Fee (SDF) Regional Concession';
+      if (caption) {
+        caption.innerHTML = `Quantifying the multi-day financial impact of Bhutan's statutory tourism levy waiver for Indian and regional travelers under the Tourism Levy Act.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Toggle trip duration and traveler count to calculate direct dollar savings compared to standard non-regional tourist tariffs.`;
+      }
+    } else if (activeTourismSubview === 'circuit') {
+      if (tourismCountryCont) tourismCountryCont.style.display = 'none';
+      if (tourismCircuitCont) tourismCircuitCont.style.display = 'flex';
+      if (mainTitle) mainTitle.textContent = '🗺️ Cross-Border Heritage Circuits Cumulative Cost Trajectory';
+      if (caption) {
+        caption.innerHTML = `Tracking step-by-step entry fees and cumulative savings across integrated cross-border pilgrimage and cultural itineraries.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Select a circuit route above to compare total ticket expenses for international tourists vs SAARC regional citizens.`;
+      }
+    } else if (activeTourismSubview === 'matrix') {
+      if (tourismCountryCont) tourismCountryCont.style.display = 'none';
+      if (tourismCircuitCont) tourismCircuitCont.style.display = 'none';
+      if (mainTitle) mainTitle.textContent = '⊞ Bilateral Heritage & Tourism Reciprocity Matrix';
+      if (caption) {
+        caption.innerHTML = `8×8 cross-border grid mapping destination monument policies (Rows) vs traveler origin passports (Columns).`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Click any cell in the 8×8 grid to inspect bilateral monument admission treaties, municipal bylaws, and legal frameworks.`;
+      }
+    }
   }
 }
 
@@ -1169,10 +1289,17 @@ function renderActiveView() {
   if (heatmapEl) {
     if (activeView === 'visas') {
       heatmapEl.classList.add('visa-view-active');
+      heatmapEl.classList.remove('tourism-view-active');
+      heatmapEl.style.height = 'auto';
+      heatmapEl.style.overflow = 'visible';
+    } else if (activeView === 'tourism') {
+      heatmapEl.classList.add('tourism-view-active');
+      heatmapEl.classList.remove('visa-view-active');
       heatmapEl.style.height = 'auto';
       heatmapEl.style.overflow = 'visible';
     } else {
       heatmapEl.classList.remove('visa-view-active');
+      heatmapEl.classList.remove('tourism-view-active');
       heatmapEl.style.height = '';
       heatmapEl.style.overflow = '';
     }
@@ -1194,6 +1321,8 @@ function renderActiveView() {
     renderSectorRadar();
   } else if (activeView === 'visas') {
     renderVisaRegimes();
+  } else if (activeView === 'tourism') {
+    renderTourismView();
   }
 }
 
@@ -2059,6 +2188,11 @@ function displayDetails(provider, beneficiary) {
 
   if (activeView === 'visas' && visaData) {
     displayVisaDossier(provider, beneficiary);
+    return;
+  }
+
+  if (activeView === 'tourism' && tourismData) {
+    displayTourismDossier(provider, beneficiary);
     return;
   }
 
@@ -2972,6 +3106,1025 @@ function displayVisaDossier(orig, dest) {
         </div>
         <p style="font-size:0.725rem;">
           Eligible travelers under any of the 24 designated SAARC categories (parliamentarians, judges, journalists, chamber heads, academics) can bypass routine consular queues with a 90-day multi-entry SVES sticker.
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+/* ==========================================================================
+   Tourism & Culture Visualizations & Dossiers
+   ========================================================================== */
+
+function renderTourismView() {
+  const container = document.getElementById('matrix-heatmap');
+  if (!container) return;
+
+  if (!tourismData) {
+    container.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;height:450px;flex-direction:column;gap:0.75rem;color:var(--color-gray-600);">
+        <div style="font-size:1.5rem;">🏛️</div>
+        <p style="font-weight:600;">Loading regional tourism & heritage dataset...</p>
+      </div>
+    `;
+    return;
+  }
+
+  if (activeTourismSubview === 'monuments') {
+    renderTourismMonuments(container);
+  } else if (activeTourismSubview === 'sdf') {
+    renderBhutanSdf(container);
+  } else if (activeTourismSubview === 'circuit') {
+    renderHeritageCircuits(container);
+  } else if (activeTourismSubview === 'matrix') {
+    renderTourismMatrix(container);
+  }
+}
+
+/**
+ * 1. Monument Parity & Entry Fee Comparison
+ */
+function renderTourismMonuments(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const allMonuments = tourismData.monuments || [];
+  const filtered = selectedTourismCountry === 'all'
+    ? allMonuments
+    : allMonuments.filter(m => m.country === selectedTourismCountry);
+
+  // Calculate high-level stats
+  const totalMonuments = allMonuments.length;
+  const avgDiscount = (allMonuments.reduce((acc, m) => acc + (m.savings_pct || 0), 0) / totalMonuments).toFixed(1);
+  const indMonuments = allMonuments.filter(m => m.country === 'IND');
+  const maxSavingsMon = allMonuments.reduce((prev, cur) => (cur.savings_usd > prev.savings_usd) ? cur : prev, allMonuments[0]);
+
+  let html = `
+    <div class="tourism-view-container">
+      <!-- High-Level Metric Stat Cards -->
+      <div class="tourism-stats-grid">
+        <div class="tourism-stat-card">
+          <div class="tourism-stat-num">${totalMonuments} <span class="stat-unit">Sites</span></div>
+          <div class="tourism-stat-title">Tracked Monuments</div>
+          <div class="tourism-stat-hint">Across 6 South Asian nations</div>
+        </div>
+
+        <div class="tourism-stat-card">
+          <div class="tourism-stat-num">${avgDiscount}% <span class="stat-unit">Off</span></div>
+          <div class="tourism-stat-title">Average SAARC Discount</div>
+          <div class="tourism-stat-hint">Savings vs international foreigner rate</div>
+        </div>
+
+        <div class="tourism-stat-card">
+          <div class="tourism-stat-num">100% <span class="stat-unit">Parity</span></div>
+          <div class="tourism-stat-title">India ASI Parity</div>
+          <div class="tourism-stat-hint">All 143 ASI World Heritage monuments</div>
+        </div>
+
+        <div class="tourism-stat-card">
+          <div class="tourism-stat-num">$${maxSavingsMon?.savings_usd?.toFixed(2) || '12.65'} <span class="stat-unit">Saved</span></div>
+          <div class="tourism-stat-title">Max Single Entry Saving</div>
+          <div class="tourism-stat-hint">${maxSavingsMon?.name || 'Taj Mahal, Agra'} (95.5% discount)</div>
+        </div>
+      </div>
+
+      <!-- Grouped Bar Chart -->
+      <div class="tourism-chart-wrapper">
+        <div id="tourism-monuments-plotly" style="width: 100%; height: 380px;"></div>
+      </div>
+
+      <!-- Monument Cards Grid -->
+      <div class="tourism-monuments-header">
+        <div class="tourism-monuments-title">
+          <span>🏛️</span>
+          <span>Verified Protected Cultural Monuments (${filtered.length})</span>
+        </div>
+        <div style="font-size:0.75rem; color:var(--color-gray-600);">
+          Click any card to inspect legal frameworks and official sources in the side dossier.
+        </div>
+      </div>
+
+      <div class="tourism-monuments-grid">
+  `;
+
+  filtered.forEach(m => {
+    const isSelected = selectedMonumentId === m.id;
+    const flag = COUNTRY_FLAGS[m.country] || '';
+    const badgeClass = m.parity_tier === 'domestic_parity' ? 'parity' : 'concession';
+
+    html += `
+      <div class="tourism-monument-card ${isSelected ? 'selected' : ''}" data-monument-id="${escapeHtml(m.id)}">
+        <div class="monument-card-top">
+          <div>
+            <div class="monument-name">${flag} ${escapeHtml(m.name)}</div>
+            <div class="monument-location">${escapeHtml(m.state_region)} • ${m.unesco_year ? `UNESCO ${m.unesco_year}` : 'Protected Site'}</div>
+          </div>
+          <span class="monument-tier-badge ${badgeClass}">${escapeHtml(m.parity_tier_label)}</span>
+        </div>
+
+        <div class="monument-price-row">
+          <div class="monument-price-item">
+            <span class="monument-price-label">Domestic</span>
+            <span class="monument-price-val">$${m.domestic_usd.toFixed(2)}</span>
+          </div>
+          <div class="monument-price-item" style="color:#059669;">
+            <span class="monument-price-label" style="color:#059669;">SAARC Rate</span>
+            <span class="monument-price-val">$${m.saarc_usd.toFixed(2)}</span>
+          </div>
+          <div class="monument-price-item" style="color:#dc2626;">
+            <span class="monument-price-label" style="color:#dc2626;">Foreign</span>
+            <span class="monument-price-val">$${m.foreign_usd.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <div class="monument-savings-bar">
+          <span style="color:var(--color-gray-600);font-size:0.7rem;">Official Currency: ${m.currency_symbol} ${m.saarc_fee.toLocaleString()}</span>
+          <span class="monument-savings-highlight">
+            <span>⚡ Save $${m.savings_usd.toFixed(2)} (${m.savings_pct}%)</span>
+          </span>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+
+  // Render Plotly Bar Chart
+  const chartEl = document.getElementById('tourism-monuments-plotly');
+  if (chartEl && typeof Plotly !== 'undefined') {
+    // Select up to 10-12 sites for visual elegance
+    const chartSites = filtered.slice(0, 12);
+    const xLabels = chartSites.map(m => `${COUNTRY_FLAGS[m.country] || ''} ${m.name.split(',')[0].split('(')[0].trim()}`);
+    const domesticFees = chartSites.map(m => m.domestic_usd);
+    const saarcFees = chartSites.map(m => m.saarc_usd);
+    const foreignFees = chartSites.map(m => m.foreign_usd);
+
+    const traces = [
+      {
+        x: xLabels,
+        y: domesticFees,
+        name: 'Domestic Citizen Rate',
+        type: 'bar',
+        marker: { color: '#10b981' },
+        hovertemplate: '<b>%{x}</b><br>Domestic Citizen: $%{y:.2f}<extra></extra>'
+      },
+      {
+        x: xLabels,
+        y: saarcFees,
+        name: 'SAARC Regional Rate',
+        type: 'bar',
+        marker: { color: '#2563eb' },
+        hovertemplate: '<b>%{x}</b><br>SAARC National: $%{y:.2f}<extra></extra>'
+      },
+      {
+        x: xLabels,
+        y: foreignFees,
+        name: 'General Foreign Tourist Rate',
+        type: 'bar',
+        marker: { color: '#ef4444' },
+        hovertemplate: '<b>%{x}</b><br>Foreign International: $%{y:.2f}<extra></extra>'
+      }
+    ];
+
+    const layout = {
+      barmode: 'group',
+      title: {
+        text: '<b>Monument Entry Ticket Price Comparison (USD $)</b>',
+        font: { family: 'inherit', size: 14, color: '#111827' },
+        x: 0.02,
+        y: 0.96
+      },
+      margin: { l: 45, r: 20, t: 45, b: 85 },
+      xaxis: {
+        tickangle: -25,
+        tickfont: { family: 'inherit', size: 10, color: '#374151' },
+        showgrid: false
+      },
+      yaxis: {
+        title: { text: 'Entry Fee (USD $)', font: { size: 11, color: '#4b5563' } },
+        gridcolor: '#e5e7eb',
+        zerolinecolor: '#e5e7eb'
+      },
+      legend: {
+        orientation: 'h',
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.14,
+        font: { family: 'inherit', size: 11 }
+      },
+      plot_bgcolor: 'transparent',
+      paper_bgcolor: 'transparent',
+      autosize: true
+    };
+
+    Plotly.react(chartEl, traces, layout, { responsive: true, displayModeBar: false });
+  }
+
+  // Bind Monument card click events
+  container.querySelectorAll('.tourism-monument-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const monId = card.getAttribute('data-monument-id');
+      const mon = allMonuments.find(m => m.id === monId);
+      if (mon) {
+        selectedMonumentId = mon.id;
+        container.querySelectorAll('.tourism-monument-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        displayMonumentDossier(mon);
+      }
+    });
+  });
+
+  // Auto-inspect the currently selected monument (or the first one)
+  const initialMon = allMonuments.find(m => m.id === selectedMonumentId) || filtered[0] || allMonuments[0];
+  if (initialMon) {
+    displayMonumentDossier(initialMon);
+  }
+}
+
+/**
+ * 2. Bhutan Sustainable Development Fee (SDF) Interactive Simulator
+ */
+function renderBhutanSdf(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const sdfData = tourismData.bhutan_sdf;
+  if (!sdfData) return;
+
+  const intlRate = 100.0; // USD per night
+  const indianRate = 14.40; // USD per night (~BTN 1,200)
+
+  const totalNights = selectedSdfNights;
+  const totalTravelers = selectedSdfTravelers;
+
+  const intlTotal = intlRate * totalNights * totalTravelers;
+  const indianTotal = indianRate * totalNights * totalTravelers;
+  const netSavings = intlTotal - indianTotal;
+  const savingsPct = ((netSavings / intlTotal) * 100).toFixed(1);
+
+  let html = `
+    <div class="tourism-view-container">
+      <!-- Interactive Calculator Controls & Impact Cards -->
+      <div class="sdf-scenario-container">
+        <div class="sdf-controls-row">
+          <div class="sdf-control-group">
+            <span class="sdf-control-label">Trip Duration:</span>
+            <div class="sdf-pills-wrap" id="sdf-nights-pills">
+              ${[1, 3, 5, 7, 10, 14].map(n => `
+                <button class="sdf-pill-btn ${selectedSdfNights === n ? 'active' : ''}" data-nights="${n}">
+                  ${n} ${n === 1 ? 'Night' : 'Nights'}${n === 7 ? ' (1 Wk)' : n === 14 ? ' (2 Wks)' : ''}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="sdf-control-group">
+            <span class="sdf-control-label">Travel Party:</span>
+            <div class="sdf-pills-wrap" id="sdf-party-pills">
+              ${[
+                { count: 1, label: 'Solo (1)' },
+                { count: 2, label: 'Couple (2)' },
+                { count: 4, label: 'Family of 4' }
+              ].map(p => `
+                <button class="sdf-pill-btn ${selectedSdfTravelers === p.count ? 'active' : ''}" data-party="${p.count}">
+                  ${p.label}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="sdf-impact-cards-grid">
+          <div class="sdf-impact-card international">
+            <span class="sdf-card-badge">Standard International Visitor</span>
+            <div class="sdf-card-amount">$${intlTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            <div class="sdf-card-detail">
+              Statutory $100/night SDF × ${totalNights} nights × ${totalTravelers} ${totalTravelers === 1 ? 'person' : 'people'} (mandatory USD forex transfer).
+            </div>
+          </div>
+
+          <div class="sdf-impact-card indian">
+            <span class="sdf-card-badge">Indian / Regional Concession</span>
+            <div class="sdf-card-amount">$${indianTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            <div class="sdf-card-detail">
+              Capped BTN/INR 1,200 (~$14.40)/night rate. Direct local currency payment without foreign exchange surcharges.
+            </div>
+          </div>
+
+          <div class="sdf-impact-card savings">
+            <span class="sdf-card-badge">Direct Government Tax Savings</span>
+            <div class="sdf-card-amount" style="color:#047857;">⚡ $${netSavings.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            <div class="sdf-card-detail">
+              <strong>${savingsPct}% Direct Saving</strong> on government tourist levies alone for the exact same trip itinerary.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Wrapper for Multi-Day Trajectory -->
+      <div class="tourism-chart-wrapper">
+        <div id="tourism-sdf-plotly" style="width: 100%; height: 360px;"></div>
+      </div>
+
+      <!-- Legal & Bilateral Framework Briefing Box -->
+      <div class="surface-card" style="padding:1.25rem; border:1px solid var(--color-border); border-radius:var(--radius-md);">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
+          <span style="font-size:1.15rem;">📜</span>
+          <h4 style="font-size:0.95rem; font-weight:800; color:var(--color-black); margin:0;">
+            Statutory Basis: Tourism Levy Act of Bhutan 2022 (Act No. 13)
+          </h4>
+        </div>
+        <p style="font-size:0.775rem; color:var(--color-gray-700); line-height:1.45; margin:0 0 0.75rem 0;">
+          Bhutan enforces a statutory daily Sustainable Development Fee (SDF) on all inbound leisure tourists to preserve fragile Himalayan ecology and support free healthcare and education. While third-country international tourists pay $100 per adult per night, Indian nationals benefit from a special bilateral treaty concession capping the fee at BTN / INR 1,200 per night.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; font-size:0.75rem;">
+          <div style="background:var(--color-gray-100); padding:0.4rem 0.65rem; border-radius:var(--radius-sm);">
+            <strong>Currency Parity:</strong> Indian Rupee (INR) accepted directly at 1:1 parity with Bhutanese Ngultrum (BTN).
+          </div>
+          <div style="background:var(--color-gray-100); padding:0.4rem 0.65rem; border-radius:var(--radius-sm);">
+            <strong>Visa Fee Exemption:</strong> Indian travelers enter with online entry permits without paying the $40 tourist visa fee.
+          </div>
+          <div style="background:var(--color-gray-100); padding:0.4rem 0.65rem; border-radius:var(--radius-sm);">
+            <strong>Bilateral MoUs:</strong> Bangladesh and Maldives maintain reciprocal concessionary visitor arrangements.
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+
+  // Render Multi-Night Trajectory Chart
+  const chartEl = document.getElementById('tourism-sdf-plotly');
+  if (chartEl && typeof Plotly !== 'undefined') {
+    const durations = sdfData.stay_durations || [];
+    const xLabels = durations.map(d => `${d.nights} Nights`);
+    const intlCosts = durations.map(d => d.intl_usd * totalTravelers);
+    const indianCosts = durations.map(d => d.indian_usd * totalTravelers);
+    const savings = durations.map(d => d.savings_usd * totalTravelers);
+
+    const traces = [
+      {
+        x: xLabels,
+        y: intlCosts,
+        name: `International Visitor Cost (${totalTravelers} ${totalTravelers === 1 ? 'pax' : 'people'})`,
+        type: 'bar',
+        marker: { color: '#ef4444' },
+        hovertemplate: '<b>%{x}</b><br>International SDF: $%{y:,.2f}<extra></extra>'
+      },
+      {
+        x: xLabels,
+        y: indianCosts,
+        name: `Indian / Regional Rate (${totalTravelers} ${totalTravelers === 1 ? 'pax' : 'people'})`,
+        type: 'bar',
+        marker: { color: '#10b981' },
+        hovertemplate: '<b>%{x}</b><br>Regional SDF: $%{y:,.2f}<extra></extra>'
+      },
+      {
+        x: xLabels,
+        y: savings,
+        name: `Net Cash Savings (${totalTravelers} ${totalTravelers === 1 ? 'pax' : 'people'})`,
+        type: 'bar',
+        marker: { color: '#2563eb' },
+        hovertemplate: '<b>%{x}</b><br>Cash Saved: $%{y:,.2f}<extra></extra>'
+      }
+    ];
+
+    const layout = {
+      barmode: 'group',
+      title: {
+        text: `<b>Bhutan SDF Cumulative Cost by Stay Duration (${totalTravelers} ${totalTravelers === 1 ? 'Traveler' : 'Travelers'})</b>`,
+        font: { family: 'inherit', size: 14, color: '#111827' },
+        x: 0.02,
+        y: 0.96
+      },
+      margin: { l: 55, r: 20, t: 45, b: 50 },
+      xaxis: {
+        tickfont: { family: 'inherit', size: 11, color: '#374151' },
+        showgrid: false
+      },
+      yaxis: {
+        title: { text: 'Total Tourism Levy (USD $)', font: { size: 11, color: '#4b5563' } },
+        gridcolor: '#e5e7eb',
+        zerolinecolor: '#e5e7eb'
+      },
+      legend: {
+        orientation: 'h',
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.14,
+        font: { family: 'inherit', size: 11 }
+      },
+      plot_bgcolor: 'transparent',
+      paper_bgcolor: 'transparent',
+      autosize: true
+    };
+
+    Plotly.react(chartEl, traces, layout, { responsive: true, displayModeBar: false });
+  }
+
+  // Bind Night pills
+  container.querySelectorAll('#sdf-nights-pills .sdf-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedSdfNights = parseInt(btn.getAttribute('data-nights'), 10);
+      renderBhutanSdf(container);
+    });
+  });
+
+  // Bind Party pills
+  container.querySelectorAll('#sdf-party-pills .sdf-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedSdfTravelers = parseInt(btn.getAttribute('data-party'), 10);
+      renderBhutanSdf(container);
+    });
+  });
+
+  // Populate Inspector Panel with Bhutan SDF details
+  displayBhutanSdfDossier();
+}
+
+/**
+ * 3. Cross-Border Heritage Circuits Cumulative Cost Trajectory
+ */
+function renderHeritageCircuits(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const circuits = tourismData.heritage_circuits || [];
+  const currentCircuit = circuits.find(c => c.id === selectedTourismCircuit) || circuits[0];
+  if (!currentCircuit) return;
+
+  let html = `
+    <div class="tourism-view-container">
+      <!-- Circuit Summary Banner -->
+      <div class="circuit-itinerary-box">
+        <div class="circuit-header-info">
+          <div>
+            <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:#2563eb; letter-spacing:0.04em;">
+              ${escapeHtml(currentCircuit.theme)}
+            </div>
+            <div class="circuit-route-name">${escapeHtml(currentCircuit.name)}</div>
+            <div class="circuit-route-desc">${escapeHtml(currentCircuit.route_description)}</div>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <div class="tourism-stat-card" style="padding:0.5rem 0.85rem; min-width:140px;">
+              <span class="monument-price-label">Intl Tourist Cost</span>
+              <span style="font-size:1.15rem; font-weight:900; color:#dc2626;">$${currentCircuit.total_intl_usd.toFixed(2)}</span>
+            </div>
+            <div class="tourism-stat-card" style="padding:0.5rem 0.85rem; min-width:140px;">
+              <span class="monument-price-label">SAARC Regional Cost</span>
+              <span style="font-size:1.15rem; font-weight:900; color:#059669;">$${currentCircuit.total_saarc_usd.toFixed(2)}</span>
+            </div>
+            <div class="tourism-stat-card" style="padding:0.5rem 0.85rem; min-width:140px; background:#ecfdf5; border-color:#a7f3d0;">
+              <span class="monument-price-label" style="color:#047857;">Net Trip Savings</span>
+              <span style="font-size:1.15rem; font-weight:900; color:#047857;">⚡ $${currentCircuit.total_savings_usd.toFixed(2)} (${currentCircuit.savings_pct}%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cumulative Trajectory Chart -->
+      <div class="tourism-chart-wrapper">
+        <div id="tourism-circuit-plotly" style="width: 100%; height: 370px;"></div>
+      </div>
+
+      <!-- Step-by-Step Route Itinerary Stops -->
+      <div class="circuit-stops-list">
+        <div style="font-size:0.85rem; font-weight:800; color:var(--color-black); margin-bottom:0.25rem;">
+          Route Stops & Entry Ticket Differential:
+        </div>
+  `;
+
+  currentCircuit.stops.forEach(st => {
+    const diff = (st.intl_usd - st.saarc_usd).toFixed(2);
+    const pct = ((diff / st.intl_usd) * 100).toFixed(0);
+
+    html += `
+      <div class="circuit-stop-row">
+        <div class="circuit-stop-index">${st.stop}</div>
+        <div class="circuit-stop-name">${st.flag} ${escapeHtml(st.name)}</div>
+        <div class="circuit-stop-fees">
+          <span class="circuit-stop-intl">Intl: $${st.intl_usd.toFixed(2)}</span>
+          <span style="color:var(--color-gray-400);">➔</span>
+          <span class="circuit-stop-saarc">SAARC: $${st.saarc_usd.toFixed(2)}</span>
+          <span style="background:#ecfdf5; color:#047857; font-weight:700; font-size:0.7rem; padding:0.15rem 0.45rem; border-radius:var(--radius-pill); border:1px solid #a7f3d0;">
+            Save $${diff} (${pct}%)
+          </span>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+
+  // Render Cumulative Line Chart
+  const chartEl = document.getElementById('tourism-circuit-plotly');
+  if (chartEl && typeof Plotly !== 'undefined') {
+    const stops = currentCircuit.stops;
+    const xLabels = stops.map(s => `${s.flag} Stop ${s.stop}: ${s.name.split('(')[0].trim()}`);
+
+    let cumIntl = 0;
+    let cumSaarc = 0;
+    const yIntl = [];
+    const ySaarc = [];
+
+    stops.forEach(s => {
+      cumIntl += s.intl_usd;
+      cumSaarc += s.saarc_usd;
+      yIntl.push(parseFloat(cumIntl.toFixed(2)));
+      ySaarc.push(parseFloat(cumSaarc.toFixed(2)));
+    });
+
+    const traces = [
+      {
+        x: xLabels,
+        y: yIntl,
+        name: 'General International Visitor (Cumulative $)',
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#ef4444', width: 3, shape: 'spline' },
+        marker: { size: 8, color: '#dc2626' },
+        hovertemplate: '<b>%{x}</b><br>International Total: $%{y:.2f}<extra></extra>'
+      },
+      {
+        x: xLabels,
+        y: ySaarc,
+        name: 'SAARC National Rate (Cumulative $)',
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#059669', width: 3, shape: 'spline' },
+        marker: { size: 8, color: '#047857' },
+        fill: 'tonexty',
+        fillcolor: 'rgba(5, 150, 105, 0.08)',
+        hovertemplate: '<b>%{x}</b><br>SAARC Total: $%{y:.2f}<extra></extra>'
+      }
+    ];
+
+    const layout = {
+      title: {
+        text: `<b>Cumulative Entry Expense Trajectory (${currentCircuit.name})</b>`,
+        font: { family: 'inherit', size: 14, color: '#111827' },
+        x: 0.02,
+        y: 0.96
+      },
+      margin: { l: 50, r: 25, t: 45, b: 85 },
+      xaxis: {
+        tickangle: -20,
+        tickfont: { family: 'inherit', size: 10, color: '#374151' },
+        showgrid: false
+      },
+      yaxis: {
+        title: { text: 'Cumulative Ticket Expense (USD $)', font: { size: 11, color: '#4b5563' } },
+        gridcolor: '#e5e7eb',
+        zerolinecolor: '#e5e7eb'
+      },
+      legend: {
+        orientation: 'h',
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.14,
+        font: { family: 'inherit', size: 11 }
+      },
+      plot_bgcolor: 'transparent',
+      paper_bgcolor: 'transparent',
+      autosize: true
+    };
+
+    Plotly.react(chartEl, traces, layout, { responsive: true, displayModeBar: false });
+  }
+
+  displayCircuitDossier(currentCircuit);
+}
+
+/**
+ * 4. 8x8 Bilateral Heritage & Tourism Reciprocity Matrix Grid
+ */
+function renderTourismMatrix(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const countries = tourismData.metadata?.countries || ['AFG', 'BGD', 'BTN', 'IND', 'MDV', 'NPL', 'PAK', 'LKA'];
+  const matrix = tourismData.reciprocity_matrix || {};
+  const tiers = tourismData.reciprocity_tiers || {};
+
+  let tableHtml = `
+    <div class="tourism-view-container">
+      <div class="tourism-matrix-layout">
+        <div class="tourism-matrix-scroll">
+          <table class="tourism-matrix-table" role="grid" aria-label="Bilateral Tourism & Heritage Reciprocity Grid">
+            <thead>
+              <tr>
+                <th rowspan="2" style="background:#f1f5f9; font-size:0.7rem; width:130px;">
+                  <div>🏛️ DESTINATION ➔</div>
+                  <div style="font-size:0.6rem; color:var(--color-gray-600); margin-top:2px;">PASSPORT ORIGIN ⬇</div>
+                </th>
+                <th colspan="${countries.length}" style="background:#f8fafc; font-size:0.8rem; font-weight:800;">
+                  🏛️ DESTINATION STATE (Host of Monuments / Surcharges)
+                </th>
+              </tr>
+              <tr>
+  `;
+
+  countries.forEach(c => {
+    const flag = COUNTRY_FLAGS[c] || '';
+    tableHtml += `<th title="Destination: ${COUNTRY_NAMES[c] || c}">${flag} ${c}</th>`;
+  });
+
+  tableHtml += `</tr></thead><tbody>`;
+
+  countries.forEach(orig => {
+    const origFlag = COUNTRY_FLAGS[orig] || '';
+    tableHtml += `<tr>`;
+    tableHtml += `<th title="Citizen / Passport of ${COUNTRY_NAMES[orig] || orig}">${origFlag} ${orig}</th>`;
+
+    countries.forEach(dest => {
+      if (orig === dest) {
+        tableHtml += `
+          <td class="tourism-matrix-cell" style="background:#f8fafc; color:#94a3b8; font-weight:700;" title="Domestic Jurisdiction (${orig})">
+            —
+          </td>
+        `;
+        return;
+      }
+
+      // Note: In tourism matrix, DEST is the provider/host and ORIG is the beneficiary/traveler
+      const cellData = matrix[dest]?.[orig];
+      const tierId = cellData?.tier || 'standard_foreign';
+      let tierBadge = '⚪ Standard';
+      if (tierId === 'domestic_parity') tierBadge = '🟢 Domestic Parity';
+      else if (tierId === 'regional_concession') tierBadge = '🔵 Concession';
+      else if (tierId === 'bilateral_waiver') tierBadge = '🟡 Strategic Waiver';
+
+      tableHtml += `
+        <td class="tourism-matrix-cell" data-dest="${dest}" data-orig="${orig}" title="${escapeHtml(cellData?.summary || '')}">
+          <span class="tourism-cell-badge ${tierId}">
+            ${tierBadge}
+          </span>
+        </td>
+      `;
+    });
+
+    tableHtml += `</tr>`;
+  });
+
+  tableHtml += `
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Reciprocity Tiers Legend -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:0.65rem;">
+        <div style="padding:0.65rem 0.85rem; border-radius:var(--radius-sm); background:#ecfdf5; border:1px solid #a7f3d0; font-size:0.75rem;">
+          <strong style="color:#047857;">🟢 Full Domestic Parity</strong>
+          <p style="margin:0.2rem 0 0 0; color:#065f46; font-size:0.7rem;">
+            India ASI: All SAARC citizens pay identical ticket fees as Indian domestic citizens (e.g. Taj Mahal ₹50 vs ₹1,100 foreign).
+          </p>
+        </div>
+
+        <div style="padding:0.65rem 0.85rem; border-radius:var(--radius-sm); background:#eff6ff; border:1px solid #bfdbfe; font-size:0.75rem;">
+          <strong style="color:#1d4ed8;">🔵 Regional Concession (50–85% off)</strong>
+          <p style="margin:0.2rem 0 0 0; color:#1e40af; font-size:0.7rem;">
+            Sri Lanka CCF (50%), Nepal Municipalities (50–75%), Pakistan & Bangladesh archaeology (80%).
+          </p>
+        </div>
+
+        <div style="padding:0.65rem 0.85rem; border-radius:var(--radius-sm); background:#fffbeb; border:1px solid #fde68a; font-size:0.75rem;">
+          <strong style="color:#b45309;">🟡 Bilateral Strategic Waiver</strong>
+          <p style="margin:0.2rem 0 0 0; color:#92400e; font-size:0.7rem;">
+            Bhutan SDF capped at ₹1,200/night for Indian, Bangladeshi, and Maldivian nationals under bilateral MoUs.
+          </p>
+        </div>
+
+        <div style="padding:0.65rem 0.85rem; border-radius:var(--radius-sm); background:#f8fafc; border:1px solid #cbd5e1; font-size:0.75rem;">
+          <strong style="color:#475569;">⚪ Standard Foreign Tariff</strong>
+          <p style="margin:0.2rem 0 0 0; color:#64748b; font-size:0.7rem;">
+            Maldives uniform resort Green Tax ($6/night) and standard non-regional foreign monument rates.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = tableHtml;
+
+  // Bind cell clicks to inspect bilateral dossier
+  container.querySelectorAll('.tourism-matrix-cell[data-dest]').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const dest = cell.getAttribute('data-dest');
+      const orig = cell.getAttribute('data-orig');
+      container.querySelectorAll('.tourism-matrix-cell').forEach(c => c.style.outline = '');
+      cell.style.outline = '2px solid var(--color-black)';
+      displayTourismDossier(dest, orig);
+    });
+  });
+
+  // Auto-inspect the default pair
+  const curP = selectedPair?.provider || 'IND';
+  const curB = selectedPair?.beneficiary || 'NPL';
+  displayTourismDossier(curP, curB);
+}
+
+/**
+ * Display comprehensive Monument Dossier in the Inspector Panel
+ */
+function displayMonumentDossier(mon) {
+  const container = document.getElementById('provisions-container');
+  const placeholder = document.getElementById('placeholder-msg');
+  if (placeholder) placeholder.style.display = 'none';
+  if (!container || !mon) return;
+
+  if (window.innerWidth <= 960) {
+    setTimeout(() => {
+      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+
+  const flag = COUNTRY_FLAGS[mon.country] || '';
+  const countryName = COUNTRY_NAMES[mon.country] || mon.country;
+  const badgeClass = mon.parity_tier === 'domestic_parity' ? 'parity' : 'concession';
+
+  container.innerHTML = `
+    <div class="visa-dossier-wrap">
+      <div class="inspector-header" style="margin-bottom:0.25rem;">
+        <div class="inspector-top-badge">UNESCO WORLD HERITAGE TARIFF</div>
+        <h3 class="inspector-pair-title">
+          <span>${flag} ${escapeHtml(mon.name)}</span>
+        </h3>
+        <p class="inspector-direction-tag">${escapeHtml(mon.state_region)} • ${mon.unesco_year ? `UNESCO Inscribed ${mon.unesco_year}` : 'Protected Heritage Site'}</p>
+      </div>
+
+      <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+        <span class="monument-tier-badge ${badgeClass}" style="font-size:0.75rem; padding:0.25rem 0.6rem;">
+          ${escapeHtml(mon.parity_tier_label)}
+        </span>
+        <span style="font-size:0.75rem; font-weight:700; background:#f1f5f9; color:#334155; padding:0.25rem 0.6rem; border-radius:var(--radius-pill); border:1px solid #cbd5e1;">
+          ${escapeHtml(mon.authority)}
+        </span>
+      </div>
+
+      <!-- Pricing Comparison Table -->
+      <div class="surface-card" style="padding:0.85rem; border:1px solid var(--color-border); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+        <div style="font-size:0.75rem; font-weight:800; color:var(--color-black); margin-bottom:0.5rem;">
+          Statutory Entry Fee Schedule:
+        </div>
+        <table style="width:100%; border-collapse:collapse; font-size:0.75rem;">
+          <tbody>
+            <tr style="border-bottom:1px solid var(--color-border);">
+              <td style="padding:0.35rem 0; color:var(--color-gray-600); font-weight:600;">Domestic Resident:</td>
+              <td style="padding:0.35rem 0; font-weight:800; text-align:right;">${mon.currency_symbol} ${mon.domestic_fee.toLocaleString()} ($${mon.domestic_usd.toFixed(2)})</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border); background:#ecfdf5;">
+              <td style="padding:0.35rem 0.4rem; color:#065f46; font-weight:700;">SAARC Citizen:</td>
+              <td style="padding:0.35rem 0.4rem; font-weight:900; color:#047857; text-align:right;">${mon.currency_symbol} ${mon.saarc_fee.toLocaleString()} ($${mon.saarc_usd.toFixed(2)})</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border);">
+              <td style="padding:0.35rem 0; color:var(--color-gray-600); font-weight:600;">General Foreigner:</td>
+              <td style="padding:0.35rem 0; font-weight:800; color:#dc2626; text-align:right;">${mon.currency_symbol} ${mon.foreign_fee.toLocaleString()} ($${mon.foreign_usd.toFixed(2)})</td>
+            </tr>
+            <tr>
+              <td style="padding:0.45rem 0; color:#047857; font-weight:800;">Net Regional Savings:</td>
+              <td style="padding:0.45rem 0; font-weight:900; color:#047857; text-align:right;">⚡ Save $${mon.savings_usd.toFixed(2)} (${mon.savings_pct}%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Legal Basis Box -->
+      <div class="provision-card" style="margin-bottom:0.75rem;">
+        <div class="prov-meta-row">
+          <span class="prov-cat-badge cat-tourism_culture">LEGAL FRAMEWORK</span>
+        </div>
+        <h4 class="prov-title" style="font-size:0.85rem;">Statutory Authority & Regulations</h4>
+        <p class="prov-desc" style="font-size:0.75rem;">
+          <strong>Legal Basis:</strong> ${escapeHtml(mon.legal_basis)}
+        </p>
+        <p class="prov-desc" style="font-size:0.75rem; margin-top:0.4rem;">
+          ${escapeHtml(mon.notes)}
+        </p>
+        <div class="prov-source-row" style="margin-top:0.6rem;">
+          <a href="${escapeHtml(mon.source_url)}" target="_blank" rel="noopener noreferrer" class="prov-source-link">
+            <span>Official Ticketing Authority</span>
+            <span class="source-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="visa-notice-box open">
+        <div class="visa-notice-title">
+          <span>💡</span>
+          <span>Ticketing & Verification Rules</span>
+        </div>
+        <p style="font-size:0.725rem;">
+          SAARC nationals must present an original valid national passport or photo government voter card at entry turns to avail of concessionary or domestic rates.
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Display Bhutan SDF Dossier in Inspector Panel
+ */
+function displayBhutanSdfDossier() {
+  const container = document.getElementById('provisions-container');
+  const placeholder = document.getElementById('placeholder-msg');
+  if (placeholder) placeholder.style.display = 'none';
+  if (!container) return;
+
+  const sdf = tourismData.bhutan_sdf;
+  if (!sdf) return;
+
+  container.innerHTML = `
+    <div class="visa-dossier-wrap">
+      <div class="inspector-header" style="margin-bottom:0.25rem;">
+        <div class="inspector-top-badge">STATUTORY TOURISM LEVY</div>
+        <h3 class="inspector-pair-title">
+          <span>🇧🇹 Bhutan Sustainable Development Fee (SDF)</span>
+        </h3>
+        <p class="inspector-direction-tag">Bilateral Treaty Waiver • Tourism Levy Act 2022</p>
+      </div>
+
+      <div class="provision-card" style="margin-bottom:0.75rem;">
+        <div class="prov-meta-row">
+          <span class="prov-cat-badge cat-tourism_culture">STATUTORY REGIME</span>
+        </div>
+        <h4 class="prov-title" style="font-size:0.85rem;">Bilateral Concession Mechanics</h4>
+        <p class="prov-desc" style="font-size:0.75rem;">
+          The statutory Sustainable Development Fee (SDF) is levied under Section 7 of the Tourism Levy Act of Bhutan 2022. While third-country international tourists pay <strong>$100 per night</strong>, Indian passport holders pay a concessionary rate of <strong>BTN / INR 1,200 per night (~$14.40)</strong>.
+        </p>
+        <div style="background:#ecfdf5; border:1px solid #a7f3d0; padding:0.6rem; border-radius:var(--radius-sm); margin:0.6rem 0; font-size:0.725rem; color:#065f46;">
+          <strong>Direct Financial Impact:</strong> On a standard 7-night vacation, an individual Indian traveler saves <strong>$599.20</strong>, and a family of four saves <strong>$2,396.80</strong> in statutory tourism taxes alone.
+        </div>
+        <div class="prov-source-row">
+          <a href="${escapeHtml(sdf.official_url)}" target="_blank" rel="noopener noreferrer" class="prov-source-link">
+            <span>Department of Tourism Bhutan</span>
+            <span class="source-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="visa-notice-box open">
+        <div class="visa-notice-title">
+          <span>🇧🇩 🇲🇻</span>
+          <span>Bangladesh & Maldives Bilateral Concessions</span>
+        </div>
+        <p style="font-size:0.725rem;">
+          Bhutan has signed bilateral tourism MoUs granting subsidized visitor quotas and concessionary entry terms for visiting citizens of Bangladesh and Maldives.
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Display Circuit Dossier in Inspector Panel
+ */
+function displayCircuitDossier(circuit) {
+  const container = document.getElementById('provisions-container');
+  const placeholder = document.getElementById('placeholder-msg');
+  if (placeholder) placeholder.style.display = 'none';
+  if (!container || !circuit) return;
+
+  container.innerHTML = `
+    <div class="visa-dossier-wrap">
+      <div class="inspector-header" style="margin-bottom:0.25rem;">
+        <div class="inspector-top-badge">CROSS-BORDER HERITAGE TRAIL</div>
+        <h3 class="inspector-pair-title">
+          <span>${escapeHtml(circuit.name)}</span>
+        </h3>
+        <p class="inspector-direction-tag">${circuit.stops.length} Protected Sites • ${circuit.countries_involved.map(c => `${COUNTRY_FLAGS[c] || ''} ${c}`).join(' • ')}</p>
+      </div>
+
+      <div class="surface-card" style="padding:0.85rem; border:1px solid var(--color-border); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+        <div style="font-size:0.75rem; font-weight:800; color:var(--color-black); margin-bottom:0.4rem;">
+          Total Itinerary Ticket Cost Differential:
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:0.3rem;">
+          <span style="color:var(--color-gray-600);">Third-Country Foreigner Total:</span>
+          <span style="font-weight:800; color:#dc2626;">$${circuit.total_intl_usd.toFixed(2)}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:0.3rem;">
+          <span style="color:var(--color-gray-600);">SAARC Citizen Total:</span>
+          <span style="font-weight:900; color:#059669;">$${circuit.total_saarc_usd.toFixed(2)}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; padding-top:0.3rem; border-top:1px dashed var(--color-border);">
+          <span style="font-weight:800; color:#047857;">Total Regional Savings:</span>
+          <span style="font-weight:900; color:#047857;">⚡ $${circuit.total_savings_usd.toFixed(2)} (${circuit.savings_pct}%)</span>
+        </div>
+      </div>
+
+      <div class="provision-card" style="margin-bottom:0.75rem;">
+        <h4 class="prov-title" style="font-size:0.85rem;">Regional Integration Impact</h4>
+        <p class="prov-desc" style="font-size:0.75rem;">
+          ${escapeHtml(circuit.key_benefit)}
+        </p>
+        <p class="prov-desc" style="font-size:0.75rem; margin-top:0.4rem;">
+          <strong>Itinerary Route:</strong> ${escapeHtml(circuit.route_description)}
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Display Bilateral Tourism Reciprocity Dossier in Inspector Panel
+ */
+function displayTourismDossier(provider, beneficiary) {
+  const container = document.getElementById('provisions-container');
+  const placeholder = document.getElementById('placeholder-msg');
+  if (placeholder) placeholder.style.display = 'none';
+  if (!container) return;
+
+  if (window.innerWidth <= 960) {
+    setTimeout(() => {
+      document.getElementById('inspector-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+
+  const pFlag = COUNTRY_FLAGS[provider] || '';
+  const bFlag = COUNTRY_FLAGS[beneficiary] || '';
+  const pName = COUNTRY_NAMES[provider] || provider;
+  const bName = COUNTRY_NAMES[beneficiary] || beneficiary;
+
+  if (provider === beneficiary) {
+    container.innerHTML = `
+      <div class="inspector-header">
+        <div class="inspector-top-badge">DOMESTIC JURISDICTION</div>
+        <h3 class="inspector-pair-title">
+          <span>${pFlag} ${pName} (${provider})</span>
+        </h3>
+        <p class="inspector-direction-tag">Internal Municipal Heritage Code</p>
+      </div>
+      <div class="domestic-notice">
+        <h4 class="domestic-title">Domestic Resident Rates</h4>
+        <p class="domestic-desc">
+          Domestic residents pay baseline resident ticketing rates across all municipal and national monuments.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const rec = tourismData?.reciprocity_matrix?.[provider]?.[beneficiary];
+  if (!rec) {
+    container.innerHTML = `<div style="padding:1rem;color:var(--color-gray-600);">No specific heritage reciprocity data available for ${provider} ➔ ${beneficiary}.</div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="visa-dossier-wrap">
+      <div class="inspector-header" style="margin-bottom:0.25rem;">
+        <div class="inspector-top-badge">HERITAGE RECIPROCITY POLICY</div>
+        <h3 class="inspector-pair-title">
+          <span>${pFlag} ${provider} ➔ ${bFlag} ${beneficiary}</span>
+        </h3>
+        <p class="inspector-direction-tag">${pName} (Host State) treating visitors from ${bName}</p>
+      </div>
+
+      <div style="margin-bottom:0.75rem;">
+        <span class="tourism-cell-badge ${rec.tier}" style="font-size:0.75rem; padding:0.25rem 0.6rem;">
+          ${escapeHtml(rec.tier_label || 'Heritage Concession')}
+        </span>
+        <span style="font-size:0.725rem; font-weight:700; color:#047857; margin-left:0.5rem;">
+          ⚡ Estimated Discount: ${escapeHtml(rec.discount_est)}
+        </span>
+      </div>
+
+      <div class="provision-card" style="margin-bottom:0.75rem;">
+        <h4 class="prov-title" style="font-size:0.85rem;">Policy Overview</h4>
+        <p class="prov-desc" style="font-size:0.75rem;">
+          ${escapeHtml(rec.summary)}
+        </p>
+        <p class="prov-desc" style="font-size:0.75rem; margin-top:0.4rem;">
+          <strong>Monument Ticket Examples:</strong> ${escapeHtml(rec.examples)}
+        </p>
+        <p class="prov-desc" style="font-size:0.75rem; margin-top:0.4rem; color:var(--color-gray-600);">
+          <strong>Statutory Instrument:</strong> ${escapeHtml(rec.legal_instrument)}
+        </p>
+      </div>
+
+      <div class="visa-notice-box open">
+        <div class="visa-notice-title">
+          <span>🛂</span>
+          <span>Eligibility Verification</span>
+        </div>
+        <p style="font-size:0.725rem;">
+          Citizens of ${bName} must produce a valid national passport at official monument ticketing counters to qualify for preferential domestic or concessionary SAARC rates.
         </p>
       </div>
     </div>
