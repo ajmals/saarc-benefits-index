@@ -150,14 +150,47 @@
 
     <!-- Main Content: Heatmap & Side-by-Side Provision Dossier -->
     <main class="main-content" id="matrix-section">
-      <!-- Left Column: Bilateral Matrix View -->
+      <!-- Left Column: Bilateral Matrix & Multi-View Explorer -->
       <section class="matrix-section">
         <div class="surface-card heatmap-card">
+          <!-- View Switcher Tabs -->
+          <div class="view-tabs-bar">
+            <div class="view-tabs" role="tablist" aria-label="Visual representation">
+              <button class="view-tab-btn active" data-view="matrix" role="tab" aria-selected="true">
+                <span>⊞</span> Matrix Grid
+              </button>
+              <button class="view-tab-btn" data-view="rankings" role="tab" aria-selected="false">
+                <span>≡</span> Partner Rankings
+              </button>
+              <button class="view-tab-btn" data-view="reciprocity" role="tab" aria-selected="false">
+                <span>⇄</span> Reciprocity Balance
+              </button>
+              <button class="view-tab-btn" data-view="radar" role="tab" aria-selected="false">
+                <span>🕸</span> Sector Profile Radar
+              </button>
+            </div>
+
+            <!-- Focus Country Dropdown (Active in Single Country / Partner views) -->
+            <div class="view-focus-controls" id="view-focus-controls" style="display: none;">
+              <label for="focus-country-select" class="focus-country-label">Focus State:</label>
+              <select id="focus-country-select" class="focus-country-select">
+                <option value="IND">🇮🇳 India (IND)</option>
+                <option value="NPL">🇳🇵 Nepal (NPL)</option>
+                <option value="BTN">🇧🇹 Bhutan (BTN)</option>
+                <option value="BGD">🇧🇩 Bangladesh (BGD)</option>
+                <option value="LKA">🇱🇰 Sri Lanka (LKA)</option>
+                <option value="MDV">🇲🇻 Maldives (MDV)</option>
+                <option value="PAK">🇵🇰 Pakistan (PAK)</option>
+                <option value="AFG">🇦🇫 Afghanistan (AFG)</option>
+              </select>
+            </div>
+          </div>
+
           <div class="card-header">
             <div>
-              <div class="card-pill-tag">INTERACTIVE VISUALIZATION</div>
-              <h2 class="card-title">Bilateral Relationship Matrix</h2>
-              <p class="card-caption">
+              <div class="card-pill-tag" id="view-badge-type">INTERACTIVE VISUALIZATION</div>
+              <h2 class="card-title" id="view-main-title">Bilateral Relationship Matrix</h2>
+              <p class="card-caption" id="view-caption">
                 <span class="axis-guide"><strong>Rows (Y):</strong> Provider / Granting State</span>
                 <span class="axis-divider">•</span>
                 <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
@@ -169,7 +202,7 @@
           <div id="matrix-heatmap" class="heatmap-plot"></div>
 
           <div class="matrix-footer">
-            <div class="hint-text">
+            <div class="hint-text" id="view-hint-text">
               <span class="hint-bullet">●</span> Click on any colored cell in the matrix to view the treaties, concessions, and official source links between those two nations.
             </div>
             <div class="quick-chips">

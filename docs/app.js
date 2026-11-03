@@ -1,9 +1,16 @@
 /**
- * SAARC Bilateral Benefits & Concessions Explorer
+ * South Asian Bilateral Relations & Benefits Index
+ * Multi-View Interactive Visualizer:
+ * 1. Matrix Grid (Plotly Heatmap)
+ * 2. Partner Rankings (Plotly Stacked Horizontal Bar)
+ * 3. Reciprocity Balance (Diverging Given vs. Received Bar)
+ * 4. Sector Profile Radar (Polar Spider Chart)
  */
 
 let globalData = null;
 let selectedPair = null;
+let activeView = 'matrix'; // 'matrix' | 'rankings' | 'reciprocity' | 'radar'
+let focusCountry = 'IND';
 
 const COUNTRY_FLAGS = {
   AFG: '🇦🇫',
@@ -16,6 +23,17 @@ const COUNTRY_FLAGS = {
   LKA: '🇱🇰'
 };
 
+const COUNTRY_NAMES = {
+  AFG: 'Afghanistan',
+  BGD: 'Bangladesh',
+  BTN: 'Bhutan',
+  IND: 'India',
+  MDV: 'Maldives',
+  NPL: 'Nepal',
+  PAK: 'Pakistan',
+  LKA: 'Sri Lanka'
+};
+
 const CATEGORY_LABELS = {
   total: 'All Dimensions',
   trade: 'Trade & Transit',
@@ -26,11 +44,11 @@ const CATEGORY_LABELS = {
 };
 
 const CATEGORY_COLORS = {
-  trade: '#2563eb',
-  tourism_culture: '#f59e0b',
-  education: '#8b5cf6',
-  mobility_visa: '#10b981',
-  finance_bilateral: '#d97706'
+  trade: '#2563eb',             // Royal Blue
+  tourism_culture: '#f59e0b',   // Warm Amber
+  education: '#8b5cf6',         // Soft Violet
+  mobility_visa: '#10b981',     // Emerald
+  finance_bilateral: '#d97706'  // Deep Ochre
 };
 
 // Data loading with fallbacks
@@ -81,13 +99,11 @@ function updateHeaderStats() {
   }
   if (totalProvEl && uniqueIds.size > 0) {
     totalProvEl.textContent = uniqueIds.size;
-    const subVal = totalProvEl.parentElement.querySelector('.stat-sub-val');
-    if (subVal) subVal.textContent = `/ ${uniqueIds.size}`;
   }
 }
 
 function initVisualization() {
-  renderHeatmap();
+  renderActiveView();
   setupEventListeners();
 
   // Default selection to showcase inspector on initial load
@@ -97,20 +113,47 @@ function initVisualization() {
 function setupEventListeners() {
   const catSelect = document.getElementById('category-select');
   const personaSelect = document.getElementById('persona-select');
+  const focusCountrySelect = document.getElementById('focus-country-select');
 
   catSelect.addEventListener('change', () => {
     updateBadge();
-    renderHeatmap();
+    renderActiveView();
     if (selectedPair) {
       displayDetails(selectedPair.provider, selectedPair.beneficiary);
     }
   });
 
   personaSelect.addEventListener('change', () => {
-    renderHeatmap();
+    renderActiveView();
     if (selectedPair) {
       displayDetails(selectedPair.provider, selectedPair.beneficiary);
     }
+  });
+
+  if (focusCountrySelect) {
+    focusCountrySelect.addEventListener('change', (e) => {
+      focusCountry = e.target.value;
+      renderActiveView();
+      // Auto-inspect the top partner for this focus country
+      autoSelectTopPartner(focusCountry);
+    });
+  }
+
+  // View tabs switcher
+  const viewTabBtns = document.querySelectorAll('.view-tab-btn');
+  viewTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewTabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      activeView = btn.dataset.view;
+
+      updateViewChrome();
+      renderActiveView();
+    });
   });
 
   // Quick Chips
@@ -119,7 +162,12 @@ function setupEventListeners() {
       const pair = btn.getAttribute('data-pair');
       if (pair) {
         const [p, b] = pair.split('-');
+        focusCountry = p;
+        if (focusCountrySelect) focusCountrySelect.value = p;
         displayDetails(p, b);
+        if (activeView !== 'matrix') {
+          renderActiveView();
+        }
       }
     });
   });
@@ -141,7 +189,12 @@ function setupEventListeners() {
     cycleBtn.addEventListener('click', () => {
       cycleIdx = (cycleIdx + 1) % cycleList.length;
       const [p, b] = cycleList[cycleIdx];
+      focusCountry = p;
+      if (focusCountrySelect) focusCountrySelect.value = p;
       displayDetails(p, b);
+      if (activeView !== 'matrix') {
+        renderActiveView();
+      }
     });
   }
 
@@ -220,9 +273,102 @@ function updateBadge() {
   }
 }
 
+function updateViewChrome() {
+  const focusControls = document.getElementById('view-focus-controls');
+  const mainTitle = document.getElementById('view-main-title');
+  const caption = document.getElementById('view-caption');
+  const hintText = document.getElementById('view-hint-text');
+  const badgeType = document.getElementById('view-badge-type');
+
+  const countryName = COUNTRY_NAMES[focusCountry] || focusCountry;
+  const countryFlag = COUNTRY_FLAGS[focusCountry] || '';
+
+  if (activeView === 'matrix') {
+    if (focusControls) focusControls.style.display = 'none';
+    if (badgeType) badgeType.textContent = 'HEATMAP MATRIX';
+    if (mainTitle) mainTitle.textContent = 'Bilateral Relationship Matrix';
+    if (caption) {
+      caption.innerHTML = `
+        <span class="axis-guide"><strong>Rows (Y):</strong> Provider / Granting State</span>
+        <span class="axis-divider">•</span>
+        <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
+      `;
+    }
+    if (hintText) {
+      hintText.innerHTML = `<span class="hint-bullet">●</span> Click on any colored cell in the matrix to view the treaties, concessions, and official source links between those two nations.`;
+    }
+  } else if (activeView === 'rankings') {
+    if (focusControls) focusControls.style.display = 'flex';
+    if (badgeType) badgeType.textContent = 'PARTNERSHIP RANKINGS';
+    if (mainTitle) mainTitle.textContent = `${countryFlag} ${countryName}'s Top Regional Partners`;
+    if (caption) {
+      caption.innerHTML = `Ranked by total concession points granted to neighbors, segmented by sector.`;
+    }
+    if (hintText) {
+      hintText.innerHTML = `<span class="hint-bullet">●</span> Click any bar to inspect the specific bilateral provisions between ${focusCountry} and that partner.`;
+    }
+  } else if (activeView === 'reciprocity') {
+    if (focusControls) focusControls.style.display = 'flex';
+    if (badgeType) badgeType.textContent = 'RECIPROCITY BALANCE';
+    if (mainTitle) mainTitle.textContent = `${countryFlag} ${countryName}: Concessions Given vs. Received`;
+    if (caption) {
+      caption.innerHTML = `Comparing privileges <strong>Given to neighbors</strong> (outbound) vs. <strong>Received from neighbors</strong> (inbound).`;
+    }
+    if (hintText) {
+      hintText.innerHTML = `<span class="hint-bullet">●</span> Balanced bars indicate deep reciprocal partnerships; one-sided bars show unilateral concessions. Click any partner to inspect.`;
+    }
+  } else if (activeView === 'radar') {
+    if (focusControls) focusControls.style.display = 'flex';
+    const pairBeneficiary = (selectedPair && selectedPair.provider === focusCountry) ? selectedPair.beneficiary : 'NPL';
+    const beneName = COUNTRY_NAMES[pairBeneficiary] || pairBeneficiary;
+    const beneFlag = COUNTRY_FLAGS[pairBeneficiary] || '';
+
+    if (badgeType) badgeType.textContent = 'SECTOR RADAR PROFILE';
+    if (mainTitle) mainTitle.textContent = `${countryFlag} ${focusCountry} → ${beneFlag} ${pairBeneficiary} Sector Profile`;
+    if (caption) {
+      caption.innerHTML = `Multi-axis distribution of concessions across the 5 cooperation sectors.`;
+    }
+    if (hintText) {
+      hintText.innerHTML = `<span class="hint-bullet">●</span> Click any quick-chip or matrix cell to switch the radar pair profile.`;
+    }
+  }
+}
+
+function autoSelectTopPartner(c) {
+  if (!globalData) return;
+  const partners = (globalData.countries || []).filter(p => p !== c);
+  let bestP = partners[0] || 'NPL';
+  let bestScore = -1;
+
+  partners.forEach(b => {
+    const score = globalData.scores_total[c]?.[b] || 0;
+    if (score > bestScore) {
+      bestScore = score;
+      bestP = b;
+    }
+  });
+
+  displayDetails(c, bestP);
+}
+
 /**
- * Renders the interactive Plotly heatmap with dynamic persona & category scores
- * and high-contrast labels against the white card surface.
+ * Route to active graph rendering function
+ */
+function renderActiveView() {
+  updateViewChrome();
+  if (activeView === 'matrix') {
+    renderHeatmap();
+  } else if (activeView === 'rankings') {
+    renderPartnerRankings();
+  } else if (activeView === 'reciprocity') {
+    renderReciprocityBalance();
+  } else if (activeView === 'radar') {
+    renderSectorRadar();
+  }
+}
+
+/**
+ * 1. Heatmap Matrix
  */
 function renderHeatmap() {
   if (!globalData) return;
@@ -230,7 +376,6 @@ function renderHeatmap() {
   const catFilter = document.getElementById('category-select').value;
   const personaFilter = document.getElementById('persona-select').value;
 
-  // Compute cell scores dynamically so Persona and Category filters interact accurately
   const zValues = [];
   const hoverText = [];
 
@@ -248,12 +393,11 @@ function renderHeatmap() {
       }
 
       if (personaFilter === 'all') {
-        const baseScore = catFilter === 'total'
-          ? (scores_total[p]?.[b] || 0)
+        const baseScore = catFilter === 'total' 
+          ? (scores_total[p]?.[b] || 0) 
           : (scores_by_cat[catFilter]?.[p]?.[b] || 0);
         rowScores.push(baseScore);
       } else {
-        // Dynamically sum filtered provisions for this persona
         const pairProvs = details[p]?.[b] || [];
         const score = pairProvs.reduce((acc, item) => {
           const matchCat = catFilter === 'total' || item.category === catFilter;
@@ -282,7 +426,6 @@ function renderHeatmap() {
     hoverText.push(rowTexts);
   }
 
-  // Emerald/Teal gradient on clean white card
   const colorscale = [
     [0.0, '#f8fafc'],
     [0.05, '#f1f5f9'],
@@ -324,8 +467,8 @@ function renderHeatmap() {
     plot_bgcolor: '#ffffff',
     margin: { t: 40, r: 25, l: 80, b: 65 },
     xaxis: {
-      title: {
-        text: 'Beneficiary State (Recipient)',
+      title: { 
+        text: 'Beneficiary State (Recipient)', 
         font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
         standoff: 15
       },
@@ -340,8 +483,8 @@ function renderHeatmap() {
       side: 'bottom'
     },
     yaxis: {
-      title: {
-        text: 'Provider State (Grantor)',
+      title: { 
+        text: 'Provider State (Grantor)', 
         font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
         standoff: 15
       },
@@ -375,6 +518,296 @@ function renderHeatmap() {
   });
 }
 
+/**
+ * 2. Partner Rankings (Stacked Horizontal Bar by Sector)
+ */
+function renderPartnerRankings() {
+  if (!globalData) return;
+  const p = focusCountry;
+  const partners = (globalData.countries || []).filter(c => c !== p);
+
+  // Compute breakdown for each partner
+  const sectors = ['trade', 'mobility_visa', 'education', 'tourism_culture', 'finance_bilateral'];
+  const partnerData = partners.map(b => {
+    const rawList = globalData.details?.[p]?.[b] || [];
+    const sectorScores = {};
+    sectors.forEach(s => sectorScores[s] = 0);
+    let total = 0;
+    rawList.forEach(item => {
+      const level = item.level || item.benefit_level || 0;
+      if (sectorScores[item.category] !== undefined) {
+        sectorScores[item.category] += level;
+      }
+      total += level;
+    });
+    return {
+      beneficiary: b,
+      name: COUNTRY_NAMES[b] || b,
+      label: `${COUNTRY_FLAGS[b] || ''} ${b}`,
+      total: total,
+      scores: sectorScores,
+      count: rawList.length
+    };
+  });
+
+  // Sort partners ascending so the highest rank appears at the top of the horizontal bar chart
+  partnerData.sort((a, b) => a.total - b.total);
+
+  const yLabels = partnerData.map(d => d.label);
+
+  const traces = sectors.map(sec => ({
+    x: partnerData.map(d => d.scores[sec]),
+    y: yLabels,
+    name: CATEGORY_LABELS[sec],
+    type: 'bar',
+    orientation: 'h',
+    marker: {
+      color: CATEGORY_COLORS[sec],
+      line: { color: '#ffffff', width: 1 }
+    },
+    hoverinfo: 'x+name+y'
+  }));
+
+  const layout = {
+    barmode: 'stack',
+    paper_bgcolor: '#ffffff',
+    plot_bgcolor: '#ffffff',
+    margin: { t: 30, r: 25, l: 90, b: 60 },
+    legend: {
+      orientation: 'h',
+      y: 1.15,
+      x: 0,
+      font: { size: 11, color: '#111827' }
+    },
+    xaxis: {
+      title: {
+        text: 'Total Weighted Benefit Score (Points)',
+        font: { color: '#111827', size: 12 }
+      },
+      gridcolor: '#f3f4f6',
+      zeroline: true,
+      zerolinecolor: '#111111'
+    },
+    yaxis: {
+      tickfont: { color: '#111827', size: 12, family: 'monospace', weight: '700' },
+      linecolor: '#111111',
+      linewidth: 1.5
+    },
+    hoverlabel: {
+      bgcolor: '#111111',
+      font: { color: '#ffffff', size: 12 }
+    },
+    autosize: true
+  };
+
+  const container = document.getElementById('matrix-heatmap');
+  Plotly.react(container, traces, layout, { responsive: true, displayModeBar: false });
+
+  container.removeAllListeners?.('plotly_click');
+  container.on('plotly_click', (data) => {
+    if (data.points && data.points.length > 0) {
+      const idx = data.points[0].pointIndex;
+      const clickedPartner = partnerData[idx];
+      if (clickedPartner) {
+        displayDetails(p, clickedPartner.beneficiary);
+      }
+    }
+  });
+}
+
+/**
+ * 3. Reciprocity Balance (Diverging Bar: Given vs Received)
+ */
+function renderReciprocityBalance() {
+  if (!globalData) return;
+  const c = focusCountry;
+  const partners = (globalData.countries || []).filter(p => p !== c);
+
+  const balanceData = partners.map(p => {
+    const givenScore = globalData.scores_total[c]?.[p] || 0;
+    const receivedScore = globalData.scores_total[p]?.[c] || 0;
+    const net = givenScore - receivedScore;
+    return {
+      partner: p,
+      name: COUNTRY_NAMES[p] || p,
+      label: `${COUNTRY_FLAGS[p] || ''} ${p}`,
+      given: givenScore,
+      received: receivedScore,
+      net: net
+    };
+  });
+
+  // Sort by total engagement (given + received)
+  balanceData.sort((a, b) => (a.given + a.received) - (b.given + b.received));
+
+  const yLabels = balanceData.map(d => d.label);
+
+  const traceReceived = {
+    x: balanceData.map(d => -d.received),
+    y: yLabels,
+    name: `Received from Neighbor`,
+    type: 'bar',
+    orientation: 'h',
+    marker: {
+      color: '#0d9488', // Emerald/Teal
+      line: { color: '#111111', width: 1 }
+    },
+    hovertext: balanceData.map(d => `${d.name} grants ${d.received} pts to ${c}`),
+    hoverinfo: 'text'
+  };
+
+  const traceGiven = {
+    x: balanceData.map(d => d.given),
+    y: yLabels,
+    name: `Given to Neighbor`,
+    type: 'bar',
+    orientation: 'h',
+    marker: {
+      color: '#2563eb', // Royal Blue
+      line: { color: '#111111', width: 1 }
+    },
+    hovertext: balanceData.map(d => `${c} grants ${d.given} pts to ${d.name}`),
+    hoverinfo: 'text'
+  };
+
+  const layout = {
+    barmode: 'relative',
+    paper_bgcolor: '#ffffff',
+    plot_bgcolor: '#ffffff',
+    margin: { t: 30, r: 35, l: 90, b: 60 },
+    legend: {
+      orientation: 'h',
+      y: 1.15,
+      x: 0.15,
+      font: { size: 11, color: '#111827' }
+    },
+    xaxis: {
+      title: {
+        text: '← Received Points (Inbound) &nbsp;|&nbsp; Given Points (Outbound) →',
+        font: { color: '#111827', size: 12 }
+      },
+      tickformat: s => Math.abs(s),
+      gridcolor: '#f3f4f6',
+      zeroline: true,
+      zerolinecolor: '#111111',
+      zerolinewidth: 2
+    },
+    yaxis: {
+      tickfont: { color: '#111827', size: 12, family: 'monospace', weight: '700' },
+      linecolor: '#111111',
+      linewidth: 1.5
+    },
+    hoverlabel: {
+      bgcolor: '#111111',
+      font: { color: '#ffffff', size: 12 }
+    },
+    autosize: true
+  };
+
+  const container = document.getElementById('matrix-heatmap');
+  Plotly.react(container, [traceReceived, traceGiven], layout, { responsive: true, displayModeBar: false });
+
+  container.removeAllListeners?.('plotly_click');
+  container.on('plotly_click', (data) => {
+    if (data.points && data.points.length > 0) {
+      const idx = data.points[0].pointIndex;
+      const clicked = balanceData[idx];
+      if (clicked) {
+        displayDetails(c, clicked.partner);
+      }
+    }
+  });
+}
+
+/**
+ * 4. Sector Profile Radar (Spider Polar Chart)
+ */
+function renderSectorRadar() {
+  if (!globalData) return;
+  const p = focusCountry;
+  const b = (selectedPair && selectedPair.provider === p && selectedPair.beneficiary !== p) 
+    ? selectedPair.beneficiary 
+    : (p === 'IND' ? 'NPL' : 'IND');
+
+  const sectors = ['trade', 'tourism_culture', 'education', 'mobility_visa', 'finance_bilateral'];
+  const sectorNames = sectors.map(s => CATEGORY_LABELS[s]);
+
+  // Outbound Scores (p -> b)
+  const rawOutbound = globalData.details?.[p]?.[b] || [];
+  const outboundScores = sectors.map(sec => {
+    return rawOutbound.filter(i => i.category === sec).reduce((acc, cur) => acc + (cur.level || cur.benefit_level || 0), 0);
+  });
+
+  // Inbound Scores (b -> p)
+  const rawInbound = globalData.details?.[b]?.[p] || [];
+  const inboundScores = sectors.map(sec => {
+    return rawInbound.filter(i => i.category === sec).reduce((acc, cur) => acc + (cur.level || cur.benefit_level || 0), 0);
+  });
+
+  // Closed polygons for radar
+  sectorNames.push(sectorNames[0]);
+  outboundScores.push(outboundScores[0]);
+  inboundScores.push(inboundScores[0]);
+
+  const traces = [
+    {
+      type: 'scatterpolar',
+      r: outboundScores,
+      theta: sectorNames,
+      fill: 'toself',
+      name: `${p} → ${b} (Outbound)`,
+      line: { color: '#2563eb', width: 2 },
+      fillcolor: 'rgba(37, 99, 235, 0.25)'
+    },
+    {
+      type: 'scatterpolar',
+      r: inboundScores,
+      theta: sectorNames,
+      fill: 'toself',
+      name: `${b} → ${p} (Inbound)`,
+      line: { color: '#10b981', width: 2, dash: 'dot' },
+      fillcolor: 'rgba(16, 185, 129, 0.2)'
+    }
+  ];
+
+  const maxVal = Math.max(...outboundScores, ...inboundScores, 3);
+
+  const layout = {
+    polar: {
+      radialaxis: {
+        visible: true,
+        range: [0, maxVal + 1],
+        tickfont: { size: 9, color: '#4b5563' },
+        linecolor: '#e4e4e7',
+        gridcolor: '#f3f4f6'
+      },
+      angularaxis: {
+        tickfont: { size: 10, color: '#111827', weight: '700' },
+        rotation: 90,
+        direction: 'clockwise',
+        gridcolor: '#e4e4e7'
+      }
+    },
+    paper_bgcolor: '#ffffff',
+    plot_bgcolor: '#ffffff',
+    margin: { t: 40, r: 40, l: 40, b: 40 },
+    legend: {
+      orientation: 'h',
+      y: 1.15,
+      x: 0.1,
+      font: { size: 11, color: '#111827' }
+    },
+    hoverlabel: {
+      bgcolor: '#111111',
+      font: { color: '#ffffff', size: 12 }
+    },
+    autosize: true
+  };
+
+  const container = document.getElementById('matrix-heatmap');
+  Plotly.react(container, traces, layout, { responsive: true, displayModeBar: false });
+}
+
 function buildSegmentedMeter(score, maxScore = 4, color = '#111111') {
   const totalSegments = 5;
   const filledCount = Math.min(Math.round((score / maxScore) * totalSegments), totalSegments);
@@ -400,8 +833,8 @@ function displayDetails(provider, beneficiary) {
 
   const pFlag = COUNTRY_FLAGS[provider] || '';
   const bFlag = COUNTRY_FLAGS[beneficiary] || '';
-  const pName = globalData.metadata?.country_names?.[provider] || provider;
-  const bName = globalData.metadata?.country_names?.[beneficiary] || beneficiary;
+  const pName = globalData?.metadata?.country_names?.[provider] || COUNTRY_NAMES[provider] || provider;
+  const bName = globalData?.metadata?.country_names?.[beneficiary] || COUNTRY_NAMES[beneficiary] || beneficiary;
 
   // Handle Domestic Self-Pair
   if (provider === beneficiary) {

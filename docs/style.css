@@ -324,6 +324,87 @@ body {
   line-height: 1.25;
 }
 
+/* Visualization View Mode Switcher */
+.view-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1.5px solid var(--color-gray-200);
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.view-tabs {
+  display: flex;
+  gap: 0.4rem;
+  background-color: var(--color-gray-100);
+  padding: 0.3rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-gray-200);
+}
+
+.view-tab-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: var(--transition);
+}
+
+.view-tab-btn:hover {
+  color: var(--color-black);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.view-tab-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.view-focus-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.focus-country-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+}
+
+.focus-country-select {
+  font-family: inherit;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.focus-country-select:focus,
+.focus-country-select:hover {
+  background-color: var(--color-hover);
+}
+
 /* Category Filter Bar (Pill Buttons) */
 .filter-bar {
   display: flex;
