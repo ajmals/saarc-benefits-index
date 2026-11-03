@@ -803,6 +803,36 @@ body {
   line-height: 1.45;
 }
 
+.provision-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.55rem;
+  font-size: 0.8rem;
+  color: var(--color-black);
+}
+
+.provision-details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.1rem;
+}
+
+.detail-pill {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--color-gray-600);
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-pill);
+  padding: 0.1rem 0.5rem;
+}
+
 .provision-legal {
   font-size: 0.78rem;
   color: var(--color-gray-600);

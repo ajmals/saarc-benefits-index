@@ -320,12 +320,24 @@
               </div>
               <h4 class="provision-title">${escapeHtml(p.title)}</h4>
               <p class="provision-desc">${escapeHtml(p.description)}</p>
+              ${p.monetary_value_indicator ? `
+                <div class="provision-value">
+                  <span><strong>Indicator:</strong> ${escapeHtml(p.monetary_value_indicator)}</span>
+                </div>
+              ` : ''}
+              ${(p.target_audience || p.reciprocity_type) ? `
+                <div class="provision-details-grid">
+                  ${p.target_audience ? `<span class="detail-pill">Target: ${escapeHtml(p.target_audience.replace(/_/g, ' '))}</span>` : ''}
+                  ${p.reciprocity_type ? `<span class="detail-pill">Type: ${escapeHtml(p.reciprocity_type.replace(/_/g, ' '))}</span>` : ''}
+                  ${p.operational_status ? `<span class="detail-pill">Status: ${escapeHtml(p.operational_status)}</span>` : ''}
+                </div>
+              ` : ''}
               <div class="provision-legal">
                 <span class="legal-label">Statutory Instrument:</span>
                 <span>${escapeHtml(p.legal_framework)}</span>
               </div>
               <div class="provision-source">
-                <span class="source-label">Source: ${escapeHtml(p.source_name)}</span>
+                <span class="source-label">Source: ${escapeHtml(p.source_name)}${p.last_verified_date ? ` • Verified ${escapeHtml(p.last_verified_date)}` : ''}</span>
                 <a href="${escapeHtml(p.source_url)}" class="source-link" target="_blank" rel="noopener noreferrer" title="Open verified treaty reference">
                   Official Document <span class="source-arrow">↗</span>
                 </a>
