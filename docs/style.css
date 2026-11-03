@@ -18,6 +18,7 @@
   --color-gray-400: #a1a1aa;
   --color-gray-200: #e4e4e7;
   --color-gray-100: #f4f4f5;
+  --color-gray-50: #fafafa;
   --color-white: #ffffff;
 
   /* High-Readability Data & Graph Accents */
@@ -1376,6 +1377,19 @@ header p {
   line-height: 1.35;
 }
 
+.cards-list .title-link,
+.provision-card .title-link {
+  color: var(--color-black);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.cards-list .title-link:hover,
+.provision-card .title-link:hover {
+  text-decoration: underline;
+  color: var(--data-trade);
+}
+
 .cards-list .desc {
   font-size: 0.825rem;
   color: var(--color-gray-600);
@@ -1478,6 +1492,11 @@ header p {
 }
 
 .centre-card .focus {
+  font-size: 0.825rem;
+  color: var(--color-gray-600);
+}
+
+.centre-card .eligibility {
   font-size: 0.825rem;
   color: var(--color-gray-600);
 }
