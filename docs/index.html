@@ -221,6 +221,9 @@
               <button class="view-tab-btn" data-view="radar" role="tab" aria-selected="false">
                 <span>🕸</span> Sector Profile Radar
               </button>
+              <button class="view-tab-btn" data-view="visas" role="tab" aria-selected="false">
+                <span>🛂</span> Visa Regimes
+              </button>
             </div>
 
             <!-- Focus Country Dropdown (Active in Partner Rankings / Reciprocity / Radar views) -->
@@ -265,6 +268,47 @@
                 <select id="quota-group-by-select" class="quota-filter-select">
                   <option value="provider">By Host Country</option>
                   <option value="beneficiary">By Recipient Country</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Visa Regimes Controls (Active in Visa Regimes View) -->
+            <div class="view-visa-controls" id="view-visa-controls" style="display: none;">
+              <div class="visa-subview-toggle" role="group" aria-label="Visa Visualization Mode">
+                <button class="visa-toggle-btn active" data-subview="matrix" type="button" title="8x8 Origin vs Destination Grid">
+                  <span>⊞</span> Regime Matrix
+                </button>
+                <button class="visa-toggle-btn" data-subview="passport" type="button" title="Passport Freedom Explorer">
+                  <span>📘</span> Passport Explorer
+                </button>
+                <button class="visa-toggle-btn" data-subview="sves" type="button" title="SVES Protocol vs Ordinary Citizens">
+                  <span>🎖️</span> SVES Protocol
+                </button>
+              </div>
+
+              <div class="visa-filter-group" id="visa-passport-select-cont" style="display: none;">
+                <label for="visa-passport-select" class="visa-filter-label">Passport:</label>
+                <select id="visa-passport-select" class="visa-filter-select">
+                  <option value="IND">🇮🇳 India (IND)</option>
+                  <option value="BGD">🇧🇩 Bangladesh (BGD)</option>
+                  <option value="PAK">🇵🇰 Pakistan (PAK)</option>
+                  <option value="LKA">🇱🇰 Sri Lanka (LKA)</option>
+                  <option value="NPL">🇳🇵 Nepal (NPL)</option>
+                  <option value="BTN">🇧🇹 Bhutan (BTN)</option>
+                  <option value="MDV">🇲🇻 Maldives (MDV)</option>
+                  <option value="AFG">🇦🇫 Afghanistan (AFG)</option>
+                </select>
+              </div>
+
+              <div class="visa-filter-group" id="visa-tier-filter-cont">
+                <label for="visa-tier-filter" class="visa-filter-label">Friction Tier:</label>
+                <select id="visa-tier-filter" class="visa-filter-select">
+                  <option value="all">All Tiers (56 corridors)</option>
+                  <option value="freedom_of_movement">🟢 Freedom of Movement</option>
+                  <option value="visa_free_voa">🟢 Visa-Free / VoA</option>
+                  <option value="concessionary_eta">🟡 Concessionary ETA</option>
+                  <option value="consular_visa">🟠 Consular Visa</option>
+                  <option value="restricted_prior_approval">🔴 Restricted / Security</option>
                 </select>
               </div>
             </div>

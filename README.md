@@ -111,11 +111,24 @@ Forestry & Environment,Pakistan (Beneficiary),2
 - 🎓 **Postgraduate & Research (316 seats/yr):** South Asian University (SAU, New Delhi) statutory country quota reservations (4%–10% per nation) and ICCR / Sri Lanka postgraduate research grants.
 - 🌲 **Forestry & Climate Sciences (14 seats/yr):** South Asia Foundation (SAF) Madanjeet Singh Forestry Scholarships at the College of Natural Resources (CNR), Bhutan (2 fully-funded seats per member state).
 
-### 4. Bilateral Deep Dive / Accord Inspector
+### 4. Regional Visa Regimes & Mobility Visualizer
+
+The dashboard includes a dedicated **Visa & Mobility Regimes Explorer** covering all 56 bilateral corridors across South Asia:
+
+- **8×8 Bilateral Requirement Matrix:** Categorizes border friction across 5 verified tiers:
+  - 🟢 **Freedom of Movement (4 corridors):** Unrestricted entry, residence, and employment rights with National ID/Voter card (e.g., India ↔ Nepal 1950 Treaty, India ↔ Bhutan 1949/2007 Treaty).
+  - 🟢 **Visa-Free / Gratis Visa-on-Arrival (16 corridors):** 30–90 days fee-exempt entry on arrival (e.g., Maldives 30-day free VoA for all SAARC tourists, Nepal Rule 29 gratis 30-day SAARC VoA, India-Maldives 90-day visa-free agreement).
+  - 🟡 **Concessionary ETA / Subsidized Entry (6 corridors):** Online Electronic Travel Authorization with discounted regional fees (e.g., Sri Lanka $20 SAARC ETA vs $50 non-regional fee).
+  - 🟠 **Standard Consular Visa (26 corridors):** Traditional mission visa required prior to departure with standard documentary proofs.
+  - 🔴 **Restricted / Prior Security Clearance (4 corridors):** City-specific endorsements, designated entry/exit checkpoints (Attari-Wagah or flights only), and mandatory Police Reporting (PRS) within 24 hours (e.g., India ↔ Pakistan 1974/2012 Visa Agreement, post-2021 Afghanistan emergency vetting).
+- **Passport Freedom Explorer:** Allows selecting any of the 8 national passports to view a breakdown of allowable stay durations, entry fees, accepted ID documents, and special border conditions across the other 7 South Asian destinations.
+- **SVES vs. Citizen Integration Paradox:** Visualizes the contrast between ordinary citizen border friction (46% of regional borders require consular visas or security clearances) and the multilateral **SAARC Visa Exemption Scheme (SVES)** granting 90-day multi-entry visa fee waivers across 24 designated dignitary, judicial, academic, media, and commerce categories.
+
+### 5. Bilateral Deep Dive / Accord Inspector
 - Click any cell or select any two nations to inspect verified legal instruments.
 - View official treaty titles, legal basis (statutory acts, Gazette notifications, bilateral treaties), eligibility criteria, target audiences (commercial traders, students, diplomats, general public), and live source citations.
 
-### 5. SAARC Regional Centres Directory
+### 6. SAARC Regional Centres Directory
 - Collapsible profiles of the 7 official regional institutions:
   - **SAC** (Dhaka, Bangladesh) — Agriculture & Livestock
   - **SEC** (Islamabad, Pakistan) — Renewable Energy & Regional Grid
@@ -138,6 +151,7 @@ All datasets in this repository are open and backed by primary government and in
 | [`data/student_quotas.csv`](data/student_quotas.csv) | CSV | Master registry of reserved cross-border student quotas and scholarships. | `quota_id`, `provider_iso`, `beneficiary_iso`, `program_name`, `discipline`, `degree_level`, `seats_annual`, `concession_type`, `fee_benefit_description`, `legal_framework`, `source_name`, `source_url` |
 | [`data/saarc_centres.csv`](data/saarc_centres.csv) | CSV | Directory of specialized SAARC institutional centres and funds. | `centre_code`, `name`, `host_country_iso`, `city`, `focus_area`, `eligibility`, `key_program`, `source_name`, `source_url` |
 | [`data/bilateral_matrix.csv`](data/bilateral_matrix.csv) | CSV | Computed pair-wise intensity score matrix ($8 \times 8$). | `provider_iso`, `AFG`, `BGD`, `BTN`, `IND`, `MDV`, `NPL`, `PAK`, `LKA` |
+| [`data/visa_matrix.json`](data/visa_matrix.json) | JSON | Complete 56-pair bilateral visa regimes and SVES statutory rules. | `metadata`, `tiers`, `sves`, `passport_power`, `matrix` |
 | [`data/bilateral_matrix.json`](data/bilateral_matrix.json) | JSON | Complete compiled payload including total scores, category slices, and itemized records. | `countries`, `categories`, `scores`, `category_scores`, `records`, `metadata` |
 | [`docs/data/`](docs/data/) | CSV / JSON | Production-ready mirrored data files consumed directly by the static web dashboard. | Mirrored from `data/` for zero-backend GitHub Pages hosting. |
 

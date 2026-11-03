@@ -9,11 +9,63 @@
 
 let globalData = null;
 let selectedPair = null;
-let activeView = 'matrix'; // 'matrix' | 'rankings' | 'quotas' | 'reciprocity' | 'radar'
+let activeView = 'matrix'; // 'matrix' | 'rankings' | 'quotas' | 'reciprocity' | 'radar' | 'visas'
 let focusCountry = 'IND';
 let activeQuotaSubview = 'flow'; // 'flow' (Sankey) | 'capacity' (Stacked Bar)
 let selectedDiscipline = 'all';
 let quotaGroupBy = 'provider'; // 'provider' | 'beneficiary'
+let activeVisaSubview = 'matrix'; // 'matrix' | 'passport' | 'sves'
+let selectedPassport = 'IND';
+let selectedVisaTier = 'all';
+let visaData = null;
+
+const VISA_TIER_CONFIG = {
+  freedom_of_movement: {
+    label: 'Freedom of Movement',
+    short: 'Open Border',
+    icon: '🟢',
+    badgeClass: 'open',
+    color: '#047857',
+    bg: '#ecfdf5',
+    border: '#a7f3d0'
+  },
+  visa_free_voa: {
+    label: 'Visa-Free / VoA',
+    short: 'Free / VoA',
+    icon: '🟢',
+    badgeClass: 'voa',
+    color: '#0d9488',
+    bg: '#f0fdfa',
+    border: '#99f6e4'
+  },
+  concessionary_eta: {
+    label: 'Concessionary ETA',
+    short: 'SAARC ETA',
+    icon: '🟡',
+    badgeClass: 'eta',
+    color: '#d97706',
+    bg: '#fffbeb',
+    border: '#fde68a'
+  },
+  consular_visa: {
+    label: 'Consular Visa',
+    short: 'Consular',
+    icon: '🟠',
+    badgeClass: 'consular',
+    color: '#475569',
+    bg: '#f8fafc',
+    border: '#cbd5e1'
+  },
+  restricted_prior_approval: {
+    label: 'Restricted / Security Vetting',
+    short: 'Restricted',
+    icon: '🔴',
+    badgeClass: 'restricted',
+    color: '#dc2626',
+    bg: '#fef2f2',
+    border: '#fecaca'
+  }
+};
 
 const COUNTRY_FLAGS = {
   AFG: '🇦🇫',
@@ -92,6 +144,24 @@ fetch('./data/bilateral_matrix.json')
 
 function handleDataLoaded(data) {
   globalData = data;
+  if (data && data.visas) {
+    visaData = data.visas;
+  } else {
+    fetch('./data/visa_matrix.json')
+      .then(res => res.json())
+      .then(vd => {
+        visaData = vd;
+        if (activeView === 'visas') renderActiveView();
+      })
+      .catch(() => {
+        fetch('data/visa_matrix.json')
+          .then(res => res.json())
+          .then(vd => {
+            visaData = vd;
+            if (activeView === 'visas') renderActiveView();
+          });
+      });
+  }
   initVisualization();
   renderRegionalCentres(data.centres);
   updateHeaderStats();
@@ -208,6 +278,43 @@ function setupEventListeners() {
     quotaGroupSelect.addEventListener('change', (e) => {
       quotaGroupBy = e.target.value;
       updateViewChrome();
+      renderActiveView();
+    });
+  }
+
+  // Visa Regimes sub-view controls
+  const visaToggleBtns = document.querySelectorAll('.visa-toggle-btn');
+  const visaPassportCont = document.getElementById('visa-passport-select-cont');
+  const visaTierCont = document.getElementById('visa-tier-filter-cont');
+  visaToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      visaToggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeVisaSubview = btn.dataset.subview;
+      if (visaPassportCont) {
+        visaPassportCont.style.display = activeVisaSubview === 'passport' ? 'flex' : 'none';
+      }
+      if (visaTierCont) {
+        visaTierCont.style.display = activeVisaSubview === 'matrix' ? 'flex' : 'none';
+      }
+      updateViewChrome();
+      renderActiveView();
+    });
+  });
+
+  const visaPassportSelect = document.getElementById('visa-passport-select');
+  if (visaPassportSelect) {
+    visaPassportSelect.addEventListener('change', (e) => {
+      selectedPassport = e.target.value;
+      updateViewChrome();
+      renderActiveView();
+    });
+  }
+
+  const visaTierFilter = document.getElementById('visa-tier-filter');
+  if (visaTierFilter) {
+    visaTierFilter.addEventListener('change', (e) => {
+      selectedVisaTier = e.target.value;
       renderActiveView();
     });
   }
@@ -347,6 +454,7 @@ function updateBadge() {
 function updateViewChrome() {
   const focusControls = document.getElementById('view-focus-controls');
   const quotaControls = document.getElementById('view-quota-controls');
+  const visaControls = document.getElementById('view-visa-controls');
   const mainTitle = document.getElementById('view-main-title');
   const caption = document.getElementById('view-caption');
   const hintText = document.getElementById('view-hint-text');
@@ -354,6 +462,10 @@ function updateViewChrome() {
 
   const countryName = COUNTRY_NAMES[focusCountry] || focusCountry;
   const countryFlag = COUNTRY_FLAGS[focusCountry] || '';
+
+  if (visaControls && activeView !== 'visas') {
+    visaControls.style.display = 'none';
+  }
 
   if (activeView === 'matrix') {
     if (focusControls) focusControls.style.display = 'none';
@@ -432,6 +544,43 @@ function updateViewChrome() {
     if (hintText) {
       hintText.innerHTML = `<span class="hint-bullet">●</span> Click any quick-chip or matrix cell to switch the radar pair profile.`;
     }
+  } else if (activeView === 'visas') {
+    if (focusControls) focusControls.style.display = 'none';
+    if (quotaControls) quotaControls.style.display = 'none';
+    if (visaControls) visaControls.style.display = 'flex';
+    if (badgeType) badgeType.textContent = 'REGIONAL MOBILITY & VISA REGIMES';
+
+    if (activeVisaSubview === 'matrix') {
+      if (mainTitle) mainTitle.textContent = '🛂 South Asian Bilateral Visa Requirements Matrix';
+      if (caption) {
+        caption.innerHTML = `
+          <span class="axis-guide"><strong>Rows (Y):</strong> Origin Passport Holder</span>
+          <span class="axis-divider">•</span>
+          <span class="axis-guide"><strong>Columns (X):</strong> Destination State</span>
+        `;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Click any cell in the 8×8 grid to inspect exact statutory rules, permitted stay, fees, and police reporting requirements in the side dossier.`;
+      }
+    } else if (activeVisaSubview === 'passport') {
+      const pName = COUNTRY_NAMES[selectedPassport] || selectedPassport;
+      const pFlag = COUNTRY_FLAGS[selectedPassport] || '';
+      if (mainTitle) mainTitle.textContent = `🛂 ${pFlag} ${pName} Passport Mobility Explorer`;
+      if (caption) {
+        caption.innerHTML = `Reciprocal entry conditions, visa waivers, and entry fees across all 7 regional South Asian destinations.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Click any destination card below to view verified legal instruments and primary immigration sources.`;
+      }
+    } else if (activeVisaSubview === 'sves') {
+      if (mainTitle) mainTitle.textContent = '🎖️ SAARC Visa Exemption Scheme (SVES) vs. Ordinary Citizen Mobility';
+      if (caption) {
+        caption.innerHTML = `Comparing multilateral fast-track diplomatic/official mobility with bilateral citizen border friction.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Explore the 24 statutory categories eligible for the 90-day multi-entry SVES visa sticker across all 8 member states.`;
+      }
+    }
   }
 }
 
@@ -457,6 +606,20 @@ function autoSelectTopPartner(c) {
  */
 function renderActiveView() {
   updateViewChrome();
+
+  const heatmapEl = document.getElementById('matrix-heatmap');
+  if (heatmapEl) {
+    if (activeView === 'visas') {
+      heatmapEl.classList.add('visa-view-active');
+      heatmapEl.style.height = 'auto';
+      heatmapEl.style.overflow = 'visible';
+    } else {
+      heatmapEl.classList.remove('visa-view-active');
+      heatmapEl.style.height = '';
+      heatmapEl.style.overflow = '';
+    }
+  }
+
   if (activeView === 'matrix') {
     renderHeatmap();
   } else if (activeView === 'rankings') {
@@ -471,6 +634,8 @@ function renderActiveView() {
     renderReciprocityBalance();
   } else if (activeView === 'radar') {
     renderSectorRadar();
+  } else if (activeView === 'visas') {
+    renderVisaRegimes();
   }
 }
 
@@ -1310,6 +1475,11 @@ function displayDetails(provider, beneficiary) {
   const container = document.getElementById('provisions-container');
   if (placeholder) placeholder.style.display = 'none';
 
+  if (activeView === 'visas' && visaData) {
+    displayVisaDossier(provider, beneficiary);
+    return;
+  }
+
   const pFlag = COUNTRY_FLAGS[provider] || '';
   const bFlag = COUNTRY_FLAGS[beneficiary] || '';
   const pName = globalData?.metadata?.country_names?.[provider] || COUNTRY_NAMES[provider] || provider;
@@ -1625,6 +1795,544 @@ function renderRegionalCentres(centres) {
       item.classList.toggle('open', !isOpen);
     });
   });
+}
+
+/**
+ * ============================================================================
+ * Visa Regimes & Regional Mobility Visualizer
+ * ============================================================================
+ */
+
+function renderVisaRegimes() {
+  const container = document.getElementById('matrix-heatmap');
+  if (!container) return;
+
+  if (!visaData) {
+    container.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;height:450px;flex-direction:column;gap:0.75rem;color:var(--color-gray-600);">
+        <div style="font-size:1.5rem;">🛂</div>
+        <p style="font-weight:600;">Loading regional visa dataset...</p>
+      </div>
+    `;
+    return;
+  }
+
+  if (activeVisaSubview === 'matrix') {
+    renderVisaMatrix(container);
+  } else if (activeVisaSubview === 'passport') {
+    renderPassportExplorer(container);
+  } else if (activeVisaSubview === 'sves') {
+    renderSvesComparison(container);
+  }
+
+  // Ensure inspector shows relevant visa dossier
+  const curP = selectedPair?.provider || 'IND';
+  const curB = selectedPair?.beneficiary || 'NPL';
+  displayVisaDossier(curP, curB);
+}
+
+function formatCompactStay(stay) {
+  if (!stay) return '';
+  const s = stay.toLowerCase();
+  if (s.includes('indefinite') || s.includes('unrestricted')) return 'Indefinite';
+  if (s.includes('90 days visa-free') || s.includes('90 days free') || s.includes('90 days')) return '90d Free';
+  if (s.includes('30 days free')) return '30d Free';
+  if (s.includes('30 days double')) return '30d ($20)';
+  if (s.includes('14-30 days')) return '14–30d';
+  if (s.includes('30-90 days')) return '30–90d';
+  if (s.includes('30 days')) return '30 Days';
+  if (s.includes('multi-entry')) return 'Multi-Entry';
+  if (s.includes('single entry')) return 'Single Entry';
+  if (s.includes('strictly limited') || s.includes('security')) return 'Strict Dates';
+  if (s.includes('itinerary') || s.includes('approved')) return 'Itinerary';
+  return stay.split('(')[0].trim().substring(0, 10);
+}
+
+/**
+ * 1. 8x8 Bilateral Visa Requirement Matrix Grid
+ */
+function renderVisaMatrix(container) {
+  // Purge any existing Plotly instances on container
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const countries = visaData.metadata?.countries || ['AFG', 'BGD', 'BTN', 'IND', 'MDV', 'NPL', 'PAK', 'LKA'];
+  const matrix = visaData.matrix || {};
+  const tiers = visaData.metadata?.tiers || {};
+  const tierCounts = visaData.metadata?.tier_distribution || {};
+
+  let tableHtml = `
+    <div class="visa-matrix-container">
+      <div class="visa-matrix-scroll">
+        <table class="visa-matrix-table" role="grid" aria-label="Bilateral Visa Regimes Matrix">
+          <thead>
+            <tr>
+              <th class="corner-cell" title="Rows: Passport of Traveler, Columns: Destination Country">Passport ▼ \\ Dest ▶</th>
+  `;
+
+  countries.forEach(c => {
+    const flag = COUNTRY_FLAGS[c] || '';
+    const name = COUNTRY_NAMES[c] || c;
+    tableHtml += `<th class="dest-header" title="Destination: ${escapeHtml(name)} (${c})">${flag} ${c}</th>`;
+  });
+
+  tableHtml += `</tr></thead><tbody>`;
+
+  countries.forEach(orig => {
+    const origFlag = COUNTRY_FLAGS[orig] || '';
+    const origName = COUNTRY_NAMES[orig] || orig;
+    tableHtml += `<tr>`;
+    tableHtml += `<th class="origin-header" title="Citizen/Passport of ${escapeHtml(origName)} (${orig})">${origFlag} ${orig}</th>`;
+
+    countries.forEach(dest => {
+      if (orig === dest) {
+        tableHtml += `
+          <td class="visa-matrix-cell self-cell" title="Domestic Jurisdiction (${orig})">
+            <div class="visa-cell-badge">
+              <span class="visa-cell-icon">🏛️</span>
+              <span class="visa-cell-label">Domestic</span>
+            </div>
+          </td>
+        `;
+      } else {
+        const rec = matrix[orig]?.[dest];
+        if (!rec) {
+          tableHtml += `<td class="visa-matrix-cell self-cell">—</td>`;
+          return;
+        }
+
+        const tierId = rec.tier;
+        const tCfg = VISA_TIER_CONFIG[tierId] || {
+          icon: '📄',
+          short: 'Consular',
+          color: '#475569',
+          bg: '#f8fafc',
+          border: '#cbd5e1'
+        };
+
+        const isDimmed = selectedVisaTier !== 'all' && tierId !== selectedVisaTier;
+        const isSelected = selectedPair && selectedPair.provider === orig && selectedPair.beneficiary === dest;
+        const classes = ['visa-matrix-cell', isDimmed ? 'dimmed' : '', isSelected ? 'selected' : ''].filter(Boolean).join(' ');
+
+        const staySnippet = formatCompactStay(rec.stay_allowance);
+
+        tableHtml += `
+          <td class="${classes}"
+              data-orig="${orig}"
+              data-dest="${dest}"
+              style="background-color: ${tCfg.bg}; border-color: ${tCfg.border}; color: ${tCfg.color};"
+              title="${origFlag} ${orig} ➔ ${COUNTRY_FLAGS[dest] || ''} ${dest}: ${escapeHtml(rec.tier_label)} (${escapeHtml(rec.stay_allowance)}) • Click to inspect"
+          >
+            <div class="visa-cell-badge">
+              <span class="visa-cell-icon">${tCfg.icon}</span>
+              <span class="visa-cell-label">${escapeHtml(tCfg.short || rec.short_label)}</span>
+              <span class="visa-cell-stay">${escapeHtml(staySnippet)}</span>
+            </div>
+          </td>
+        `;
+      }
+    });
+
+    tableHtml += `</tr>`;
+  });
+
+  tableHtml += `</tbody></table></div>`;
+
+  // Add Interactive Legend Bar below
+  tableHtml += `
+    <div class="visa-legend-bar">
+      <div class="visa-legend-items">
+  `;
+
+  Object.keys(VISA_TIER_CONFIG).forEach(tierId => {
+    const cfg = VISA_TIER_CONFIG[tierId];
+    const count = tierCounts[tierId] || 0;
+    tableHtml += `
+      <span class="visa-legend-pill">
+        <span class="visa-legend-dot" style="background-color: ${cfg.color};"></span>
+        <span>${cfg.label}</span>
+        <span class="visa-legend-count">${count}</span>
+      </span>
+    `;
+  });
+
+  tableHtml += `
+      </div>
+      <div style="font-weight:700; color:var(--color-gray-600); font-size:0.7rem; font-family:var(--font-mono);">
+        56 Corridors • Click any cell to view treaty & legal framework
+      </div>
+    </div>
+  </div>`;
+
+  container.innerHTML = tableHtml;
+
+  // Attach click handlers to active matrix cells
+  container.querySelectorAll('.visa-matrix-cell[data-orig]').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const orig = cell.getAttribute('data-orig');
+      const dest = cell.getAttribute('data-dest');
+      if (orig && dest) {
+        selectVisaPair(orig, dest);
+      }
+    });
+  });
+}
+
+/**
+ * 2. Passport Freedom Explorer View
+ */
+function renderPassportExplorer(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const pwr = visaData.passport_power?.[selectedPassport];
+  const matrix = visaData.matrix || {};
+  const origName = COUNTRY_NAMES[selectedPassport] || selectedPassport;
+  const origFlag = COUNTRY_FLAGS[selectedPassport] || '';
+
+  const destinations = (visaData.metadata?.countries || []).filter(c => c !== selectedPassport);
+
+  let html = `
+    <div class="passport-explorer-container">
+      <div class="passport-hero-card">
+        <div class="passport-hero-info">
+          <span class="passport-hero-flag">${origFlag}</span>
+          <div>
+            <h3 class="passport-hero-title">${escapeHtml(origName)} Passport Regional Privileges</h3>
+            <p class="passport-hero-subtitle">
+              Evaluating reciprocal border access, allowable stay, and entry fee concessions across South Asia.
+            </p>
+          </div>
+        </div>
+        <div class="passport-score-badge">
+          <span class="passport-score-val">${pwr ? pwr.power_score : 0} / 28 pts</span>
+          <span class="passport-score-label">${pwr ? pwr.power_pct : 0}% Regional Access</span>
+        </div>
+      </div>
+
+      <div class="passport-dest-grid">
+  `;
+
+  destinations.forEach(dest => {
+    const rec = matrix[selectedPassport]?.[dest];
+    if (!rec) return;
+
+    const destName = COUNTRY_NAMES[dest] || dest;
+    const destFlag = COUNTRY_FLAGS[dest] || '';
+    const tCfg = VISA_TIER_CONFIG[rec.tier] || {
+      color: '#475569',
+      bg: '#f8fafc',
+      border: '#cbd5e1'
+    };
+
+    const isSelected = selectedPair && selectedPair.provider === selectedPassport && selectedPair.beneficiary === dest;
+
+    html += `
+      <article class="passport-dest-card ${isSelected ? 'selected' : ''}" data-orig="${selectedPassport}" data-dest="${dest}">
+        <div class="passport-dest-header">
+          <div class="passport-dest-country">
+            <span>${destFlag}</span>
+            <span>${escapeHtml(destName)}</span>
+          </div>
+          <span class="passport-dest-badge" style="background-color: ${tCfg.bg}; color: ${tCfg.color}; border: 1px solid ${tCfg.border};">
+            ${escapeHtml(rec.tier_label)}
+          </span>
+        </div>
+
+        <div class="passport-dest-details">
+          <div class="passport-dest-row">
+            <span class="passport-dest-key">Stay Allowance:</span>
+            <span class="passport-dest-val">${escapeHtml(rec.stay_allowance)}</span>
+          </div>
+          <div class="passport-dest-row">
+            <span class="passport-dest-key">Entry Fee:</span>
+            <span class="passport-dest-val">${escapeHtml(rec.fee)}</span>
+          </div>
+          <div class="passport-dest-row">
+            <span class="passport-dest-key">Accepted ID:</span>
+            <span class="passport-dest-val" style="font-size:0.72rem;">${escapeHtml(rec.id_required)}</span>
+          </div>
+        </div>
+
+        ${rec.special_conditions ? `
+          <div class="passport-dest-special">
+            <strong>Condition:</strong> ${escapeHtml(rec.special_conditions)}
+          </div>
+        ` : ''}
+      </article>
+    `;
+  });
+
+  html += `</div></div>`;
+  container.innerHTML = html;
+
+  container.querySelectorAll('.passport-dest-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const orig = card.getAttribute('data-orig');
+      const dest = card.getAttribute('data-dest');
+      if (orig && dest) {
+        selectVisaPair(orig, dest);
+      }
+    });
+  });
+}
+
+/**
+ * 3. SAARC Visa Exemption Scheme (SVES) vs Ordinary Citizens View
+ */
+function renderSvesComparison(container) {
+  if (typeof Plotly !== 'undefined' && Plotly.purge) {
+    try { Plotly.purge(container); } catch (e) { /* ignore */ }
+  }
+
+  const sves = visaData.sves || {};
+  const categories = sves.categories_list || [];
+
+  let html = `
+    <div class="sves-container">
+      <div class="sves-hero-card">
+        <div class="sves-hero-top">
+          <div>
+            <span class="sves-badge-pill">🎖️ MULTILATERAL DIPLOMATIC PROTOCOL</span>
+            <h3 style="font-size:1.15rem; font-weight:800; margin-top:0.35rem; color:var(--color-black);">
+              The South Asian Mobility Paradox: Official Fast-Track vs. Citizen Friction
+            </h3>
+            <p style="font-size:0.8rem; color:var(--color-gray-600); margin-top:0.2rem;">
+              Operationalized in 1992 following the 4th SAARC Summit, the SAARC Visa Exemption Scheme (SVES) creates frictionless regional mobility for dignitaries and elites, contrasting sharply with restrictive bilateral visa queues for ordinary citizens.
+            </p>
+          </div>
+        </div>
+
+        <div class="sves-comparison-grid">
+          <div class="sves-comp-box ordinary">
+            <h4 class="sves-comp-title">👤 Ordinary Citizen Mobility (Bilateral Realities)</h4>
+            <p class="sves-comp-desc">
+              Over <strong>46% of South Asian bilateral corridors</strong> require burdensome consular visas with in-person embassy queues, biometric vetting, and bank balance proofs.
+            </p>
+            <p class="sves-comp-desc" style="margin-top: 0.3rem;">
+              Sensitive corridors (such as India ↔ Pakistan) impose city-specific single-entry visas, designated checkpoints (Attari-Wagah or flights only), and mandatory Police Reporting (PRS) within 24 hours of arrival.
+            </p>
+          </div>
+
+          <div class="sves-comp-box sves-protocol">
+            <h4 class="sves-comp-title">🎖️ SAARC Visa Exemption Scheme (SVES Protocol)</h4>
+            <p class="sves-comp-desc">
+              <strong>1-Year Multi-Entry Sticker</strong> issued to 24 designated dignitary, judicial, media, trade, and academic categories across all 8 member states.
+            </p>
+            <p class="sves-comp-desc" style="margin-top: 0.3rem;">
+              <strong>Benefits:</strong> Up to 90 days stay per visit, full exemption from visa fees, zero consular queues, and exemption from police registration (PRS) even across high-friction corridors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 0.4rem;">
+        <h4 class="sves-categories-title">
+          <span>The 24 Statutory SVES Categories</span>
+          <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--color-gray-600);">24 OF 24 PROTOCOL SLOTS</span>
+        </h4>
+
+        <div class="sves-categories-grid" style="margin-top: 0.65rem;">
+  `;
+
+  categories.forEach(cat => {
+    html += `
+      <div class="sves-cat-card" title="Category ${cat.id}: ${escapeHtml(cat.group)}">
+        <span class="sves-cat-num">${cat.id}</span>
+        <div>
+          <div class="sves-cat-name">${escapeHtml(cat.group)}</div>
+          <div class="sves-cat-desc">${escapeHtml(cat.desc)}</div>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `</div></div></div>`;
+  container.innerHTML = html;
+}
+
+/**
+ * Update selected pair in visa view and refresh active view & dossier
+ */
+function selectVisaPair(orig, dest) {
+  selectedPair = { provider: orig, beneficiary: dest };
+  focusCountry = orig;
+  const focusCountrySelect = document.getElementById('focus-country-select');
+  if (focusCountrySelect) focusCountrySelect.value = orig;
+
+  // Re-highlight cells or cards without re-rendering everything
+  document.querySelectorAll('.visa-matrix-cell').forEach(c => {
+    const cOrig = c.getAttribute('data-orig');
+    const cDest = c.getAttribute('data-dest');
+    if (cOrig === orig && cDest === dest) {
+      c.classList.add('selected');
+    } else {
+      c.classList.remove('selected');
+    }
+  });
+
+  document.querySelectorAll('.passport-dest-card').forEach(c => {
+    const cOrig = c.getAttribute('data-orig');
+    const cDest = c.getAttribute('data-dest');
+    if (cOrig === orig && cDest === dest) {
+      c.classList.add('selected');
+    } else {
+      c.classList.remove('selected');
+    }
+  });
+
+  displayVisaDossier(orig, dest);
+}
+
+/**
+ * Display comprehensive statutory visa details in the Inspector Panel
+ */
+function displayVisaDossier(orig, dest) {
+  const container = document.getElementById('provisions-container');
+  const placeholder = document.getElementById('placeholder-msg');
+  if (placeholder) placeholder.style.display = 'none';
+  if (!container) return;
+
+  const origFlag = COUNTRY_FLAGS[orig] || '';
+  const destFlag = COUNTRY_FLAGS[dest] || '';
+  const origName = COUNTRY_NAMES[orig] || orig;
+  const destName = COUNTRY_NAMES[dest] || dest;
+
+  if (orig === dest) {
+    container.innerHTML = `
+      <div class="inspector-header">
+        <div class="inspector-top-badge">DOMESTIC JURISDICTION</div>
+        <h3 class="inspector-pair-title">
+          <span>${origFlag} ${origName} (${orig})</span>
+        </h3>
+        <p class="inspector-direction-tag">National Sovereign Territory • Municipal Immigration Code</p>
+      </div>
+      <div class="domestic-notice">
+        <div class="domestic-symbol">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5">
+            <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"></path>
+          </svg>
+        </div>
+        <h4 class="domestic-title">Internal Domestic Jurisdiction</h4>
+        <p class="domestic-desc">
+          Self-pairs (${orig} ➔ ${dest}) denote internal constitutional boundaries. Cross-border bilateral visa rules and regional immigration exemptions apply strictly between sovereign neighbor states.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const rec = visaData?.matrix?.[orig]?.[dest];
+  if (!rec) {
+    container.innerHTML = `<div style="padding:1rem;color:var(--color-gray-600);">No visa data available for ${orig} ➔ ${dest}.</div>`;
+    return;
+  }
+
+  const tCfg = VISA_TIER_CONFIG[rec.tier] || {
+    label: rec.tier_label || 'Consular Visa',
+    color: '#475569',
+    bg: '#f8fafc',
+    border: '#cbd5e1'
+  };
+
+  const isRestricted = rec.tier === 'restricted_prior_approval';
+  const isOpen = rec.tier === 'freedom_of_movement';
+  const isVoa = rec.tier === 'visa_free_voa';
+
+  let noticeClass = 'visa-notice-box';
+  let noticeIcon = 'ℹ️';
+  if (isRestricted) {
+    noticeClass += ' warning';
+    noticeIcon = '⚠️';
+  } else if (isOpen || isVoa) {
+    noticeClass += ' open';
+    noticeIcon = '✨';
+  }
+
+  container.innerHTML = `
+    <div class="visa-dossier-wrap">
+      <div class="inspector-header" style="margin-bottom:0.25rem;">
+        <div class="inspector-top-badge">BILATERAL MOBILITY & VISA REGIME</div>
+        <h3 class="inspector-pair-title">
+          <span>${origFlag} ${orig}</span>
+          <span class="direction-arrow">➔</span>
+          <span>${destFlag} ${dest}</span>
+        </h3>
+        <p class="inspector-direction-tag">
+          Passport: <strong>${escapeHtml(origName)}</strong> • Destination: <strong>${escapeHtml(destName)}</strong>
+        </p>
+      </div>
+
+      <div class="visa-dossier-banner" style="background-color:${tCfg.bg}; border-color:${tCfg.border};">
+        <span class="visa-dossier-tier-badge" style="background-color:${tCfg.color}; color:#ffffff;">
+          ${escapeHtml(rec.tier_label)}
+        </span>
+        <h4 class="visa-dossier-headline" style="color:${tCfg.color};">
+          ${escapeHtml(rec.stay_allowance)}
+        </h4>
+      </div>
+
+      <div class="visa-specs-grid">
+        <div class="visa-spec-item">
+          <span class="visa-spec-key">Entry Fee / Levy</span>
+          <span class="visa-spec-val">${escapeHtml(rec.fee)}</span>
+        </div>
+        <div class="visa-spec-item">
+          <span class="visa-spec-key">Required Document</span>
+          <span class="visa-spec-val">${escapeHtml(rec.id_required)}</span>
+        </div>
+        <div class="visa-spec-item" style="grid-column: span 2;">
+          <span class="visa-spec-key">Employment & Residence</span>
+          <span class="visa-spec-val">${escapeHtml(rec.work_rights || 'Standard tourist restrictions')}</span>
+        </div>
+      </div>
+
+      ${rec.special_conditions ? `
+        <div class="${noticeClass}">
+          <div class="visa-notice-title">
+            <span>${noticeIcon}</span>
+            <span>Special Immigration Conditions</span>
+          </div>
+          <p>${escapeHtml(rec.special_conditions)}</p>
+        </div>
+      ` : ''}
+
+      <div class="provision-card" style="margin-top:0.2rem;">
+        <div class="provision-header">
+          <span class="provision-category-tag" style="background-color:rgba(16, 185, 129, 0.15); color:#047857; border-color:#047857;">
+            STATUTORY LEGAL BASIS
+          </span>
+        </div>
+        <h4 class="provision-title" style="font-size:0.875rem;">${escapeHtml(rec.legal_framework)}</h4>
+        <div class="provision-meta-row" style="margin-top:0.4rem;">
+          <span class="meta-item">
+            <span class="meta-label">Authority:</span>
+            <span>${escapeHtml(rec.source_name)}</span>
+          </span>
+        </div>
+        ${rec.source_url ? `
+          <div class="provision-footer" style="margin-top:0.5rem; padding-top:0.4rem; border-top:1px solid var(--color-gray-200);">
+            <a href="${escapeHtml(rec.source_url)}" target="_blank" rel="noopener noreferrer" class="source-link">
+              <span>Verified Statutory Source</span>
+              <span class="source-arrow">↗</span>
+            </a>
+          </div>
+        ` : ''}
+      </div>
+
+      <div class="visa-notice-box" style="background-color:#f0fdf4; border-color:#bbf7d0; color:#166534;">
+        <div class="visa-notice-title">
+          <span>🎖️</span>
+          <span>SVES Multi-Entry Exemption Option</span>
+        </div>
+        <p style="font-size:0.725rem;">
+          Eligible travelers under any of the 24 designated SAARC categories (parliamentarians, judges, journalists, chamber heads, academics) can bypass routine consular queues with a 90-day multi-entry SVES sticker.
+        </p>
+      </div>
+    </div>
+  `;
 }
 
 function escapeHtml(str) {

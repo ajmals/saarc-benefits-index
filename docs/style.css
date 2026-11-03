@@ -2313,6 +2313,715 @@ header p {
   gap: 0.25rem;
 }
 
+/* ==========================================================================
+   Visa Regimes & Mobility Visualization Styles
+   ========================================================================== */
+
+.view-visa-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.visa-subview-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--color-gray-100);
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-gray-200);
+}
+
+.visa-toggle-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--transition);
+}
+
+.visa-toggle-btn:hover {
+  color: var(--color-black);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.visa-toggle-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.visa-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.visa-filter-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+}
+
+.visa-filter-select {
+  font-family: inherit;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.visa-filter-select:hover,
+.visa-filter-select:focus {
+  background-color: var(--color-hover);
+}
+
+/* 1. Visa Matrix Grid Component */
+#matrix-heatmap.visa-view-active {
+  height: auto !important;
+  min-height: 480px;
+  overflow: visible !important;
+}
+
+.visa-matrix-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.visa-matrix-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-carbon) var(--color-gray-100);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom clearly visible elegant scrollbar */
+.visa-matrix-scroll::-webkit-scrollbar {
+  height: 9px;
+}
+
+.visa-matrix-scroll::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-pill);
+  margin: 0 4px;
+}
+
+.visa-matrix-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-carbon);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-gray-100);
+}
+
+.visa-matrix-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--color-black);
+}
+
+.visa-matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 0.72rem;
+  table-layout: fixed;
+  min-width: 630px;
+}
+
+.visa-matrix-table th {
+  padding: 0.45rem 0.2rem;
+  font-weight: 800;
+  text-align: center;
+  background-color: var(--color-gray-100);
+  color: var(--color-black);
+  border-bottom: 1.5px solid var(--color-black);
+  white-space: nowrap;
+  font-size: 0.72rem;
+}
+
+.visa-matrix-table th.corner-cell {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  background-color: var(--color-card);
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-gray-600);
+  width: 76px;
+  min-width: 76px;
+  max-width: 82px;
+  border-right: 1.5px solid var(--color-black);
+  border-bottom: 1.5px solid var(--color-black);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.visa-matrix-table th.origin-header {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  background-color: var(--color-gray-50);
+  border-right: 1.5px solid var(--color-black);
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  width: 76px;
+  min-width: 76px;
+  max-width: 82px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.visa-matrix-cell {
+  padding: 0.35rem 0.15rem;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  height: 48px;
+  max-height: 52px;
+}
+
+.visa-matrix-cell:hover:not(.self-cell) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+  border-color: var(--color-black) !important;
+}
+
+.visa-matrix-cell.selected {
+  outline: 2px solid var(--color-black);
+  outline-offset: -1px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+  font-weight: 800;
+}
+
+.visa-matrix-cell.dimmed {
+  opacity: 0.25;
+  filter: grayscale(80%);
+}
+
+.visa-matrix-cell.self-cell {
+  background-color: #f4f4f5;
+  color: #a1a1aa;
+  cursor: default;
+  font-weight: 600;
+  border: 1px dashed #d4d4d8;
+}
+
+.visa-cell-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  height: 100%;
+}
+
+.visa-cell-icon {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.visa-cell-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.visa-cell-stay {
+  font-size: 0.55rem;
+  opacity: 0.85;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+/* Legend Bar */
+.visa-legend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.55rem 0.75rem;
+  background-color: var(--color-card-subtle);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+}
+
+.visa-legend-items {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.visa-legend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.visa-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.visa-legend-count {
+  font-family: var(--font-mono);
+  font-size: 0.675rem;
+  font-weight: 700;
+  background-color: var(--color-gray-200);
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-pill);
+}
+
+/* 2. Passport Explorer Component */
+.passport-explorer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.passport-hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.passport-hero-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.passport-hero-flag {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.passport-hero-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.passport-hero-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-gray-600);
+  margin-top: 0.15rem;
+}
+
+.passport-score-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-align: right;
+}
+
+.passport-score-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1.1;
+}
+
+.passport-score-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.passport-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+.passport-dest-card {
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  padding: 0.9rem;
+  background-color: var(--color-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.passport-dest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.passport-dest-card.selected {
+  outline: 2px solid var(--color-black);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.passport-dest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.passport-dest-country {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.passport-dest-badge {
+  font-size: 0.675rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.passport-dest-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  background-color: var(--color-gray-50);
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-200);
+}
+
+.passport-dest-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.passport-dest-key {
+  color: var(--color-gray-600);
+  font-weight: 600;
+}
+
+.passport-dest-val {
+  font-weight: 700;
+  color: var(--color-black);
+  text-align: right;
+}
+
+.passport-dest-special {
+  font-size: 0.725rem;
+  color: var(--color-gray-600);
+  line-height: 1.35;
+  border-left: 2px solid var(--color-black);
+  padding-left: 0.45rem;
+  margin-top: 0.1rem;
+}
+
+/* 3. SVES Comparison Component */
+.sves-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.sves-hero-card {
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  background-color: var(--color-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sves-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sves-badge-pill {
+  background-color: #10b981;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sves-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.sves-comp-box {
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sves-comp-box.ordinary {
+  background-color: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.sves-comp-box.sves-protocol {
+  background-color: #ecfdf5;
+  border-color: #10b981;
+}
+
+.sves-comp-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sves-comp-desc {
+  font-size: 0.775rem;
+  line-height: 1.4;
+  color: var(--color-dark);
+}
+
+.sves-categories-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sves-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.6rem;
+}
+
+.sves-cat-card {
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.sves-cat-card:hover {
+  background-color: #ffffff;
+  border-color: var(--color-black);
+  transform: translateY(-1px);
+}
+
+.sves-cat-num {
+  font-size: 0.65rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sves-cat-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.25;
+}
+
+.sves-cat-desc {
+  font-size: 0.675rem;
+  color: var(--color-gray-600);
+  margin-top: 0.15rem;
+  line-height: 1.2;
+}
+
+/* 4. Visa Dossier Inspector Styles */
+.visa-dossier-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.visa-dossier-banner {
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  padding: 0.9rem;
+  background-color: var(--color-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.visa-dossier-tier-badge {
+  align-self: flex-start;
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.visa-dossier-headline {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.25;
+}
+
+.visa-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.visa-spec-item {
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.visa-spec-key {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gray-600);
+}
+
+.visa-spec-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.visa-notice-box {
+  background-color: #faf5ff;
+  border: 1.5px solid #d8b4fe;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.75rem;
+  font-size: 0.775rem;
+  line-height: 1.4;
+  color: #581c87;
+}
+
+.visa-notice-box.warning {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.visa-notice-box.open {
+  background-color: #ecfdf5;
+  border-color: #86efac;
+  color: #065f46;
+}
+
+.visa-notice-title {
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 960px) {
   .layout-container {
     grid-template-columns: 1fr;

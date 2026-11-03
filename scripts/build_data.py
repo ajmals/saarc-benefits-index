@@ -196,6 +196,21 @@ def main() -> None:
                         quota_item["seats_annual"] = 0
                 quotas.append(quota_item)
 
+    # 2c. Parse or build visa_matrix.json
+    visa_json = os.path.join(base_dir, "data", "visa_matrix.json")
+    docs_visa = os.path.join(base_dir, "docs", "data", "visa_matrix.json")
+    visa_data: Dict[str, Any] = {}
+    if not os.path.exists(visa_json):
+        try:
+            import generate_visa_data
+            generate_visa_data.main()
+        except Exception as e:
+            print(f"Warning: generate_visa_data failed: {e}")
+
+    if os.path.exists(visa_json):
+        with open(visa_json, mode="r", encoding="utf-8") as f:
+            visa_data = json.load(f)
+
     # 3. Export Wide Matrix CSV (Total Scores)
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)
     os.makedirs(os.path.dirname(docs_csv), exist_ok=True)
@@ -247,6 +262,7 @@ def main() -> None:
         "details": details,
         "centres": centres,
         "quotas": quotas,
+        "visas": visa_data,
         # Metadata and legacy matrix for zero-downtime frontend continuity
         "metadata": {
             "title": "SAARC Bilateral Benefits & Concessions Index",
@@ -272,6 +288,9 @@ def main() -> None:
 
     if os.path.exists(master_csv):
         shutil.copyfile(master_csv, docs_master)
+
+    if os.path.exists(visa_json):
+        shutil.copyfile(visa_json, docs_visa)
 
     print("Successfully generated bilateral_matrix.csv and bilateral_matrix.json")
 
