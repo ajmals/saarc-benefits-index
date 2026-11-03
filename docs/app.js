@@ -199,8 +199,6 @@ function setupEventListeners() {
   }
 
   // Modal & Methodology triggers
-  const btnInfo = document.getElementById('btn-info');
-  const btnMenu = document.getElementById('btn-menu');
   const modalClose = document.getElementById('modal-close');
   const aboutModal = document.getElementById('about-modal');
   const dockAbout = document.getElementById('dock-btn-about');
@@ -220,8 +218,6 @@ function setupEventListeners() {
   const openModal = () => { if (aboutModal) aboutModal.style.display = 'flex'; };
   const closeModal = () => { if (aboutModal) aboutModal.style.display = 'none'; };
 
-  if (btnInfo) btnInfo.addEventListener('click', scrollToMethodology);
-  if (btnMenu) btnMenu.addEventListener('click', openModal);
   if (dockAbout) {
     dockAbout.addEventListener('click', () => {
       updateActiveDock(dockAbout);
