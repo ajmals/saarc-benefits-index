@@ -6039,20 +6039,6 @@
       "source_url": "https://dghs.gov.bd"
     },
     {
-      "quota_id": "SAU_IND_IND",
-      "provider_iso": "IND",
-      "beneficiary_iso": "IND",
-      "program_name": "South Asian University Country Quota",
-      "discipline": "Postgraduate & Research",
-      "degree_level": "Postgraduate",
-      "seats_annual": 135,
-      "concession_type": "Subsidized Quota",
-      "fee_benefit_description": "Statutory 50% seat reservation with regional subsidized tuition scale",
-      "legal_framework": "South Asian University Act 2008",
-      "source_name": "South Asian University New Delhi",
-      "source_url": "https://sau.int"
-    },
-    {
       "quota_id": "SAU_IND_PAK",
       "provider_iso": "IND",
       "beneficiary_iso": "PAK",
@@ -6601,7 +6587,7 @@
       "finance_bilateral"
     ],
     "centre_count": 7,
-    "quota_count": 45
+    "quota_count": 44
   },
   "matrix": {
     "AFG": {

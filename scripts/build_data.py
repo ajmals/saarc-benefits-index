@@ -184,6 +184,11 @@ def main() -> None:
             q_reader = csv.DictReader(f)
             for q_row in q_reader:
                 quota_item = dict(q_row)
+                p_iso = quota_item.get("provider_iso", "").strip()
+                b_iso = quota_item.get("beneficiary_iso", "").strip()
+                # Strict cross-border invariant: exclude domestic self-pairs
+                if p_iso and b_iso and p_iso == b_iso:
+                    continue
                 if "seats_annual" in quota_item:
                     try:
                         quota_item["seats_annual"] = int(quota_item["seats_annual"])

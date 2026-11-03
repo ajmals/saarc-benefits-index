@@ -932,7 +932,8 @@ function renderStudentQuotasFlow() {
   if (!globalData || !globalData.quotas) return;
   const container = document.getElementById('matrix-heatmap');
 
-  let quotas = globalData.quotas;
+  // Enforce strict cross-border invariant: exclude any domestic self-allocations
+  let quotas = (globalData.quotas || []).filter(q => q.provider_iso !== q.beneficiary_iso);
   if (selectedDiscipline !== 'all') {
     quotas = quotas.filter(q => q.discipline === selectedDiscipline);
   }
@@ -1088,7 +1089,8 @@ function renderStudentQuotasCapacity() {
   if (!globalData || !globalData.quotas) return;
   const container = document.getElementById('matrix-heatmap');
 
-  let quotas = globalData.quotas;
+  // Enforce strict cross-border invariant: exclude any domestic self-allocations
+  let quotas = (globalData.quotas || []).filter(q => q.provider_iso !== q.beneficiary_iso);
   if (selectedDiscipline !== 'all') {
     quotas = quotas.filter(q => q.discipline === selectedDiscipline);
   }
