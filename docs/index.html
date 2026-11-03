@@ -11,35 +11,68 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Header -->
+    <!-- Header with Top Bar Pill & Line-Art Icons -->
     <header class="app-header">
+      <div class="top-nav-bar">
+        <button class="icon-btn" id="btn-info" aria-label="Project Information" title="About SAARC Index">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </button>
+
+        <div class="top-center-pill">SAARC REGIONAL MATRIX</div>
+
+        <button class="icon-btn" id="btn-menu" aria-label="Toggle Menu" title="Menu & Methodology">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+
       <div class="header-content">
         <div class="branding">
-          <div class="brand-badge">SAARC Regional Matrix</div>
-          <h1 class="brand-title">SAARC Bilateral Benefits & Concessions Index</h1>
+          <div class="brand-sub-badge">Regional Concessions Database</div>
+          <h1 class="brand-title">SAARC Bilateral Benefits Index</h1>
           <p class="brand-subtitle">
             Mapping preferential treaties, educational quotas, visa exemptions, and bilateral concessions across South Asian member states.
           </p>
         </div>
+
+        <!-- Minimalist Circular & Dashed Stat Rings -->
         <div class="header-stats">
-          <div class="stat-card">
-            <span class="stat-value" id="stat-total-provisions">21</span>
+          <div class="stat-ring-card">
+            <div class="stat-ring">
+              <span class="stat-value" id="stat-total-provisions">21</span>
+              <span class="stat-sub-val">/ 21</span>
+            </div>
             <span class="stat-label">Master Provisions</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-value" id="stat-member-states">8</span>
+
+          <div class="stat-ring-card">
+            <div class="stat-ring">
+              <span class="stat-value" id="stat-member-states">8</span>
+              <span class="stat-sub-val">/ 8</span>
+            </div>
             <span class="stat-label">Member States</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-value" id="stat-active-pairs">56</span>
+
+          <div class="stat-ring-card">
+            <div class="stat-ring">
+              <span class="stat-value" id="stat-active-pairs">56</span>
+              <span class="stat-sub-val">/ 56</span>
+            </div>
             <span class="stat-label">Bilateral Channels</span>
           </div>
         </div>
       </div>
 
-      <!-- Category Filter Bar -->
+      <!-- Category Filter Pills -->
       <nav class="filter-bar" aria-label="Category Filters">
-        <span class="filter-label">Filter Category:</span>
+        <span class="filter-label">Filter Sector:</span>
         <div class="filter-buttons" id="filter-buttons">
           <button class="filter-btn active" data-category="all">All Sectors</button>
           <button class="filter-btn" data-category="trade">Trade</button>
@@ -54,10 +87,11 @@
     <!-- Main Content: Two-column Layout -->
     <main class="main-content">
       <!-- Left Column: Heatmap (65%) -->
-      <section class="matrix-section">
+      <section class="matrix-section" id="matrix-section">
         <div class="surface-card heatmap-card">
           <div class="card-header">
             <div>
+              <div class="card-pill-tag">HEATMAP EXPLORER</div>
               <h2 class="card-title">Bilateral Intensity Matrix</h2>
               <p class="card-caption">
                 <span class="axis-guide"><strong>Rows (Y):</strong> Granting / Provider State</span>
@@ -65,7 +99,7 @@
                 <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
               </p>
             </div>
-            <div class="card-badge" id="current-view-badge">Overall Intensity</div>
+            <div class="card-view-badge" id="current-view-badge">Overall Intensity</div>
           </div>
 
           <div id="heatmap-container" class="heatmap-plot">
@@ -74,7 +108,7 @@
 
           <div class="matrix-footer">
             <div class="hint-text">
-              <span class="hint-icon">💡</span> Click on any cell in the matrix to inspect legal instruments, treaty citations, and source links.
+              <span class="hint-bullet">●</span> Click on any cell in the matrix to inspect legal instruments, treaty citations, and source links.
             </div>
             <div class="quick-chips">
               <span class="chip-label">Quick Inspect:</span>
@@ -83,31 +117,51 @@
               <button class="chip-btn" data-pair="IND-BTN">IND → BTN</button>
               <button class="chip-btn" data-pair="BGD-NPL">BGD → NPL</button>
               <button class="chip-btn" data-pair="IND-MDV">IND → MDV</button>
+              <button class="chip-btn chip-btn-plus" id="btn-cycle-pair" title="Cycle next bilateral pair">+</button>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Right Column: Inspector Panel (35%) -->
-      <aside class="inspector-section">
+      <aside class="inspector-section" id="inspector-section">
         <div class="surface-card inspector-card" id="inspector-card">
           <!-- Populated dynamically by app.js -->
           <div class="empty-state" id="inspector-empty">
-            <div class="empty-icon">🔍</div>
-            <h3 class="empty-title">Select a Bilateral Pair</h3>
+            <!-- Minimalist Line-Art Illustration (Concentric orbits & checkmarks) -->
+            <div class="empty-illustration">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="54" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="4 4" />
+                <circle cx="60" cy="60" r="38" stroke="#111111" stroke-width="1.5" stroke-dasharray="3 3" />
+                <circle cx="60" cy="60" r="22" stroke="#111111" stroke-width="1.5" />
+                <circle cx="60" cy="60" r="6" fill="#111111" />
+                <path d="M85 30L92 37L105 22" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 85L22 92L35 77" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <h3 class="empty-title">Select a Bilateral Channel</h3>
             <p class="empty-description">
-              Click any cell in the heatmap matrix or select one of the quick inspect buttons to examine underlying bilateral provisions, legal instruments, and verified source documents.
+              Tap any cell in the heatmap matrix or pick a quick pair above to inspect underlying provisions, legal statutes, and verifiable sources.
             </p>
+
             <div class="demo-suggestions">
               <div class="demo-card" data-pair="IND-NPL">
-                <div class="demo-flags">🇮🇳 → 🇳🇵</div>
+                <div class="demo-top-row">
+                  <span class="demo-flags">🇮🇳 → 🇳🇵</span>
+                  <span class="demo-pill">Featured</span>
+                </div>
                 <div class="demo-title">India → Nepal</div>
-                <div class="demo-desc">1950 Treaty, unrestricted residence & work, SAU tuition, currency swap</div>
+                <div class="demo-desc">1950 Peace & Friendship Treaty, unrestricted work & residency, SAU quotas, INR swap arrangement.</div>
               </div>
+
               <div class="demo-card" data-pair="BTN-IND">
-                <div class="demo-flags">🇧🇹 → 🇮🇳</div>
+                <div class="demo-top-row">
+                  <span class="demo-flags">🇧🇹 → 🇮🇳</span>
+                  <span class="demo-pill">Featured</span>
+                </div>
                 <div class="demo-title">Bhutan → India</div>
-                <div class="demo-desc">SDF tourist exemption, SAF forestry scholarships, regional tariff lines</div>
+                <div class="demo-desc">Sustainable Development Fee (SDF) exemption, South Asia Foundation quotas, preferential transit.</div>
               </div>
             </div>
           </div>
@@ -119,11 +173,100 @@
       </aside>
     </main>
 
+    <!-- Bottom Navigation Bar (Matching Mockup 4-item pill bar) -->
+    <nav class="bottom-nav-dock" aria-label="Quick Navigation">
+      <button class="nav-dock-item active" id="dock-btn-matrix" data-target="matrix-section">
+        <svg class="dock-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span class="dock-label">Matrix</span>
+      </button>
+
+      <button class="nav-dock-item" id="dock-btn-sectors" data-target="filter-buttons">
+        <svg class="dock-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span class="dock-label">Sectors</span>
+      </button>
+
+      <button class="nav-dock-item" id="dock-btn-inspector" data-target="inspector-section">
+        <svg class="dock-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="dock-label">Inspect</span>
+      </button>
+
+      <button class="nav-dock-item" id="dock-btn-about">
+        <svg class="dock-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+        <span class="dock-label">About</span>
+      </button>
+    </nav>
+
+    <!-- Info / Methodology Modal -->
+    <div class="modal-backdrop" id="about-modal" style="display: none;">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-pill">METHODOLOGY & TAXONOMY</div>
+          <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h3 class="modal-title">SAARC Bilateral Concessions Index</h3>
+          <p class="modal-lead">
+            The SAARC Bilateral Benefits & Concessions Index measures preferential treatments, treaties, and special statuses granted mutually or unilaterally between the 8 member states of South Asia.
+          </p>
+
+          <div class="modal-section">
+            <h4 class="modal-subtitle">Benefit Level Weightings</h4>
+            <div class="level-desc-box">
+              <div class="level-pill-row">
+                <span class="level-badge-clean">Level 1</span>
+                <strong>Multilateral Baseline (1 pt)</strong>
+              </div>
+              <p>Standard SAARC agreements, baseline visa schemes (SVES), or multilateral exemptions applicable equally to all members.</p>
+            </div>
+            <div class="level-desc-box">
+              <div class="level-pill-row">
+                <span class="level-badge-clean">Level 2</span>
+                <strong>Substantial Concession (2 pts)</strong>
+              </div>
+              <p>Subsidized quotas, university fee concessions (SAU domestic rates), bilateral currency swap windows, or SDF tourist exemptions.</p>
+            </div>
+            <div class="level-desc-box">
+              <div class="level-pill-row">
+                <span class="level-badge-clean">Level 3</span>
+                <strong>Deep Bilateral Treaty (3 pts)</strong>
+              </div>
+              <p>Unrestricted freedom of movement, national work/residency treatment, mutual defense or comprehensive free transit pacts (e.g., India-Nepal 1950, India-Bhutan 1949/2007).</p>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-subtitle">Official Sources</h4>
+            <p>Every provision links to verifiable statutory acts, Ministry of External Affairs publications, central bank circulars, or university charters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="app-footer">
       <div class="footer-inner">
+        <div class="footer-badge">OPEN RESEARCH REPOSITORY</div>
         <p>SAARC Bilateral Benefits & Concessions Index • Built with Vanilla HTML5, CSS3 & Plotly.js</p>
-        <p class="footer-sub">Sources: SAARC Secretariat, Member State Ministries of External Affairs, Central Banks & Official Gazettes</p>
+        <p class="footer-sub">Member States: AFG • BGD • BTN • IND • MDV • NPL • PAK • LKA</p>
       </div>
     </footer>
   </div>
@@ -131,4 +274,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
