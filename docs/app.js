@@ -59,13 +59,7 @@ function handleDataLoaded(data) {
 function updateHeaderStats() {
   if (!globalData) return;
   const totalProvEl = document.getElementById('stat-total-provisions');
-  const memberStatesEl = document.getElementById('stat-member-states');
-  const activePairsEl = document.getElementById('stat-active-pairs');
   const regionalCentresEl = document.getElementById('stat-regional-centres');
-
-  const countries = globalData.countries || [];
-  if (memberStatesEl) memberStatesEl.textContent = countries.length;
-  if (activePairsEl) activePairsEl.textContent = countries.length * (countries.length - 1);
 
   if (regionalCentresEl && globalData.centres) {
     regionalCentresEl.textContent = globalData.centres.length;
@@ -151,19 +145,36 @@ function setupEventListeners() {
     });
   }
 
-  // Modal handlers
+  // Modal & Methodology triggers
   const btnInfo = document.getElementById('btn-info');
   const btnMenu = document.getElementById('btn-menu');
   const modalClose = document.getElementById('modal-close');
   const aboutModal = document.getElementById('about-modal');
   const dockAbout = document.getElementById('dock-btn-about');
 
+  const scrollToMethodology = () => {
+    const methSection = document.getElementById('top-methodology-guide') || document.getElementById('methodology-section');
+    if (methSection) {
+      methSection.scrollIntoView({ behavior: 'smooth' });
+      methSection.style.transition = 'box-shadow 0.3s ease';
+      methSection.style.boxShadow = '0 0 0 2px var(--color-black)';
+      setTimeout(() => {
+        methSection.style.boxShadow = '';
+      }, 1500);
+    }
+  };
+
   const openModal = () => { if (aboutModal) aboutModal.style.display = 'flex'; };
   const closeModal = () => { if (aboutModal) aboutModal.style.display = 'none'; };
 
-  if (btnInfo) btnInfo.addEventListener('click', openModal);
+  if (btnInfo) btnInfo.addEventListener('click', scrollToMethodology);
   if (btnMenu) btnMenu.addEventListener('click', openModal);
-  if (dockAbout) dockAbout.addEventListener('click', openModal);
+  if (dockAbout) {
+    dockAbout.addEventListener('click', () => {
+      updateActiveDock(dockAbout);
+      scrollToMethodology();
+    });
+  }
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (aboutModal) {
     aboutModal.addEventListener('click', (e) => {
@@ -469,24 +480,26 @@ function displayDetails(provider, beneficiary) {
         <span>${bFlag} ${bName}</span>
       </h3>
       <p class="inspector-direction-tag">
-        Grantor: <strong>${provider}</strong> &nbsp;•&nbsp; Recipient: <strong>${beneficiary}</strong>
+        Provider State: <strong>${provider}</strong> &nbsp;•&nbsp; Beneficiary State: <strong>${beneficiary}</strong>
       </p>
 
       <div class="inspector-metrics">
         <div class="inspector-ring-card">
-          <div class="inspector-ring">
+          <div class="inspector-metric-score-wrap">
             <span class="inspector-ring-val">${totalScore}</span>
-            <span class="inspector-ring-sub">pts</span>
+            <span class="inspector-ring-sub">points</span>
           </div>
-          <div class="inspector-ring-lbl">Total Intensity</div>
+          <div class="inspector-ring-lbl">Cumulative Score</div>
+          <p class="inspector-metric-explain">Weighted total across all benefit levels (1-3 pts each)</p>
         </div>
 
         <div class="inspector-ring-card">
-          <div class="inspector-ring">
+          <div class="inspector-metric-score-wrap">
             <span class="inspector-ring-val">${rawList.length}</span>
-            <span class="inspector-ring-sub">acts</span>
+            <span class="inspector-ring-sub">agreements</span>
           </div>
-          <div class="inspector-ring-lbl">Provisions</div>
+          <div class="inspector-ring-lbl">Active Provisions</div>
+          <p class="inspector-metric-explain">Specific treaties, quotas, or bilateral concessions</p>
         </div>
       </div>
 

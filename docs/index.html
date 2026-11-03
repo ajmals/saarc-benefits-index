@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAARC Bilateral Benefits & Concessions Index</title>
+  <title>South Asian Bilateral Relations & Concessions Explorer</title>
   <meta name="description"
-    content="Visualizing concessions, quotas, and bilateral privileges across South Asian states with primary legal sources.">
+    content="An open public guide exploring bilateral relations, treaties, and privileges among South Asian nations.">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 </head>
 
 <body>
   <div class="app-layout">
-    <!-- Header with Top Bar Pill & Line-Art Icons -->
+    <!-- Header with Clean Line-Art Navigation -->
     <header class="app-header">
       <div class="top-nav-bar">
-        <button class="icon-btn" id="btn-info" aria-label="Project Information" title="About SAARC Index">
+        <button class="icon-btn" id="btn-info" aria-label="Methodology and scoring guide" title="How to read this dashboard">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
@@ -25,9 +25,9 @@
           </svg>
         </button>
 
-        <div class="top-center-pill">SAARC REGIONAL MATRIX</div>
+        <div class="top-center-pill">SOUTH ASIAN BILATERAL RELATIONS</div>
 
-        <button class="icon-btn" id="btn-menu" aria-label="Toggle Menu" title="Menu & Methodology">
+        <button class="icon-btn" id="btn-menu" aria-label="Toggle Menu" title="Menu & Detailed Methodology">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -39,51 +39,88 @@
 
       <div class="header-content">
         <div class="branding">
-          <div class="brand-sub-badge">Regional Concessions Database</div>
-          <h1 class="brand-title">SAARC Bilateral Benefits Matrix</h1>
+          <div class="brand-sub-badge">Public Information Dashboard</div>
+          <h1 class="brand-title">South Asian Bilateral Relations & Benefits Index</h1>
           <p class="brand-subtitle">
-            Visualizing concessions, quotas, and bilateral privileges across South Asian states with primary legal
-            sources.
+            Exploring cross-border relations, bilateral treaties, visa privileges, trade concessions, and student quotas across South Asian states.
           </p>
         </div>
 
-        <!-- Minimalist Circular & Dashed Stat Rings -->
+        <!-- Clean Metric Summary (Focusing on actionable totals with plain English explanations) -->
         <div class="header-stats">
           <div class="stat-ring-card">
-            <div class="stat-ring">
-              <span class="stat-value" id="stat-total-provisions">21</span>
-              <span class="stat-sub-val">/ 21</span>
+            <div class="stat-value">
+              <span id="stat-total-provisions">21</span>
+              <span class="stat-sub-val">provisions</span>
             </div>
-            <span class="stat-label">Master Provisions</span>
+            <span class="stat-label">Verified Accords</span>
+            <span class="stat-hint">Active bilateral & multilateral legal instruments</span>
           </div>
 
           <div class="stat-ring-card">
-            <div class="stat-ring">
-              <span class="stat-value" id="stat-member-states">8</span>
-              <span class="stat-sub-val">/ 8</span>
+            <div class="stat-value">
+              <span id="stat-regional-centres">7</span>
+              <span class="stat-sub-val">centres</span>
             </div>
-            <span class="stat-label">Member States</span>
-          </div>
-
-          <div class="stat-ring-card">
-            <div class="stat-ring">
-              <span class="stat-value" id="stat-active-pairs">56</span>
-              <span class="stat-sub-val">/ 56</span>
-            </div>
-            <span class="stat-label">Bilateral Channels</span>
-          </div>
-
-          <div class="stat-ring-card">
-            <div class="stat-ring">
-              <span class="stat-value" id="stat-regional-centres">7</span>
-              <span class="stat-sub-val">/ 7</span>
-            </div>
-            <span class="stat-label">Regional Centres</span>
+            <span class="stat-label">Regional Bodies</span>
+            <span class="stat-hint">Specialized institutions serving member citizens</span>
           </div>
         </div>
       </div>
 
-      <!-- Controls & Filter Toolbar -->
+      <!-- Prominent Top Methodology & Scoring Guide (Directly Visible at Top) -->
+      <section class="top-methodology-card" id="top-methodology-guide" aria-label="How Scoring Works">
+        <div class="top-methodology-header">
+          <div>
+            <div class="methodology-tag">HOW TO READ THIS DASHBOARD</div>
+            <h2 class="methodology-heading">How We Measure Bilateral Relationships</h2>
+          </div>
+          <div class="top-sources-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span><strong>Primary Legal Sources:</strong> Every benefit is backed by published statutory acts, treaties, or ministerial notifications.</span>
+          </div>
+        </div>
+
+        <p class="methodology-summary-text">
+          Every bilateral relationship is scored from <strong>Level 1 to 3</strong> based on how deeply the two nations grant mutual or unilateral benefits to each other's citizens, students, and businesses:
+        </p>
+
+        <div class="top-levels-grid">
+          <div class="top-level-item">
+            <div class="top-level-top">
+              <span class="level-badge-clean">Level 1</span>
+              <span class="top-level-name">Regional Baseline (1 pt)</span>
+            </div>
+            <p class="top-level-desc">
+              Standard South Asian agreements available broadly across all member states (e.g., standard visa exemption schemes, basic transit windows).
+            </p>
+          </div>
+
+          <div class="top-level-item">
+            <div class="top-level-top">
+              <span class="level-badge-clean">Level 2</span>
+              <span class="top-level-name">Substantial Privilege (2 pts)</span>
+            </div>
+            <p class="top-level-desc">
+              Special cost savings and reserved access (e.g., domestic university tuition fees, tourist fee waivers, central bank currency credit lines).
+            </p>
+          </div>
+
+          <div class="top-level-item">
+            <div class="top-level-top">
+              <span class="level-badge-clean">Level 3</span>
+              <span class="top-level-name">Deep Bilateral Treaty (3 pts)</span>
+            </div>
+            <p class="top-level-desc">
+              Highest level of cross-border partnership (e.g., free movement of citizens, equal work and residency rights without requiring a visa).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Controls Toolbar -->
       <div class="toolbar">
         <div class="filter-group">
           <label for="category-select">Dimension:</label>
@@ -111,17 +148,17 @@
       </div>
     </header>
 
-    <!-- Main Content: Two-column Layout -->
+    <!-- Main Content: Heatmap & Side-by-Side Provision Dossier -->
     <main class="main-content" id="matrix-section">
-      <!-- Left Column: Heatmap (65%) -->
+      <!-- Left Column: Bilateral Matrix View -->
       <section class="matrix-section">
         <div class="surface-card heatmap-card">
           <div class="card-header">
             <div>
-              <div class="card-pill-tag">HEATMAP EXPLORER</div>
-              <h2 class="card-title">Bilateral Intensity Matrix</h2>
+              <div class="card-pill-tag">INTERACTIVE VISUALIZATION</div>
+              <h2 class="card-title">Bilateral Relationship Matrix</h2>
               <p class="card-caption">
-                <span class="axis-guide"><strong>Rows (Y):</strong> Granting / Provider State</span>
+                <span class="axis-guide"><strong>Rows (Y):</strong> Provider / Granting State</span>
                 <span class="axis-divider">•</span>
                 <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
               </p>
@@ -133,8 +170,7 @@
 
           <div class="matrix-footer">
             <div class="hint-text">
-              <span class="hint-bullet">●</span> Click on any colored cell in the matrix to inspect legal instruments,
-              treaty citations, and source links.
+              <span class="hint-bullet">●</span> Click on any colored cell in the matrix to view the treaties, concessions, and official source links between those two nations.
             </div>
             <div class="quick-chips">
               <span class="chip-label">Quick Inspect:</span>
@@ -150,7 +186,7 @@
         </div>
       </section>
 
-      <!-- Right Column: Inspector Panel (35%) -->
+      <!-- Right Column: Inspector Panel -->
       <aside class="inspector-section" id="inspector-section">
         <div class="surface-card inspector-card" id="inspector-card">
           <div class="inspector-header">
@@ -170,8 +206,7 @@
         <div>
           <div class="card-pill-tag">REGIONAL INSTITUTIONS</div>
           <h2>SAARC Regional Specialized Centres</h2>
-          <p class="card-caption">Autonomous regional bodies established under SAARC charters to facilitate specialized
-            technical and economic cooperation.</p>
+          <p class="card-caption">Autonomous regional bodies established under multilateral charters to facilitate technical cooperation, energy, agriculture, and public health.</p>
         </div>
       </div>
       <div id="centres-grid" class="centres-grid"></div>
@@ -214,11 +249,11 @@
           <path d="M12 16v-4"></path>
           <path d="M12 8h.01"></path>
         </svg>
-        <span class="dock-label">About</span>
+        <span class="dock-label">Guide</span>
       </button>
     </nav>
 
-    <!-- Methodology & About Modal -->
+    <!-- Detailed Methodology & About Modal -->
     <div class="modal-backdrop" id="about-modal" style="display: none;">
       <div class="modal-card">
         <div class="modal-header">
@@ -226,10 +261,9 @@
           <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
         </div>
         <div class="modal-body">
-          <h3 class="modal-title">SAARC Bilateral Concessions Index</h3>
+          <h3 class="modal-title">South Asian Bilateral Relations & Benefits Index</h3>
           <p class="modal-lead">
-            The SAARC Bilateral Benefits & Concessions Index measures preferential treatments, treaties, and special
-            statuses granted mutually or unilaterally between the 8 member states of South Asia.
+            This open research index tracks and quantifies preferential treatments, bilateral treaties, and reciprocal privileges exchanged among South Asian nations (Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, and Sri Lanka).
           </p>
 
           <div class="modal-section">
@@ -237,33 +271,29 @@
             <div class="level-desc-box">
               <div class="level-pill-row">
                 <span class="level-badge-clean">Level 1</span>
-                <strong>Multilateral Baseline (1 pt)</strong>
+                <strong>Regional Baseline (1 pt)</strong>
               </div>
-              <p>Standard SAARC agreements, baseline visa schemes (SVES), or multilateral exemptions applicable equally
-                to all members.</p>
+              <p>Standard agreements, baseline visa schemes (SVES), or multilateral exemptions applicable broadly across members.</p>
             </div>
             <div class="level-desc-box">
               <div class="level-pill-row">
                 <span class="level-badge-clean">Level 2</span>
                 <strong>Substantial Concession (2 pts)</strong>
               </div>
-              <p>Subsidized quotas, university fee concessions (SAU domestic rates), bilateral currency swap windows, or
-                SDF tourist exemptions.</p>
+              <p>Subsidized university tuition (e.g. SAU domestic rates), tourist levy exemptions (Bhutan SDF), bilateral currency swap windows, or port transshipment priorities.</p>
             </div>
             <div class="level-desc-box">
               <div class="level-pill-row">
                 <span class="level-badge-clean">Level 3</span>
                 <strong>Deep Bilateral Treaty (3 pts)</strong>
               </div>
-              <p>Unrestricted freedom of movement, national work/residency treatment, mutual defense or comprehensive
-                free transit pacts (e.g., India-Nepal 1950, India-Bhutan 1949/2007).</p>
+              <p>Unrestricted freedom of movement, national work/residency treatment, or comprehensive free transit corridors (e.g. India-Nepal 1950, India-Bhutan 1949/2007).</p>
             </div>
           </div>
 
           <div class="modal-section" style="margin-top: 1rem;">
             <h4 class="modal-subtitle">Official Legal Sources</h4>
-            <p>Every concession links directly to verifiable statutory acts, Ministry of External Affairs portals,
-              central bank regulations, or institutional charters.</p>
+            <p>Every concession links directly to verifiable statutory acts, Ministry of External Affairs publications, central bank regulations, or institutional charters.</p>
           </div>
         </div>
       </div>
@@ -273,7 +303,7 @@
     <footer class="app-footer">
       <div class="footer-inner">
         <div class="footer-badge">OPEN RESEARCH REPOSITORY</div>
-        <p>SAARC Bilateral Benefits & Concessions Index</p>
+        <p>South Asian Bilateral Relations & Benefits Index</p>
         <p class="footer-sub">Member States: AFG • BGD • BTN • IND • MDV • NPL • PAK • LKA</p>
       </div>
     </footer>
