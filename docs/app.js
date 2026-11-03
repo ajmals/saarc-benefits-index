@@ -474,9 +474,9 @@ function updateViewChrome() {
     if (mainTitle) mainTitle.textContent = 'Bilateral Relationship Matrix';
     if (caption) {
       caption.innerHTML = `
-        <span class="axis-guide"><strong>Rows (Y):</strong> Provider / Granting State</span>
+        <span class="axis-guide"><strong>Granting State</strong> (Rows / Left)</span>
         <span class="axis-divider">•</span>
-        <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
+        <span class="axis-guide"><strong>Recipient State</strong> (Columns / Top)</span>
       `;
     }
     if (hintText) {
@@ -554,9 +554,21 @@ function updateViewChrome() {
       if (mainTitle) mainTitle.textContent = '🛂 South Asian Bilateral Visa Requirements Matrix';
       if (caption) {
         caption.innerHTML = `
-          <span class="axis-guide"><strong>Rows (Y):</strong> Origin Passport Holder</span>
-          <span class="axis-divider">•</span>
-          <span class="axis-guide"><strong>Columns (X):</strong> Destination State</span>
+          <div class="visa-axis-reader-guide">
+            <span class="reader-guide-chip orig">
+              <span class="chip-icon">🛫</span>
+              <span class="chip-name">Passport Origin</span>
+              <span class="chip-pos">(Left Side)</span>
+            </span>
+            <span class="reader-arrow">➔</span>
+            <span class="reader-guide-chip dest">
+              <span class="chip-icon">🛬</span>
+              <span class="chip-name">Destination State</span>
+              <span class="chip-pos">(Top Header)</span>
+            </span>
+            <span class="reader-separator">•</span>
+            <span class="reader-tip">Select citizen passport on the left, then look across to destination.</span>
+          </div>
         `;
       }
       if (hintText) {
@@ -665,8 +677,8 @@ function renderHeatmap() {
       }
 
       if (personaFilter === 'all') {
-        const baseScore = catFilter === 'total' 
-          ? (scores_total[p]?.[b] || 0) 
+        const baseScore = catFilter === 'total'
+          ? (scores_total[p]?.[b] || 0)
           : (scores_by_cat[catFilter]?.[p]?.[b] || 0);
         rowScores.push(baseScore);
       } else {
@@ -739,8 +751,8 @@ function renderHeatmap() {
     plot_bgcolor: '#ffffff',
     margin: { t: 40, r: 25, l: 80, b: 65 },
     xaxis: {
-      title: { 
-        text: 'Beneficiary State (Recipient)', 
+      title: {
+        text: 'Beneficiary State (Recipient)',
         font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
         standoff: 15
       },
@@ -755,8 +767,8 @@ function renderHeatmap() {
       side: 'bottom'
     },
     yaxis: {
-      title: { 
-        text: 'Provider State (Grantor)', 
+      title: {
+        text: 'Provider State (Grantor)',
         font: { color: '#111827', size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' },
         standoff: 15
       },
@@ -997,8 +1009,8 @@ function renderReciprocityBalance() {
 function renderSectorRadar() {
   if (!globalData) return;
   const p = focusCountry;
-  const b = (selectedPair && selectedPair.provider === p && selectedPair.beneficiary !== p) 
-    ? selectedPair.beneficiary 
+  const b = (selectedPair && selectedPair.provider === p && selectedPair.beneficiary !== p)
+    ? selectedPair.beneficiary
     : (p === 'IND' ? 'NPL' : 'IND');
 
   const sectors = ['trade', 'tourism_culture', 'education', 'mobility_visa', 'finance_bilateral'];
@@ -1864,17 +1876,52 @@ function renderVisaMatrix(container) {
 
   let tableHtml = `
     <div class="visa-matrix-container">
-      <div class="visa-matrix-scroll">
-        <table class="visa-matrix-table" role="grid" aria-label="Bilateral Visa Regimes Matrix">
-          <thead>
-            <tr>
-              <th class="corner-cell" title="Rows: Passport of Traveler, Columns: Destination Country">Passport ▼ \\ Dest ▶</th>
+      <div class="visa-matrix-layout">
+        <aside class="visa-matrix-side-axis" aria-label="Origin Passport Axis" title="Passport Origin (Rows): Country of citizen/traveler">
+          <div class="visa-side-axis-badge">
+            <span class="side-axis-icon">🛫</span>
+            <div class="side-axis-text-group">
+              <span class="side-axis-title">PASSPORT ORIGIN</span>
+              <span class="side-axis-subtitle">(Citizen of)</span>
+            </div>
+            <span class="side-axis-arrow">▼</span>
+          </div>
+        </aside>
+
+        <div class="visa-matrix-scroll">
+          <table class="visa-matrix-table" role="grid" aria-label="Bilateral Visa Regimes Matrix">
+            <thead>
+              <tr class="visa-axis-dest-row">
+                <th class="corner-cell" rowspan="2" title="Corner Guide: Read across from your Passport origin to your Destination country">
+                  <div class="visa-corner-guide">
+                    <div class="corner-guide-item corner-dest">
+                      <span class="corner-guide-icon">🛬</span>
+                      <span class="corner-guide-label">DEST ➔</span>
+                    </div>
+                    <div class="corner-guide-line"></div>
+                    <div class="corner-guide-item corner-orig">
+                      <span class="corner-guide-icon">🛫</span>
+                      <span class="corner-guide-label">PASSPORT ⬇</span>
+                    </div>
+                  </div>
+                </th>
+                <th colspan="${countries.length}" class="dest-axis-superheader">
+                  <div class="dest-axis-banner">
+                    <span class="dest-axis-icon">🛬</span>
+                    <span class="dest-axis-title">DESTINATION STATE</span>
+                    <span class="dest-axis-desc">— Where you are traveling to</span>
+                    <span class="dest-axis-arrow">➔</span>
+                  </div>
+                </th>
+              </tr>
+              <tr class="visa-country-cols-row">
   `;
 
   countries.forEach(c => {
     const flag = COUNTRY_FLAGS[c] || '';
     const name = COUNTRY_NAMES[c] || c;
-    tableHtml += `<th class="dest-header" title="Destination: ${escapeHtml(name)} (${c})">${flag} ${c}</th>`;
+    const isDestSelected = selectedPair && selectedPair.beneficiary === c;
+    tableHtml += `<th class="dest-header ${isDestSelected ? 'active-axis' : ''}" data-country="${c}" title="Destination: ${escapeHtml(name)} (${c})">${flag} ${c}</th>`;
   });
 
   tableHtml += `</tr></thead><tbody>`;
@@ -1882,8 +1929,9 @@ function renderVisaMatrix(container) {
   countries.forEach(orig => {
     const origFlag = COUNTRY_FLAGS[orig] || '';
     const origName = COUNTRY_NAMES[orig] || orig;
+    const isOrigSelected = selectedPair && selectedPair.provider === orig;
     tableHtml += `<tr>`;
-    tableHtml += `<th class="origin-header" title="Citizen/Passport of ${escapeHtml(origName)} (${orig})">${origFlag} ${orig}</th>`;
+    tableHtml += `<th class="origin-header ${isOrigSelected ? 'active-axis' : ''}" data-country="${orig}" title="Citizen/Passport of ${escapeHtml(origName)} (${orig})">${origFlag} ${orig}</th>`;
 
     countries.forEach(dest => {
       if (orig === dest) {
@@ -1937,7 +1985,7 @@ function renderVisaMatrix(container) {
     tableHtml += `</tr>`;
   });
 
-  tableHtml += `</tbody></table></div>`;
+  tableHtml += `</tbody></table></div></div>`;
 
   // Add Interactive Legend Bar below
   tableHtml += `
@@ -1967,11 +2015,21 @@ function renderVisaMatrix(container) {
 
   container.innerHTML = tableHtml;
 
-  // Attach click handlers to active matrix cells
+  // Attach hover crosshair and click handlers to active matrix cells
   container.querySelectorAll('.visa-matrix-cell[data-orig]').forEach(cell => {
+    const orig = cell.getAttribute('data-orig');
+    const dest = cell.getAttribute('data-dest');
+
+    cell.addEventListener('mouseenter', () => {
+      container.querySelectorAll(`.origin-header[data-country="${orig}"]`).forEach(h => h.classList.add('hover-axis'));
+      container.querySelectorAll(`.dest-header[data-country="${dest}"]`).forEach(h => h.classList.add('hover-axis'));
+    });
+
+    cell.addEventListener('mouseleave', () => {
+      container.querySelectorAll('.origin-header.hover-axis, .dest-header.hover-axis').forEach(h => h.classList.remove('hover-axis'));
+    });
+
     cell.addEventListener('click', () => {
-      const orig = cell.getAttribute('data-orig');
-      const dest = cell.getAttribute('data-dest');
       if (orig && dest) {
         selectVisaPair(orig, dest);
       }
@@ -2171,6 +2229,14 @@ function selectVisaPair(orig, dest) {
     } else {
       c.classList.remove('selected');
     }
+  });
+
+  // Re-highlight origin and destination headers
+  document.querySelectorAll('.visa-matrix-table .origin-header').forEach(th => {
+    th.classList.toggle('active-axis', th.getAttribute('data-country') === orig);
+  });
+  document.querySelectorAll('.visa-matrix-table .dest-header').forEach(th => {
+    th.classList.toggle('active-axis', th.getAttribute('data-country') === dest);
   });
 
   document.querySelectorAll('.passport-dest-card').forEach(c => {

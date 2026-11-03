@@ -22,12 +22,18 @@
   --color-white: #ffffff;
 
   /* High-Readability Data & Graph Accents */
-  --data-trade: #2563eb;          /* Royal Blue */
-  --data-tourism: #f59e0b;        /* Warm Amber */
-  --data-education: #8b5cf6;      /* Soft Violet */
-  --data-mobility: #10b981;       /* Emerald */
-  --data-finance: #d97706;        /* Deep Ochre */
-  --data-heatmap-peak: #064e3b;   /* Deep Forest Teal */
+  --data-trade: #2563eb;
+  /* Royal Blue */
+  --data-tourism: #f59e0b;
+  /* Warm Amber */
+  --data-education: #8b5cf6;
+  /* Soft Violet */
+  --data-mobility: #10b981;
+  /* Emerald */
+  --data-finance: #d97706;
+  /* Deep Ochre */
+  --data-heatmap-peak: #064e3b;
+  /* Deep Forest Teal */
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -51,7 +57,9 @@
 }
 
 /* Base Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -64,7 +72,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 5rem; /* Room for bottom dock */
+  padding-bottom: 5rem;
+  /* Room for bottom dock */
 }
 
 /* Layout Wrapper */
@@ -920,13 +929,16 @@ body {
 .inspector-card::-webkit-scrollbar {
   width: 5px;
 }
+
 .inspector-card::-webkit-scrollbar-track {
   background: var(--color-card);
 }
+
 .inspector-card::-webkit-scrollbar-thumb {
   background: var(--color-gray-200);
   border-radius: 4px;
 }
+
 .inspector-card::-webkit-scrollbar-thumb:hover {
   background: var(--color-black);
 }
@@ -1118,10 +1130,11 @@ body {
   margin-top: 0.25rem;
   line-height: 1.25;
 }
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-black);
+
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+color: var(--color-black);
 }
 
 /* ==========================================================================
@@ -1521,6 +1534,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1968,11 +1982,30 @@ header p {
   border: 1px solid var(--color-gray-200);
 }
 
-.cards-list .badge.trade { color: var(--data-trade); border-color: var(--data-trade); }
-.cards-list .badge.tourism_culture { color: var(--data-tourism); border-color: var(--data-tourism); }
-.cards-list .badge.education { color: var(--data-education); border-color: var(--data-education); }
-.cards-list .badge.mobility_visa { color: var(--data-mobility); border-color: var(--data-mobility); }
-.cards-list .badge.finance_bilateral { color: var(--data-finance); border-color: var(--data-finance); }
+.cards-list .badge.trade {
+  color: var(--data-trade);
+  border-color: var(--data-trade);
+}
+
+.cards-list .badge.tourism_culture {
+  color: var(--data-tourism);
+  border-color: var(--data-tourism);
+}
+
+.cards-list .badge.education {
+  color: var(--data-education);
+  border-color: var(--data-education);
+}
+
+.cards-list .badge.mobility_visa {
+  color: var(--data-mobility);
+  border-color: var(--data-mobility);
+}
+
+.cards-list .badge.finance_bilateral {
+  color: var(--data-finance);
+  border-color: var(--data-finance);
+}
 
 .cards-list .badge-level {
   font-size: 0.72rem;
@@ -2252,8 +2285,9 @@ header p {
 .centre-portal-link:hover {
   color: var(--data-trade);
 }
-  align-items: center;
-  gap: 0.5rem;
+
+align-items: center;
+gap: 0.5rem;
 }
 
 .centre-top .code {
@@ -2408,10 +2442,133 @@ header p {
   animation: fadeIn 0.3s ease-out;
 }
 
+/* Friendly Axis Reader Guide in Caption */
+.visa-axis-reader-guide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.825rem;
+  color: var(--color-gray-600);
+  margin-top: 0.25rem;
+}
+
+.reader-guide-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1.5px solid var(--color-black);
+  box-shadow: 1px 1px 0 var(--color-black);
+}
+
+.reader-guide-chip.orig {
+  background-color: var(--color-gray-100);
+  color: var(--color-black);
+}
+
+.reader-guide-chip.dest {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.reader-guide-chip .chip-pos {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: var(--color-gray-600);
+}
+
+.reader-arrow {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.reader-separator {
+  color: var(--color-gray-400);
+  margin: 0 0.15rem;
+}
+
+.reader-tip {
+  font-size: 0.8rem;
+  color: var(--color-gray-600);
+}
+
+/* Matrix Layout with Side Axis Bar */
+.visa-matrix-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.visa-matrix-side-axis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  background-color: var(--color-gray-100);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.15rem;
+  box-shadow: 2px 2px 0 var(--color-black);
+  user-select: none;
+}
+
+.visa-side-axis-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 100%;
+}
+
+.visa-side-axis-badge .side-axis-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.visa-side-axis-badge .side-axis-text-group {
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.visa-side-axis-badge .side-axis-title {
+  font-weight: 800;
+  font-size: 0.72rem;
+  color: var(--color-black);
+}
+
+.visa-side-axis-badge .side-axis-subtitle {
+  font-weight: 600;
+  font-size: 0.62rem;
+  color: var(--color-gray-600);
+}
+
+.visa-side-axis-badge .side-axis-arrow {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1;
+}
+
 .visa-matrix-scroll {
+  flex: 1;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  max-width: 100%;
   border: 1.5px solid var(--color-black);
   border-radius: var(--radius-md);
   background: var(--color-white);
@@ -2460,6 +2617,51 @@ header p {
   border-bottom: 1.5px solid var(--color-black);
   white-space: nowrap;
   font-size: 0.72rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Destination Superheader Banner */
+.visa-matrix-table th.dest-axis-superheader {
+  background-color: var(--color-gray-100);
+  border-bottom: 1.5px solid var(--color-black);
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+}
+
+.dest-axis-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dest-axis-banner .dest-axis-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.dest-axis-banner .dest-axis-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-black);
+  letter-spacing: 0.04em;
+}
+
+.dest-axis-banner .dest-axis-desc {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+}
+
+.dest-axis-banner .dest-axis-arrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-black);
 }
 
 .visa-matrix-table th.corner-cell {
@@ -2469,17 +2671,63 @@ header p {
   z-index: 5;
   background-color: var(--color-card);
   text-align: left;
-  padding: 0.45rem 0.5rem;
+  padding: 0.3rem 0.4rem;
   font-size: 0.63rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--color-gray-600);
-  width: 76px;
-  min-width: 76px;
-  max-width: 82px;
+  width: 84px;
+  min-width: 84px;
+  max-width: 88px;
   border-right: 1.5px solid var(--color-black);
   border-bottom: 1.5px solid var(--color-black);
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.visa-corner-guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 52px;
+  padding: 0.15rem 0.1rem;
+  box-sizing: border-box;
+}
+
+.corner-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.corner-guide-item.corner-dest {
+  justify-content: flex-end;
+  color: var(--color-black);
+}
+
+.corner-guide-item.corner-orig {
+  justify-content: flex-start;
+  color: var(--color-gray-700);
+}
+
+.corner-guide-line {
+  height: 1px;
+  background: linear-gradient(to right, #cbd5e1, #94a3b8, #cbd5e1);
+  margin: 0.15rem 0;
+  transform: rotate(-10deg);
+}
+
+.corner-guide-icon {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.corner-guide-label {
+  letter-spacing: 0.02em;
 }
 
 .visa-matrix-table th.origin-header {
@@ -2487,16 +2735,35 @@ header p {
   left: 0;
   z-index: 4;
   text-align: left;
-  padding: 0.35rem 0.5rem;
+  padding: 0.35rem 0.45rem;
   background-color: var(--color-gray-50);
   border-right: 1.5px solid var(--color-black);
   font-weight: 700;
   white-space: nowrap;
   font-size: 0.72rem;
-  width: 76px;
-  min-width: 76px;
-  max-width: 82px;
+  width: 84px;
+  min-width: 84px;
+  max-width: 88px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Axis Crosshair Highlighting on Hover & Active Selection */
+.visa-matrix-table th.origin-header.hover-axis,
+.visa-matrix-table th.dest-header.hover-axis {
+  background-color: var(--color-gray-200);
+  color: var(--color-black);
+  outline: 2px solid var(--color-black);
+  outline-offset: -2px;
+  z-index: 6;
+}
+
+.visa-matrix-table th.origin-header.active-axis,
+.visa-matrix-table th.dest-header.active-axis {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-black);
+  z-index: 6;
 }
 
 .visa-matrix-cell {
@@ -3018,36 +3285,69 @@ header p {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 960px) {
   .layout-container {
     grid-template-columns: 1fr;
   }
+
   .inspector-panel {
     position: static;
     max-height: none;
   }
+
   #matrix-heatmap {
     height: 460px;
   }
 }
 
 @media (max-width: 640px) {
-  header, .centres-section, .visual-panel, .inspector-panel {
+
+  header,
+  .centres-section,
+  .visual-panel,
+  .inspector-panel {
     padding: 1.15rem;
   }
+
   .toolbar {
     flex-direction: column;
     align-items: stretch;
   }
+
   .filter-group {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .filter-group select {
     width: 100%;
+  }
+
+  .visa-matrix-side-axis {
+    width: 30px;
+    padding: 0.5rem 0.1rem;
+  }
+
+  .visa-side-axis-badge .side-axis-title {
+    font-size: 0.64rem;
+  }
+
+  .visa-side-axis-badge .side-axis-subtitle {
+    display: none;
+  }
+
+  .dest-axis-banner .dest-axis-desc {
+    display: none;
   }
 }
