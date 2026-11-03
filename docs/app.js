@@ -3191,6 +3191,10 @@ function renderTourismMonuments(container) {
 
       <!-- Grouped Bar Chart -->
       <div class="tourism-chart-wrapper">
+        <div class="tourism-chart-header">
+          <div class="tourism-chart-title">Monument Entry Ticket Price Comparison (USD $)</div>
+          <div class="tourism-chart-hint">Comparing Domestic Citizen, SAARC Regional, and General Foreign Tourist ticket tariffs across protected heritage sites</div>
+        </div>
         <div id="tourism-monuments-plotly" style="width: 100%; height: 380px;"></div>
       </div>
 
@@ -3292,18 +3296,13 @@ function renderTourismMonuments(container) {
       }
     ];
 
+    const isMobile = window.innerWidth <= 640;
     const layout = {
       barmode: 'group',
-      title: {
-        text: '<b>Monument Entry Ticket Price Comparison (USD $)</b>',
-        font: { family: 'inherit', size: 14, color: '#111827' },
-        x: 0.02,
-        y: 0.96
-      },
-      margin: { l: 45, r: 20, t: 45, b: 85 },
+      margin: isMobile ? { l: 40, r: 15, t: 35, b: 90 } : { l: 45, r: 20, t: 30, b: 80 },
       xaxis: {
         tickangle: -25,
-        tickfont: { family: 'inherit', size: 10, color: '#374151' },
+        tickfont: { family: 'inherit', size: isMobile ? 9 : 10, color: '#374151' },
         showgrid: false
       },
       yaxis: {
@@ -3313,10 +3312,10 @@ function renderTourismMonuments(container) {
       },
       legend: {
         orientation: 'h',
-        x: 0.5,
-        xanchor: 'center',
-        y: 1.14,
-        font: { family: 'inherit', size: 11 }
+        x: isMobile ? 0 : 0.5,
+        xanchor: isMobile ? 'left' : 'center',
+        y: isMobile ? 1.25 : 1.14,
+        font: { family: 'inherit', size: isMobile ? 9 : 11, color: '#374151' }
       },
       plot_bgcolor: 'transparent',
       paper_bgcolor: 'transparent',
@@ -3430,6 +3429,10 @@ function renderBhutanSdf(container) {
 
       <!-- Chart Wrapper for Multi-Day Trajectory -->
       <div class="tourism-chart-wrapper">
+        <div class="tourism-chart-header">
+          <div class="tourism-chart-title">Bhutan SDF Cumulative Cost by Stay Duration (${totalTravelers} ${totalTravelers === 1 ? 'Traveler' : 'Travelers'})</div>
+          <div class="tourism-chart-hint">Mandatory Sustainable Development Fee (SDF) in USD across standard trip durations (Tourism Levy Act of Bhutan)</div>
+        </div>
         <div id="tourism-sdf-plotly" style="width: 100%; height: 360px;"></div>
       </div>
 
@@ -3497,17 +3500,12 @@ function renderBhutanSdf(container) {
       }
     ];
 
+    const isMobile = window.innerWidth <= 640;
     const layout = {
       barmode: 'group',
-      title: {
-        text: `<b>Bhutan SDF Cumulative Cost by Stay Duration (${totalTravelers} ${totalTravelers === 1 ? 'Traveler' : 'Travelers'})</b>`,
-        font: { family: 'inherit', size: 14, color: '#111827' },
-        x: 0.02,
-        y: 0.96
-      },
-      margin: { l: 55, r: 20, t: 45, b: 50 },
+      margin: isMobile ? { l: 45, r: 15, t: 35, b: 50 } : { l: 55, r: 20, t: 30, b: 50 },
       xaxis: {
-        tickfont: { family: 'inherit', size: 11, color: '#374151' },
+        tickfont: { family: 'inherit', size: isMobile ? 10 : 11, color: '#374151' },
         showgrid: false
       },
       yaxis: {
@@ -3517,10 +3515,10 @@ function renderBhutanSdf(container) {
       },
       legend: {
         orientation: 'h',
-        x: 0.5,
-        xanchor: 'center',
-        y: 1.14,
-        font: { family: 'inherit', size: 11 }
+        x: isMobile ? 0 : 0.5,
+        xanchor: isMobile ? 'left' : 'center',
+        y: isMobile ? 1.25 : 1.14,
+        font: { family: 'inherit', size: isMobile ? 9 : 11, color: '#374151' }
       },
       plot_bgcolor: 'transparent',
       paper_bgcolor: 'transparent',
@@ -3593,6 +3591,10 @@ function renderHeritageCircuits(container) {
 
       <!-- Cumulative Trajectory Chart -->
       <div class="tourism-chart-wrapper">
+        <div class="tourism-chart-header">
+          <div class="tourism-chart-title">Cumulative Entry Expense Trajectory (${escapeHtml(currentCircuit.name)})</div>
+          <div class="tourism-chart-hint">Tracking step-by-step entry expenses and regional savings stop-by-stop</div>
+        </div>
         <div id="tourism-circuit-plotly" style="width: 100%; height: 370px;"></div>
       </div>
 
@@ -3673,17 +3675,12 @@ function renderHeritageCircuits(container) {
       }
     ];
 
+    const isMobile = window.innerWidth <= 640;
     const layout = {
-      title: {
-        text: `<b>Cumulative Entry Expense Trajectory (${currentCircuit.name})</b>`,
-        font: { family: 'inherit', size: 14, color: '#111827' },
-        x: 0.02,
-        y: 0.96
-      },
-      margin: { l: 50, r: 25, t: 45, b: 85 },
+      margin: isMobile ? { l: 45, r: 15, t: 35, b: 90 } : { l: 50, r: 25, t: 30, b: 80 },
       xaxis: {
         tickangle: -20,
-        tickfont: { family: 'inherit', size: 10, color: '#374151' },
+        tickfont: { family: 'inherit', size: isMobile ? 9 : 10, color: '#374151' },
         showgrid: false
       },
       yaxis: {
@@ -3693,10 +3690,10 @@ function renderHeritageCircuits(container) {
       },
       legend: {
         orientation: 'h',
-        x: 0.5,
-        xanchor: 'center',
-        y: 1.14,
-        font: { family: 'inherit', size: 11 }
+        x: isMobile ? 0 : 0.5,
+        xanchor: isMobile ? 'left' : 'center',
+        y: isMobile ? 1.25 : 1.14,
+        font: { family: 'inherit', size: isMobile ? 9 : 11, color: '#374151' }
       },
       plot_bgcolor: 'transparent',
       paper_bgcolor: 'transparent',
