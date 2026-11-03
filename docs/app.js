@@ -245,6 +245,20 @@ function setupEventListeners() {
     if (activeBtn) activeBtn.classList.add('active');
   };
 
+  // Centres collapsible header toggle
+  const centresSection = document.getElementById('centres-section');
+  const btnToggleCentres = document.getElementById('btn-toggle-centres');
+  if (btnToggleCentres && centresSection) {
+    btnToggleCentres.addEventListener('click', () => {
+      const isCollapsed = centresSection.classList.toggle('collapsed');
+      const toggleText = btnToggleCentres.querySelector('.toggle-text');
+      btnToggleCentres.setAttribute('aria-expanded', !isCollapsed);
+      if (toggleText) {
+        toggleText.textContent = isCollapsed ? 'Show Directory' : 'Hide Directory';
+      }
+    });
+  }
+
   if (dockMatrix) {
     dockMatrix.addEventListener('click', () => {
       updateActiveDock(dockMatrix);
@@ -260,7 +274,12 @@ function setupEventListeners() {
   if (dockCentres) {
     dockCentres.addEventListener('click', () => {
       updateActiveDock(dockCentres);
-      document.getElementById('centres-section')?.scrollIntoView({ behavior: 'smooth' });
+      if (centresSection && centresSection.classList.contains('collapsed')) {
+        centresSection.classList.remove('collapsed');
+        const toggleText = btnToggleCentres?.querySelector('.toggle-text');
+        if (toggleText) toggleText.textContent = 'Hide Directory';
+      }
+      centresSection?.scrollIntoView({ behavior: 'smooth' });
     });
   }
 }
@@ -1023,27 +1042,68 @@ function displayDetails(provider, beneficiary) {
 }
 
 /**
- * Render SAARC Regional Centres with all CSV metadata
+ * Render SAARC Regional Centres as a compact, expandable list with Host Country flags
  */
 function renderRegionalCentres(centres) {
-  const grid = document.getElementById('centres-grid');
-  if (!grid || !centres) return;
+  const container = document.getElementById('centres-list') || document.getElementById('centres-grid');
+  if (!container || !centres) return;
 
-  grid.innerHTML = centres.map(c => `
-    <article class="centre-card">
-      <div class="centre-top">
-        <span class="code">${escapeHtml(c.centre_code)}</span>
-        <span class="location">${escapeHtml(c.city)}, ${escapeHtml(c.host_country_iso)}</span>
+  container.innerHTML = centres.map((c, index) => {
+    const hostIso = c.host_country_iso || '';
+    const hostFlag = COUNTRY_FLAGS[hostIso] || '🏛️';
+    const hostName = COUNTRY_NAMES[hostIso] || hostIso;
+
+    return `
+      <div class="centre-item" id="centre-item-${index}" data-index="${index}">
+        <div class="centre-row-main">
+          <div class="centre-title-group">
+            <span class="centre-badge-code">${escapeHtml(c.centre_code)}</span>
+            <span class="centre-name-text">${escapeHtml(c.name)}</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="centre-focus-tag">${escapeHtml(c.focus_area)}</span>
+            <span class="centre-host-pill" title="Host Nation: ${escapeHtml(hostName)}">
+              <span class="centre-flag-icon">${hostFlag}</span>
+              <span>${escapeHtml(c.city)}, ${escapeHtml(hostIso)}</span>
+            </span>
+            <span class="centre-item-arrow">▶</span>
+          </div>
+        </div>
+
+        <div class="centre-details-dropdown">
+          <div class="centre-detail-row">
+            <span class="centre-detail-label">Key Focus:</span>
+            <span>${escapeHtml(c.focus_area)}</span>
+          </div>
+          ${c.eligibility ? `
+            <div class="centre-detail-row">
+              <span class="centre-detail-label">Eligibility:</span>
+              <span>${escapeHtml(c.eligibility)}</span>
+            </div>
+          ` : ''}
+          <div class="centre-detail-row">
+            <span class="centre-detail-label">Core Program:</span>
+            <span>${escapeHtml(c.key_program)}</span>
+          </div>
+          <div class="centre-action-footer">
+            <a href="${escapeHtml(c.source_url)}" target="_blank" rel="noopener noreferrer" class="centre-portal-link" onclick="event.stopPropagation();">
+              ${escapeHtml(c.source_name || 'Official Portal')} ↗
+            </a>
+          </div>
+        </div>
       </div>
-      <h4>${escapeHtml(c.name)}</h4>
-      <p class="focus"><strong>Focus Area:</strong> ${escapeHtml(c.focus_area)}</p>
-      ${c.eligibility ? `<p class="eligibility"><strong>Eligibility:</strong> ${escapeHtml(c.eligibility)}</p>` : ''}
-      <p class="program">${escapeHtml(c.key_program)}</p>
-      <a href="${escapeHtml(c.source_url)}" target="_blank" rel="noopener noreferrer" class="centre-link">
-        ${escapeHtml(c.source_name || 'Official Portal')} ↗
-      </a>
-    </article>
-  `).join('');
+    `;
+  }).join('');
+
+  // Attach row click to toggle accordion expansion
+  container.querySelectorAll('.centre-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Optional: keep it single-expand or multi-expand (multi feels more natural)
+      item.classList.toggle('open', !isOpen);
+    });
+  });
 }
 
 function escapeHtml(str) {

@@ -1687,52 +1687,227 @@ header p {
   text-underline-offset: 2px;
 }
 
-/* SAARC Regional Centres Section */
+/* SAARC Regional Centres Collapsible Section */
 .centres-section {
   max-width: 1400px;
   margin: 1.5rem auto 3rem auto;
   background-color: var(--color-card);
   border: var(--border-solid);
   border-radius: var(--radius-xl);
-  padding: 1.75rem 2rem;
+  padding: 1.5rem 1.75rem;
   box-shadow: var(--shadow-subtle);
 }
 
-.centres-section h2 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin-bottom: 1.25rem;
-  border-bottom: 1.5px solid var(--color-black);
-  padding-bottom: 0.5rem;
+.centres-header-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0;
 }
 
-.centres-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
+.centres-header-toggle:hover .toggle-expand-btn {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
-.centre-card {
-  background-color: var(--color-card);
-  border: 1.5px solid var(--color-gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
+.toggle-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-black);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.toggle-chevron {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.centres-section.collapsed .toggle-chevron {
+  transform: rotate(0deg);
+}
+
+.centres-section:not(.collapsed) .toggle-chevron {
+  transform: rotate(180deg);
+}
+
+.centres-expandable-content {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1.5px solid var(--color-gray-200);
+  transition: all 0.3s ease;
+}
+
+.centres-section.collapsed .centres-expandable-content {
+  display: none;
+}
+
+/* Regional Centres - Compact Clean List with Expandable Rows */
+.centres-list {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.75rem;
+}
+
+.centre-item {
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
   transition: var(--transition);
 }
 
-.centre-card:hover {
+.centre-item:hover {
   border-color: var(--color-black);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-card-subtle);
 }
 
-.centre-top {
+.centre-item.open {
+  border-color: var(--color-black);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.centre-row-main {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.centre-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 260px;
+}
+
+.centre-badge-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.centre-name-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.centre-host-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.centre-flag-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.centre-focus-tag {
+  font-size: 0.775rem;
+  color: var(--color-gray-600);
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-card-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.centre-item-arrow {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-black);
+  transition: transform 0.2s ease;
+}
+
+.centre-item.open .centre-item-arrow {
+  transform: rotate(90deg);
+}
+
+/* Expanded Detail inside Centre Row */
+.centre-details-dropdown {
+  display: none;
+  padding-top: 0.75rem;
+  margin-top: 0.4rem;
+  border-top: 1px dashed var(--color-gray-200);
+  font-size: 0.85rem;
+  color: var(--color-black);
+  line-height: 1.45;
+}
+
+.centre-item.open .centre-details-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.centre-detail-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.centre-detail-label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.centre-action-footer {
+  margin-top: 0.35rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.centre-portal-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.centre-portal-link:hover {
+  color: var(--data-trade);
+}
   align-items: center;
   gap: 0.5rem;
 }

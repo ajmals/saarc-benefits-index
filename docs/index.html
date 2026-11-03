@@ -233,16 +233,27 @@
       </aside>
     </main>
 
-    <!-- SAARC Regional Specialized Centres Section -->
-    <section class="centres-section" id="centres-section">
-      <div class="card-header" style="margin-bottom: 1.25rem;">
+    <!-- SAARC Regional Specialized Centres (Collapsible / Less Prominent Section) -->
+    <section class="centres-section collapsed" id="centres-section">
+      <button class="centres-header-toggle" id="btn-toggle-centres" aria-expanded="false" aria-controls="centres-expandable-content">
         <div>
           <div class="card-pill-tag">REGIONAL INSTITUTIONS</div>
-          <h2>SAARC Regional Specialized Centres</h2>
-          <p class="card-caption">Autonomous regional bodies established under multilateral charters to facilitate technical cooperation, energy, agriculture, and public health.</p>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--color-black); margin-bottom: 0.15rem;">
+            SAARC Regional Specialized Centres (7)
+          </h2>
+          <p class="card-caption" style="font-size: 0.825rem; margin: 0;">
+            Autonomous technical and scientific bodies across South Asian host nations.
+          </p>
         </div>
+        <div class="toggle-expand-btn">
+          <span class="toggle-text">Show Directory</span>
+          <span class="toggle-chevron">▼</span>
+        </div>
+      </button>
+
+      <div class="centres-expandable-content" id="centres-expandable-content">
+        <div id="centres-list" class="centres-list"></div>
       </div>
-      <div id="centres-grid" class="centres-grid"></div>
     </section>
 
     <!-- Floating Bottom Navigation Dock -->
