@@ -53,11 +53,69 @@ The interactive dashboard transforms verified bilateral and multilateral accords
   - 🛂 **Mobility & Visa** (Free movement treaties, SVES clearances, visa waivers)
   - 💳 **Finance & Bilateral Liquidity** (Central bank currency swaps, development funding)
 
-### 3. Bilateral Deep Dive / Accord Inspector
+### 3. Student Quota Architecture & Sankey Pipeline
+
+The dashboard features a dedicated cross-border academic mobility visualizer tracking **1,008 reserved annual seats** and scholarships across South Asia. The interactive Sankey diagram maps how educational capacity flows from host governments into specialized disciplines, and onwards to beneficiary states:
+
+$$\text{Host Country (Provider)} \longrightarrow \text{Academic Discipline} \longrightarrow \text{Recipient Country (Beneficiary)}$$
+
+```mermaid
+sankey-beta
+
+%% Stage 1: Host / Provider to Discipline
+India (Host),Engineering & Tech,325
+India (Host),Postgraduate & Research,296
+Bangladesh (Host),Medicine & Health,132
+Nepal (Host),Medicine & Health,111
+Pakistan (Host),Engineering & Tech,50
+Pakistan (Host),Medicine & Health,50
+Sri Lanka (Host),Postgraduate & Research,20
+Bhutan (Host),Forestry & Environment,14
+Sri Lanka (Host),Engineering & Tech,10
+
+%% Stage 2: Discipline to Recipient / Beneficiary
+Medicine & Health,India (Beneficiary),112
+Medicine & Health,Nepal (Beneficiary),75
+Medicine & Health,Bhutan (Beneficiary),28
+Medicine & Health,Maldives (Beneficiary),28
+Medicine & Health,Sri Lanka (Beneficiary),25
+Medicine & Health,Afghanistan (Beneficiary),20
+Medicine & Health,Pakistan (Beneficiary),5
+
+Engineering & Tech,Bangladesh (Beneficiary),195
+Engineering & Tech,Nepal (Beneficiary),125
+Engineering & Tech,Bhutan (Beneficiary),40
+Engineering & Tech,Afghanistan (Beneficiary),15
+Engineering & Tech,Sri Lanka (Beneficiary),10
+
+Postgraduate & Research,Afghanistan (Beneficiary),91
+Postgraduate & Research,Sri Lanka (Beneficiary),87
+Postgraduate & Research,Maldives (Beneficiary),36
+Postgraduate & Research,Nepal (Beneficiary),32
+Postgraduate & Research,Pakistan (Beneficiary),32
+Postgraduate & Research,Bangladesh (Beneficiary),27
+Postgraduate & Research,Bhutan (Beneficiary),11
+
+Forestry & Environment,Afghanistan (Beneficiary),2
+Forestry & Environment,Bangladesh (Beneficiary),2
+Forestry & Environment,India (Beneficiary),2
+Forestry & Environment,Sri Lanka (Beneficiary),2
+Forestry & Environment,Maldives (Beneficiary),2
+Forestry & Environment,Nepal (Beneficiary),2
+Forestry & Environment,Pakistan (Beneficiary),2
+```
+
+#### Key Programs Tracked:
+- 🩺 **Medicine & Health (293 seats/yr):** Bangladesh DGHS SAARC MBBS/BDS quotas (domestic fee parity of ~$100/yr vs $40k+ international fees), Nepal Medical Education Commission (MEC) foreign reserved quotas, and Pakistan PTAP medical allocations.
+- ⚙️ **Engineering & Technology (385 seats/yr):** India ICCR bilateral engineering scholarships (Bangladesh, Nepal, Bhutan, Sri Lanka), Pakistan PTAP technical assistance seats, and Sri Lanka Presidential scholarships.
+- 🎓 **Postgraduate & Research (316 seats/yr):** South Asian University (SAU, New Delhi) statutory country quota reservations (4%–10% per nation) and ICCR / Sri Lanka postgraduate research grants.
+- 🌲 **Forestry & Climate Sciences (14 seats/yr):** South Asia Foundation (SAF) Madanjeet Singh Forestry Scholarships at the College of Natural Resources (CNR), Bhutan (2 fully-funded seats per member state).
+
+### 4. Bilateral Deep Dive / Accord Inspector
 - Click any cell or select any two nations to inspect verified legal instruments.
 - View official treaty titles, legal basis (statutory acts, Gazette notifications, bilateral treaties), eligibility criteria, target audiences (commercial traders, students, diplomats, general public), and live source citations.
 
-### 4. SAARC Regional Centres Directory
+### 5. SAARC Regional Centres Directory
 - Collapsible profiles of the 7 official regional institutions:
   - **SAC** (Dhaka, Bangladesh) — Agriculture & Livestock
   - **SEC** (Islamabad, Pakistan) — Renewable Energy & Regional Grid
