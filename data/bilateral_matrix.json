@@ -1,0 +1,3681 @@
+{
+  "metadata": {
+    "generated_at": "2026-11-03T08:35:05.598821+00:00",
+    "master_records_count": 21,
+    "countries": [
+      "AFG",
+      "BGD",
+      "BTN",
+      "IND",
+      "MDV",
+      "NPL",
+      "PAK",
+      "LKA"
+    ],
+    "country_names": {
+      "AFG": "Afghanistan",
+      "BGD": "Bangladesh",
+      "BTN": "Bhutan",
+      "IND": "India",
+      "MDV": "Maldives",
+      "NPL": "Nepal",
+      "PAK": "Pakistan",
+      "LKA": "Sri Lanka"
+    },
+    "categories": [
+      "education",
+      "finance_bilateral",
+      "mobility_visa",
+      "tourism_culture",
+      "trade"
+    ]
+  },
+  "heatmap": {
+    "x": [
+      "AFG",
+      "BGD",
+      "BTN",
+      "IND",
+      "MDV",
+      "NPL",
+      "PAK",
+      "LKA"
+    ],
+    "y": [
+      "AFG",
+      "BGD",
+      "BTN",
+      "IND",
+      "MDV",
+      "NPL",
+      "PAK",
+      "LKA"
+    ],
+    "z": [
+      [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        5,
+        0,
+        8,
+        5,
+        5,
+        8,
+        5,
+        5
+      ],
+      [
+        5,
+        7,
+        0,
+        8,
+        7,
+        5,
+        5,
+        5
+      ],
+      [
+        9,
+        9,
+        12,
+        0,
+        12,
+        12,
+        9,
+        9
+      ],
+      [
+        4,
+        4,
+        4,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      [
+        7,
+        7,
+        7,
+        7,
+        7,
+        0,
+        7,
+        7
+      ],
+      [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        0,
+        5
+      ],
+      [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        0
+      ]
+    ],
+    "text": [
+      [
+        "AFG (Afghanistan): Domestic (N/A)",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: IND (India)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 3<br>Provisions: 2",
+        "Provider: AFG (Afghanistan)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 3<br>Provisions: 2"
+      ],
+      [
+        "Provider: BGD (Bangladesh)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 5<br>Provisions: 3",
+        "BGD (Bangladesh): Domestic (N/A)",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 8<br>Provisions: 4",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: IND (India)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 8<br>Provisions: 4",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BGD (Bangladesh)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 5<br>Provisions: 3"
+      ],
+      [
+        "Provider: BTN (Bhutan)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BTN (Bhutan)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 7<br>Provisions: 4",
+        "BTN (Bhutan): Domestic (N/A)",
+        "Provider: BTN (Bhutan)<br>Beneficiary: IND (India)<br>Intensity Score: 8<br>Provisions: 4",
+        "Provider: BTN (Bhutan)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: BTN (Bhutan)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BTN (Bhutan)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: BTN (Bhutan)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 5<br>Provisions: 3"
+      ],
+      [
+        "Provider: IND (India)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 9<br>Provisions: 5",
+        "Provider: IND (India)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 9<br>Provisions: 5",
+        "Provider: IND (India)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 12<br>Provisions: 6",
+        "IND (India): Domestic (N/A)",
+        "Provider: IND (India)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 12<br>Provisions: 6",
+        "Provider: IND (India)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 12<br>Provisions: 6",
+        "Provider: IND (India)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 9<br>Provisions: 5",
+        "Provider: IND (India)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 9<br>Provisions: 5"
+      ],
+      [
+        "Provider: MDV (Maldives)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 4<br>Provisions: 3",
+        "Provider: MDV (Maldives)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 4<br>Provisions: 3",
+        "Provider: MDV (Maldives)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 4<br>Provisions: 3",
+        "Provider: MDV (Maldives)<br>Beneficiary: IND (India)<br>Intensity Score: 4<br>Provisions: 3",
+        "MDV (Maldives): Domestic (N/A)",
+        "Provider: MDV (Maldives)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 4<br>Provisions: 3",
+        "Provider: MDV (Maldives)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 4<br>Provisions: 3",
+        "Provider: MDV (Maldives)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 4<br>Provisions: 3"
+      ],
+      [
+        "Provider: NPL (Nepal)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: NPL (Nepal)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: NPL (Nepal)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: NPL (Nepal)<br>Beneficiary: IND (India)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: NPL (Nepal)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 7<br>Provisions: 4",
+        "NPL (Nepal): Domestic (N/A)",
+        "Provider: NPL (Nepal)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 7<br>Provisions: 4",
+        "Provider: NPL (Nepal)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 7<br>Provisions: 4"
+      ],
+      [
+        "Provider: PAK (Pakistan)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: PAK (Pakistan)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: PAK (Pakistan)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: PAK (Pakistan)<br>Beneficiary: IND (India)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: PAK (Pakistan)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 5<br>Provisions: 3",
+        "Provider: PAK (Pakistan)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 5<br>Provisions: 3",
+        "PAK (Pakistan): Domestic (N/A)",
+        "Provider: PAK (Pakistan)<br>Beneficiary: LKA (Sri Lanka)<br>Intensity Score: 5<br>Provisions: 3"
+      ],
+      [
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: AFG (Afghanistan)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: BGD (Bangladesh)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: BTN (Bhutan)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: IND (India)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: MDV (Maldives)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: NPL (Nepal)<br>Intensity Score: 6<br>Provisions: 4",
+        "Provider: LKA (Sri Lanka)<br>Beneficiary: PAK (Pakistan)<br>Intensity Score: 6<br>Provisions: 4",
+        "LKA (Sri Lanka): Domestic (N/A)"
+      ]
+    ]
+  },
+  "matrix": {
+    "AFG": {
+      "AFG": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "BGD": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "AFG",
+        "provider_name": "Afghanistan",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 3,
+        "provision_count": 2,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "AFG",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          }
+        ]
+      }
+    },
+    "BGD": {
+      "AFG": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "AFG",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "BTN": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 8,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 5
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "BTN",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          },
+          {
+            "benefit_id": "BGD_PORT_TRANSIT_02",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Port and Transit Corridor Access",
+            "description": "Transit rights through Mongla and Chattogram ports for landlocked freight",
+            "benefit_level": 3,
+            "legal_framework": "Bilateral Transit Agreement",
+            "source_name": "National Board of Revenue Bangladesh",
+            "source_url": "https://nbr.gov.bd"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "IND",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "MDV",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 8,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 5
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "NPL",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          },
+          {
+            "benefit_id": "BGD_PORT_TRANSIT_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Port and Transit Corridor Access",
+            "description": "Transit rights through Mongla and Chattogram ports for landlocked freight",
+            "benefit_level": 3,
+            "legal_framework": "Bilateral Transit Agreement",
+            "source_name": "National Board of Revenue Bangladesh",
+            "source_url": "https://nbr.gov.bd"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "PAK",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "BGD",
+        "provider_name": "Bangladesh",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BGD_MBBS_01",
+            "provider_iso": "BGD",
+            "beneficiary_iso": "LKA",
+            "category": "education",
+            "title": "Foreign MBBS & BDS Subsidized Quotas",
+            "description": "Reserved government medical and dental college seats under SAARC quota with domestic fee parity",
+            "benefit_level": 2,
+            "legal_framework": "DGHS Foreign Admission Circular",
+            "source_name": "Directorate General of Health Services Bangladesh",
+            "source_url": "https://dghs.gov.bd"
+          }
+        ]
+      }
+    },
+    "BTN": {
+      "AFG": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "AFG",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_SDF_CONC_02",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "BGD",
+            "category": "tourism_culture",
+            "title": "Concessionary Sustainable Development Fee",
+            "description": "Concessionary visitor levy rates compared to standard non-regional international tourists",
+            "benefit_level": 2,
+            "legal_framework": "Tourism Levy Act of Bhutan",
+            "source_name": "Department of Tourism Bhutan",
+            "source_url": "https://bhutan.travel"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "BGD",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "IND": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 8,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 3,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_SDF_CONC_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "IND",
+            "category": "tourism_culture",
+            "title": "Sustainable Development Fee Exemption/Concession",
+            "description": "Exempt from statutory $100/night SDF; pay nominal domestic regional rate (BTN 1,200/night)",
+            "benefit_level": 3,
+            "legal_framework": "Tourism Levy Act of Bhutan",
+            "source_name": "Department of Tourism Bhutan",
+            "source_url": "https://bhutan.travel"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "IND",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_SDF_CONC_03",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "MDV",
+            "category": "tourism_culture",
+            "title": "Concessionary Sustainable Development Fee",
+            "description": "Special bilateral fee framework for visiting Maldivian nationals",
+            "benefit_level": 2,
+            "legal_framework": "Tourism Levy Act of Bhutan",
+            "source_name": "Department of Tourism Bhutan",
+            "source_url": "https://bhutan.travel"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "MDV",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "NPL",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "PAK",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "BTN",
+        "provider_name": "Bhutan",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "BTN_CNR_SAF_01",
+            "provider_iso": "BTN",
+            "beneficiary_iso": "LKA",
+            "category": "education",
+            "title": "SAF Madanjeet Singh Scholarships",
+            "description": "Fully funded Master's scholarships in Forestry and Climate Studies at College of Natural Resources",
+            "benefit_level": 2,
+            "legal_framework": "South Asia Foundation Charter",
+            "source_name": "College of Natural Resources Bhutan",
+            "source_url": "https://www.cnr.edu.bt"
+          }
+        ]
+      }
+    },
+    "IND": {
+      "AFG": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 9,
+        "provision_count": 5,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "AFG",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "AFG",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "AFG",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 9,
+        "provision_count": 5,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BGD",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BGD",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BGD",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 12,
+        "provision_count": 6,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 4,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_BTN_TREATY_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "Free Movement and National Treatment",
+            "description": "Citizens enjoy free travel across borders and national treatment in commerce and employment",
+            "benefit_level": 3,
+            "legal_framework": "Treaty of Friendship (1949 / Revised 2007)",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "BTN",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "MDV": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 12,
+        "provision_count": 6,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 5
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_MDV_COMM_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Bilateral Quota for Essential Commodities",
+            "description": "Guaranteed export quotas for rice, wheat flour, sugar, onion, and construction materials exempt from export bans",
+            "benefit_level": 3,
+            "legal_framework": "Bilateral Trade Agreement 1981",
+            "source_name": "Directorate General of Foreign Trade India",
+            "source_url": "https://dgft.gov.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "MDV",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 12,
+        "provision_count": 6,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 4,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_NPL_TREATY_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "Unrestricted Entry and Residence Rights",
+            "description": "Citizens can enter, live, work, and own property without visas",
+            "benefit_level": 3,
+            "legal_framework": "Indo-Nepal Treaty of Peace and Friendship (1950)",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "NPL",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 9,
+        "provision_count": 5,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "PAK",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "PAK",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "PAK",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "IND",
+        "provider_name": "India",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 9,
+        "provision_count": 5,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 2,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SAU_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "LKA",
+            "category": "education",
+            "title": "South Asian University Subsidized Tuition",
+            "description": "Heavily subsidized post-graduate and doctoral tuition with allocated country quotas",
+            "benefit_level": 2,
+            "legal_framework": "South Asian University Act 2008",
+            "source_name": "South Asian University",
+            "source_url": "https://sau.int"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "IND_ASI_DISC_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "LKA",
+            "category": "tourism_culture",
+            "title": "Discounted World Heritage Ticket Rates",
+            "description": "SAARC nationals pay domestic/discounted entry fee (e.g. INR 40-300 vs INR 600-1100 foreign rate)",
+            "benefit_level": 2,
+            "legal_framework": "Archaeological Survey of India Notification",
+            "source_name": "Archaeological Survey of India",
+            "source_url": "https://asi.nic.in"
+          },
+          {
+            "benefit_id": "IND_SWAP_01",
+            "provider_iso": "IND",
+            "beneficiary_iso": "LKA",
+            "category": "finance_bilateral",
+            "title": "RBI SAARC Currency Swap Framework",
+            "description": "Short-term foreign exchange liquidity facility up to $2 billion for regional central banks",
+            "benefit_level": 2,
+            "legal_framework": "RBI SAARC Swap Arrangement",
+            "source_name": "Reserve Bank of India",
+            "source_url": "https://rbi.org.in"
+          }
+        ]
+      }
+    },
+    "MDV": {
+      "AFG": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "NPL": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "MDV",
+        "provider_name": "Maldives",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 4,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 2,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "MDV_VOA_01",
+            "provider_iso": "MDV",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "Free 30-Day Visa on Arrival",
+            "description": "Free 30-day tourist entry on arrival for all nationals with streamlined medical/business visa renewals",
+            "benefit_level": 1,
+            "legal_framework": "Maldives Immigration Act",
+            "source_name": "Maldives Immigration",
+            "source_url": "https://immigration.gov.mv"
+          }
+        ]
+      }
+    },
+    "NPL": {
+      "AFG": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "AFG",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "AFG",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BGD",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BGD",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BTN",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "BTN",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "IND",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "IND",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "MDV",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "MDV",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "PAK": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "PAK",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "PAK",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "NPL",
+        "provider_name": "Nepal",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 7,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "NPL_HERITAGE_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "LKA",
+            "category": "tourism_culture",
+            "title": "Kathmandu Valley Heritage Concession",
+            "description": "Subsidized tourist admission across Patan, Bhaktapur, and Kathmandu Durbar Squares",
+            "benefit_level": 2,
+            "legal_framework": "Municipal Heritage Bylaws",
+            "source_name": "Nepal Tourism Board",
+            "source_url": "https://ntb.gov.np"
+          },
+          {
+            "benefit_id": "NPL_MED_QUOTA_01",
+            "provider_iso": "NPL",
+            "beneficiary_iso": "LKA",
+            "category": "education",
+            "title": "Foreign Medical Admission Seats",
+            "description": "Allocated quota seats for regional students in government medical colleges at subsidized fee bands",
+            "benefit_level": 2,
+            "legal_framework": "Medical Education Commission Guidelines",
+            "source_name": "Nepal Medical Education Commission",
+            "source_url": "https://mec.gov.np"
+          }
+        ]
+      }
+    },
+    "PAK": {
+      "AFG": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "AFG",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BGD",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "BTN",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "IND",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "MDV",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "NPL",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      },
+      "LKA": {
+        "provider_iso": "PAK",
+        "provider_name": "Pakistan",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 5,
+        "provision_count": 3,
+        "category_scores": {
+          "education": 2,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 0,
+          "trade": 2
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "LKA",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "LKA",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "PAK_PTAP_01",
+            "provider_iso": "PAK",
+            "beneficiary_iso": "LKA",
+            "category": "education",
+            "title": "Pakistan Technical Assistance Programme (PTAP)",
+            "description": "Reserved subsidized and fully funded seats in engineering, MBBS, and pharmacy for regional students",
+            "benefit_level": 2,
+            "legal_framework": "PTAP Guidelines",
+            "source_name": "Ministry of Economic Affairs Pakistan",
+            "source_url": "https://ead.gov.pk"
+          }
+        ]
+      }
+    },
+    "LKA": {
+      "AFG": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "AFG",
+        "beneficiary_name": "Afghanistan",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "AFG",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "AFG",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "AFG",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "BGD": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "BGD",
+        "beneficiary_name": "Bangladesh",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BGD",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BGD",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BGD",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "BTN": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "BTN",
+        "beneficiary_name": "Bhutan",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BTN",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BTN",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "BTN",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "IND": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "IND",
+        "beneficiary_name": "India",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "IND",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "IND",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "IND",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "MDV": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "MDV",
+        "beneficiary_name": "Maldives",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "MDV",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "MDV",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "MDV",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "NPL": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "NPL",
+        "beneficiary_name": "Nepal",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "NPL",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "NPL",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "NPL",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "PAK": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "PAK",
+        "beneficiary_name": "Pakistan",
+        "intensity_score": 6,
+        "provision_count": 4,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 1,
+          "tourism_culture": 2,
+          "trade": 3
+        },
+        "provisions": [
+          {
+            "benefit_id": "SAFTA_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Tariff Concessions on Scheduled Goods",
+            "description": "Phased customs tariff reduction to 0-5% on non-sensitive list tariff lines",
+            "benefit_level": 2,
+            "legal_framework": "Agreement on South Asian Free Trade Area (SAFTA)",
+            "source_name": "SAARC Secretariat",
+            "source_url": "https://saarc-sec.org/index.php/areas-of-cooperation/economic-trade-and-finance/safta"
+          },
+          {
+            "benefit_id": "SVES_ALL_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "PAK",
+            "category": "mobility_visa",
+            "title": "SAARC Visa Exemption Scheme (SVES)",
+            "description": "Exemption from routine visa procedures for 24 designated dignitary and professional categories",
+            "benefit_level": 1,
+            "legal_framework": "SAARC Council of Ministers Resolution",
+            "source_name": "Ministry of External Affairs India",
+            "source_url": "https://www.mea.gov.in"
+          },
+          {
+            "benefit_id": "LKA_CULTURE_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "PAK",
+            "category": "tourism_culture",
+            "title": "Cultural Triangle Concessionary Rates",
+            "description": "50% discount on standard foreign tourist tickets for Sigiriya, Anuradhapura, and Polonnaruwa",
+            "benefit_level": 2,
+            "legal_framework": "Central Cultural Fund Act",
+            "source_name": "Central Cultural Fund Sri Lanka",
+            "source_url": "https://www.ccf.gov.lk"
+          },
+          {
+            "benefit_id": "LKA_PORT_01",
+            "provider_iso": "LKA",
+            "beneficiary_iso": "PAK",
+            "category": "trade",
+            "title": "Port of Colombo Regional Transshipment Priority",
+            "description": "Preferential transshipment and terminal handling terms for South Asian regional feeders",
+            "benefit_level": 1,
+            "legal_framework": "Sri Lanka Ports Authority Operations Charter",
+            "source_name": "Sri Lanka Ports Authority",
+            "source_url": "https://www.slpa.lk"
+          }
+        ]
+      },
+      "LKA": {
+        "provider_iso": "LKA",
+        "provider_name": "Sri Lanka",
+        "beneficiary_iso": "LKA",
+        "beneficiary_name": "Sri Lanka",
+        "intensity_score": 0,
+        "provision_count": 0,
+        "category_scores": {
+          "education": 0,
+          "finance_bilateral": 0,
+          "mobility_visa": 0,
+          "tourism_culture": 0,
+          "trade": 0
+        },
+        "provisions": []
+      }
+    }
+  }
+}

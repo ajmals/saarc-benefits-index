@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAARC Bilateral Benefits & Concessions Index</title>
+  <meta name="description" content="Interactive matrix exploring bilateral benefits, legal frameworks, and preferential access among SAARC member nations.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Plotly.js CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="branding">
+          <div class="brand-badge">SAARC Regional Matrix</div>
+          <h1 class="brand-title">SAARC Bilateral Benefits & Concessions Index</h1>
+          <p class="brand-subtitle">
+            Mapping preferential treaties, educational quotas, visa exemptions, and bilateral concessions across South Asian member states.
+          </p>
+        </div>
+        <div class="header-stats">
+          <div class="stat-card">
+            <span class="stat-value" id="stat-total-provisions">21</span>
+            <span class="stat-label">Master Provisions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-member-states">8</span>
+            <span class="stat-label">Member States</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-active-pairs">56</span>
+            <span class="stat-label">Bilateral Channels</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Bar -->
+      <nav class="filter-bar" aria-label="Category Filters">
+        <span class="filter-label">Filter Category:</span>
+        <div class="filter-buttons" id="filter-buttons">
+          <button class="filter-btn active" data-category="all">All Sectors</button>
+          <button class="filter-btn" data-category="trade">Trade</button>
+          <button class="filter-btn" data-category="tourism_culture">Tourism & Culture</button>
+          <button class="filter-btn" data-category="education">Education</button>
+          <button class="filter-btn" data-category="mobility_visa">Mobility & Visa</button>
+          <button class="filter-btn" data-category="finance_bilateral">Finance & Bilateral</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content: Two-column Layout -->
+    <main class="main-content">
+      <!-- Left Column: Heatmap (65%) -->
+      <section class="matrix-section">
+        <div class="surface-card heatmap-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Bilateral Intensity Matrix</h2>
+              <p class="card-caption">
+                <span class="axis-guide"><strong>Rows (Y):</strong> Granting / Provider State</span>
+                <span class="axis-divider">•</span>
+                <span class="axis-guide"><strong>Columns (X):</strong> Beneficiary / Recipient State</span>
+              </p>
+            </div>
+            <div class="card-badge" id="current-view-badge">Overall Intensity</div>
+          </div>
+
+          <div id="heatmap-container" class="heatmap-plot">
+            <!-- Plotly mounts here -->
+          </div>
+
+          <div class="matrix-footer">
+            <div class="hint-text">
+              <span class="hint-icon">💡</span> Click on any cell in the matrix to inspect legal instruments, treaty citations, and source links.
+            </div>
+            <div class="quick-chips">
+              <span class="chip-label">Quick Inspect:</span>
+              <button class="chip-btn" data-pair="IND-NPL">IND → NPL</button>
+              <button class="chip-btn" data-pair="BTN-IND">BTN → IND</button>
+              <button class="chip-btn" data-pair="IND-BTN">IND → BTN</button>
+              <button class="chip-btn" data-pair="BGD-NPL">BGD → NPL</button>
+              <button class="chip-btn" data-pair="IND-MDV">IND → MDV</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Inspector Panel (35%) -->
+      <aside class="inspector-section">
+        <div class="surface-card inspector-card" id="inspector-card">
+          <!-- Populated dynamically by app.js -->
+          <div class="empty-state" id="inspector-empty">
+            <div class="empty-icon">🔍</div>
+            <h3 class="empty-title">Select a Bilateral Pair</h3>
+            <p class="empty-description">
+              Click any cell in the heatmap matrix or select one of the quick inspect buttons to examine underlying bilateral provisions, legal instruments, and verified source documents.
+            </p>
+            <div class="demo-suggestions">
+              <div class="demo-card" data-pair="IND-NPL">
+                <div class="demo-flags">🇮🇳 → 🇳🇵</div>
+                <div class="demo-title">India → Nepal</div>
+                <div class="demo-desc">1950 Treaty, unrestricted residence & work, SAU tuition, currency swap</div>
+              </div>
+              <div class="demo-card" data-pair="BTN-IND">
+                <div class="demo-flags">🇧🇹 → 🇮🇳</div>
+                <div class="demo-title">Bhutan → India</div>
+                <div class="demo-desc">SDF tourist exemption, SAF forestry scholarships, regional tariff lines</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inspector-content" id="inspector-content" style="display: none;">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <p>SAARC Bilateral Benefits & Concessions Index • Built with Vanilla HTML5, CSS3 & Plotly.js</p>
+        <p class="footer-sub">Sources: SAARC Secretariat, Member State Ministries of External Affairs, Central Banks & Official Gazettes</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
