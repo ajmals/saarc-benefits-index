@@ -1653,6 +1653,53 @@ body {
   color: var(--color-gray-400);
 }
 
+.footer-downloads {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.footer-data-link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: none;
+  padding: 0.25rem 0.65rem;
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+
+.footer-data-link:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.dataset-download-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: var(--transition);
+}
+
+.dataset-download-pill:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
