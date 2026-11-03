@@ -42,6 +42,9 @@ The interactive dashboard transforms verified bilateral and multilateral accords
 ### 2. Multi-View Analytics
 - **Heatmap View:** Instant color-coded intensity matrix across all 56 bilateral pairs.
 - **Leaderboards & Rankings:** Ranking member states by bilateral integration score, provider volume, and received concessions.
+- **Student Quota Architecture (Dual View):**
+  - **Sankey Flow Diagram:** Directional pipeline mapping reserved academic quota seats from Host States $\rightarrow$ Disciplines (Medicine/MBBS, Engineering, Postgraduate/SAU, Forestry/Climate) $\rightarrow$ Recipient States.
+  - **Quota Capacity Bar Chart:** Total annual seat capacities per country and discipline, with sub-toggles for provider vs. beneficiary grouping.
 - **Reciprocity & Balance:** Analysis of mutual vs. asymmetrical benefits between trading and transit partners.
 - **Sector Breakdown & Radar Profiles:** Multi-axis visualization comparing country scores across the 5 core domains:
   - 🚢 **Trade & Commerce** (SAFTA concessions, commodity quotas, port transit)
@@ -74,6 +77,7 @@ All datasets in this repository are open and backed by primary government and in
 | File | Format | Description | Key Fields |
 | :--- | :--- | :--- | :--- |
 | [`data/benefits_master.csv`](data/benefits_master.csv) | CSV | Master registry of verified bilateral and regional provisions. | `benefit_id`, `provider_iso`, `beneficiary_iso`, `category`, `title`, `description`, `benefit_level`, `reciprocity_type`, `target_audience`, `monetary_value_indicator`, `operational_status`, `legal_framework`, `source_name`, `source_url` |
+| [`data/student_quotas.csv`](data/student_quotas.csv) | CSV | Master registry of reserved cross-border student quotas and scholarships. | `quota_id`, `provider_iso`, `beneficiary_iso`, `program_name`, `discipline`, `degree_level`, `seats_annual`, `concession_type`, `fee_benefit_description`, `legal_framework`, `source_name`, `source_url` |
 | [`data/saarc_centres.csv`](data/saarc_centres.csv) | CSV | Directory of specialized SAARC institutional centres and funds. | `centre_code`, `name`, `host_country_iso`, `city`, `focus_area`, `eligibility`, `key_program`, `source_name`, `source_url` |
 | [`data/bilateral_matrix.csv`](data/bilateral_matrix.csv) | CSV | Computed pair-wise intensity score matrix ($8 \times 8$). | `provider_iso`, `AFG`, `BGD`, `BTN`, `IND`, `MDV`, `NPL`, `PAK`, `LKA` |
 | [`data/bilateral_matrix.json`](data/bilateral_matrix.json) | JSON | Complete compiled payload including total scores, category slices, and itemized records. | `countries`, `categories`, `scores`, `category_scores`, `records`, `metadata` |

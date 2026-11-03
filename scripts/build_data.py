@@ -89,12 +89,14 @@ def main() -> None:
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     master_csv = os.path.join(base_dir, "data", "benefits_master.csv")
     centres_csv = os.path.join(base_dir, "data", "saarc_centres.csv")
+    quotas_csv = os.path.join(base_dir, "data", "student_quotas.csv")
 
     output_csv = os.path.join(base_dir, "data", "bilateral_matrix.csv")
     output_json = os.path.join(base_dir, "data", "bilateral_matrix.json")
     docs_csv = os.path.join(base_dir, "docs", "data", "bilateral_matrix.csv")
     docs_json = os.path.join(base_dir, "docs", "data", "bilateral_matrix.json")
     docs_centres = os.path.join(base_dir, "docs", "data", "saarc_centres.csv")
+    docs_quotas = os.path.join(base_dir, "docs", "data", "student_quotas.csv")
 
     # Overall scores, category-sliced scores, and rich provision details
     scores_total: Dict[str, Dict[str, int]] = create_empty_scores()
@@ -174,6 +176,20 @@ def main() -> None:
             for c_row in c_reader:
                 centres.append(dict(c_row))
 
+    # 2b. Parse student_quotas.csv
+    quotas: List[Dict[str, Any]] = []
+    if os.path.exists(quotas_csv):
+        with open(quotas_csv, mode="r", encoding="utf-8") as f:
+            q_reader = csv.DictReader(f)
+            for q_row in q_reader:
+                quota_item = dict(q_row)
+                if "seats_annual" in quota_item:
+                    try:
+                        quota_item["seats_annual"] = int(quota_item["seats_annual"])
+                    except ValueError:
+                        quota_item["seats_annual"] = 0
+                quotas.append(quota_item)
+
     # 3. Export Wide Matrix CSV (Total Scores)
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)
     os.makedirs(os.path.dirname(docs_csv), exist_ok=True)
@@ -224,6 +240,7 @@ def main() -> None:
         "scores_by_cat": scores_by_cat,
         "details": details,
         "centres": centres,
+        "quotas": quotas,
         # Metadata and legacy matrix for zero-downtime frontend continuity
         "metadata": {
             "title": "SAARC Bilateral Benefits & Concessions Index",
@@ -231,6 +248,7 @@ def main() -> None:
             "country_names": COUNTRY_NAMES,
             "categories": CATEGORIES,
             "centre_count": len(centres),
+            "quota_count": len(quotas),
         },
         "matrix": matrix_legacy,
     }
@@ -242,6 +260,9 @@ def main() -> None:
 
     if os.path.exists(centres_csv):
         shutil.copyfile(centres_csv, docs_centres)
+
+    if os.path.exists(quotas_csv):
+        shutil.copyfile(quotas_csv, docs_quotas)
 
     print("Successfully generated bilateral_matrix.csv and bilateral_matrix.json")
 

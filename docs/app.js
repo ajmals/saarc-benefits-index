@@ -9,8 +9,11 @@
 
 let globalData = null;
 let selectedPair = null;
-let activeView = 'matrix'; // 'matrix' | 'rankings' | 'reciprocity' | 'radar'
+let activeView = 'matrix'; // 'matrix' | 'rankings' | 'quotas' | 'reciprocity' | 'radar'
 let focusCountry = 'IND';
+let activeQuotaSubview = 'flow'; // 'flow' (Sankey) | 'capacity' (Stacked Bar)
+let selectedDiscipline = 'all';
+let quotaGroupBy = 'provider'; // 'provider' | 'beneficiary'
 
 const COUNTRY_FLAGS = {
   AFG: '🇦🇫',
@@ -49,6 +52,26 @@ const CATEGORY_COLORS = {
   education: '#8b5cf6',         // Soft Violet
   mobility_visa: '#10b981',     // Emerald
   finance_bilateral: '#d97706'  // Deep Ochre
+};
+
+const DISCIPLINE_COLORS = {
+  'Medicine & Health': '#ef4444',        // Vibrant Coral
+  'Engineering & Tech': '#2563eb',       // Royal Blue
+  'Postgraduate & Research': '#8b5cf6',  // Soft Violet
+  'Forestry & Environment': '#10b981'    // Emerald Green
+};
+
+const DISCIPLINE_ICONS = {
+  'Medicine & Health': '🩺',
+  'Engineering & Tech': '⚙️',
+  'Postgraduate & Research': '🎓',
+  'Forestry & Environment': '🌲'
+};
+
+const CONCESSION_COLORS = {
+  'Full Scholarship': '#8b5cf6',
+  'Domestic Parity': '#10b981',
+  'Subsidized Quota': '#f59e0b'
 };
 
 // Data loading with fallbacks
@@ -155,6 +178,39 @@ function setupEventListeners() {
       renderActiveView();
     });
   });
+
+  // Student Quota sub-view controls
+  const quotaToggleBtns = document.querySelectorAll('.quota-toggle-btn');
+  const quotaGroupByCont = document.getElementById('quota-group-by-container');
+  quotaToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      quotaToggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeQuotaSubview = btn.dataset.subview;
+      if (quotaGroupByCont) {
+        quotaGroupByCont.style.display = activeQuotaSubview === 'capacity' ? 'flex' : 'none';
+      }
+      updateViewChrome();
+      renderActiveView();
+    });
+  });
+
+  const quotaDiscSelect = document.getElementById('quota-discipline-select');
+  if (quotaDiscSelect) {
+    quotaDiscSelect.addEventListener('change', (e) => {
+      selectedDiscipline = e.target.value;
+      renderActiveView();
+    });
+  }
+
+  const quotaGroupSelect = document.getElementById('quota-group-by-select');
+  if (quotaGroupSelect) {
+    quotaGroupSelect.addEventListener('change', (e) => {
+      quotaGroupBy = e.target.value;
+      updateViewChrome();
+      renderActiveView();
+    });
+  }
 
   // Quick Chips
   document.querySelectorAll('[data-pair]').forEach(btn => {
@@ -290,6 +346,7 @@ function updateBadge() {
 
 function updateViewChrome() {
   const focusControls = document.getElementById('view-focus-controls');
+  const quotaControls = document.getElementById('view-quota-controls');
   const mainTitle = document.getElementById('view-main-title');
   const caption = document.getElementById('view-caption');
   const hintText = document.getElementById('view-hint-text');
@@ -300,6 +357,7 @@ function updateViewChrome() {
 
   if (activeView === 'matrix') {
     if (focusControls) focusControls.style.display = 'none';
+    if (quotaControls) quotaControls.style.display = 'none';
     if (badgeType) badgeType.textContent = 'HEATMAP MATRIX';
     if (mainTitle) mainTitle.textContent = 'Bilateral Relationship Matrix';
     if (caption) {
@@ -314,6 +372,7 @@ function updateViewChrome() {
     }
   } else if (activeView === 'rankings') {
     if (focusControls) focusControls.style.display = 'flex';
+    if (quotaControls) quotaControls.style.display = 'none';
     if (badgeType) badgeType.textContent = 'PARTNERSHIP RANKINGS';
     if (mainTitle) mainTitle.textContent = `${countryFlag} ${countryName}'s Top Regional Partners`;
     if (caption) {
@@ -322,8 +381,34 @@ function updateViewChrome() {
     if (hintText) {
       hintText.innerHTML = `<span class="hint-bullet">●</span> Click any bar to inspect the specific bilateral provisions between ${focusCountry} and that partner.`;
     }
+  } else if (activeView === 'quotas') {
+    if (focusControls) focusControls.style.display = 'none';
+    if (quotaControls) quotaControls.style.display = 'flex';
+    if (badgeType) badgeType.textContent = 'STUDENT QUOTA ARCHITECTURE';
+
+    if (activeQuotaSubview === 'flow') {
+      if (mainTitle) mainTitle.textContent = '🎓 Cross-Border Student Quota Seat Flow';
+      if (caption) {
+        caption.innerHTML = `Visualizing reserved academic quota pipelines from <strong>Host State</strong> (left) → <strong>Discipline</strong> (center) → <strong>Recipient State</strong> (right).`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Hover over flow ribbons to inspect seat volumes; click any country node to inspect its specific quota agreements and statutory circulars.`;
+      }
+    } else {
+      const isProvider = quotaGroupBy === 'provider';
+      if (mainTitle) {
+        mainTitle.textContent = isProvider ? '🎓 Reserved Quota Capacity by Host Nation' : '🎓 Inbound Quota Seats by Recipient Nation';
+      }
+      if (caption) {
+        caption.innerHTML = `Total annual allocated seats in public universities and institutions, stacked by academic discipline.`;
+      }
+      if (hintText) {
+        hintText.innerHTML = `<span class="hint-bullet">●</span> Click any bar segment to inspect the university circulars, admission quotas, and official fee parity policies for that country.`;
+      }
+    }
   } else if (activeView === 'reciprocity') {
     if (focusControls) focusControls.style.display = 'flex';
+    if (quotaControls) quotaControls.style.display = 'none';
     if (badgeType) badgeType.textContent = 'RECIPROCITY BALANCE';
     if (mainTitle) mainTitle.textContent = `${countryFlag} ${countryName}: Concessions Given vs. Received`;
     if (caption) {
@@ -334,6 +419,7 @@ function updateViewChrome() {
     }
   } else if (activeView === 'radar') {
     if (focusControls) focusControls.style.display = 'flex';
+    if (quotaControls) quotaControls.style.display = 'none';
     const pairBeneficiary = (selectedPair && selectedPair.provider === focusCountry) ? selectedPair.beneficiary : 'NPL';
     const beneName = COUNTRY_NAMES[pairBeneficiary] || pairBeneficiary;
     const beneFlag = COUNTRY_FLAGS[pairBeneficiary] || '';
@@ -375,6 +461,12 @@ function renderActiveView() {
     renderHeatmap();
   } else if (activeView === 'rankings') {
     renderPartnerRankings();
+  } else if (activeView === 'quotas') {
+    if (activeQuotaSubview === 'flow') {
+      renderStudentQuotasFlow();
+    } else {
+      renderStudentQuotasCapacity();
+    }
   } else if (activeView === 'reciprocity') {
     renderReciprocityBalance();
   } else if (activeView === 'radar') {
@@ -823,6 +915,376 @@ function renderSectorRadar() {
   Plotly.react(container, traces, layout, { responsive: true, displayModeBar: false });
 }
 
+function hexToRgba(hex, alpha = 0.3) {
+  if (!hex || hex[0] !== '#') return `rgba(139, 92, 246, ${alpha})`;
+  let c = hex.substring(1);
+  if (c.length === 3) c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+  const num = parseInt(c, 16);
+  return `rgba(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}, ${alpha})`;
+}
+
+/**
+ * 5. Student Quota Visualizations:
+ * A) Sankey Flow Diagram (Host Country -> Discipline -> Beneficiary)
+ * B) Stacked Bar Chart (Quota Capacity by Country & Discipline)
+ */
+function renderStudentQuotasFlow() {
+  if (!globalData || !globalData.quotas) return;
+  const container = document.getElementById('matrix-heatmap');
+
+  let quotas = globalData.quotas;
+  if (selectedDiscipline !== 'all') {
+    quotas = quotas.filter(q => q.discipline === selectedDiscipline);
+  }
+
+  // Identify distinct providers, disciplines, and beneficiaries
+  const providerSet = new Set();
+  const discSet = new Set();
+  const beneSet = new Set();
+
+  quotas.forEach(q => {
+    providerSet.add(q.provider_iso);
+    discSet.add(q.discipline);
+    beneSet.add(q.beneficiary_iso);
+  });
+
+  const providers = Array.from(providerSet).sort();
+  const disciplines = Array.from(discSet).sort();
+  const beneficiaries = Array.from(beneSet).sort();
+
+  if (providers.length === 0 || beneficiaries.length === 0) {
+    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:480px;color:#71717a;font-weight:600;">No student quotas match the selected filters.</div>';
+    return;
+  }
+
+  // Nodes array:
+  // [0 .. P-1] : Providers (Left)
+  // [P .. P+D-1] : Disciplines (Center)
+  // [P+D .. P+D+B-1] : Beneficiaries (Right)
+  const nodeLabels = [];
+  const nodeColors = [];
+  const nodeMetadata = [];
+
+  const providerIndices = {};
+  providers.forEach(p => {
+    providerIndices[p] = nodeLabels.length;
+    nodeLabels.push(`${COUNTRY_FLAGS[p] || ''} ${p} (${COUNTRY_NAMES[p] || p})`);
+    nodeColors.push('#111111');
+    nodeMetadata.push({ type: 'provider', iso: p });
+  });
+
+  const discIndices = {};
+  disciplines.forEach(d => {
+    discIndices[d] = nodeLabels.length;
+    nodeLabels.push(`${DISCIPLINE_ICONS[d] || '🎓'} ${d}`);
+    nodeColors.push(DISCIPLINE_COLORS[d] || '#8b5cf6');
+    nodeMetadata.push({ type: 'discipline', name: d });
+  });
+
+  const beneIndices = {};
+  beneficiaries.forEach(b => {
+    beneIndices[b] = nodeLabels.length;
+    nodeLabels.push(`${COUNTRY_FLAGS[b] || ''} ${b} (${COUNTRY_NAMES[b] || b})`);
+    nodeColors.push('#374151');
+    nodeMetadata.push({ type: 'beneficiary', iso: b });
+  });
+
+  // Flow links: Stage 1 (Provider -> Discipline), Stage 2 (Discipline -> Beneficiary)
+  const provDiscSums = {};
+  const discBeneSums = {};
+
+  quotas.forEach(q => {
+    const pdKey = `${q.provider_iso}__${q.discipline}`;
+    provDiscSums[pdKey] = (provDiscSums[pdKey] || 0) + (q.seats_annual || 0);
+
+    const dbKey = `${q.discipline}__${q.beneficiary_iso}`;
+    discBeneSums[dbKey] = (discBeneSums[dbKey] || 0) + (q.seats_annual || 0);
+  });
+
+  const sources = [];
+  const targets = [];
+  const values = [];
+  const linkColors = [];
+  const linkHover = [];
+
+  // Stage 1 links
+  Object.entries(provDiscSums).forEach(([key, seats]) => {
+    if (seats <= 0) return;
+    const [p, d] = key.split('__');
+    sources.push(providerIndices[p]);
+    targets.push(discIndices[d]);
+    values.push(seats);
+    const dColor = DISCIPLINE_COLORS[d] || '#8b5cf6';
+    linkColors.push(hexToRgba(dColor, 0.35));
+    linkHover.push(`<b>${COUNTRY_FLAGS[p] || ''} ${COUNTRY_NAMES[p] || p}</b> offers <b>${seats} seats/yr</b> in <b>${d}</b><extra></extra>`);
+  });
+
+  // Stage 2 links
+  Object.entries(discBeneSums).forEach(([key, seats]) => {
+    if (seats <= 0) return;
+    const [d, b] = key.split('__');
+    sources.push(discIndices[d]);
+    targets.push(beneIndices[b]);
+    values.push(seats);
+    const dColor = DISCIPLINE_COLORS[d] || '#8b5cf6';
+    linkColors.push(hexToRgba(dColor, 0.35));
+    linkHover.push(`<b>${d}</b> allocates <b>${seats} seats/yr</b> to <b>${COUNTRY_FLAGS[b] || ''} ${COUNTRY_NAMES[b] || b}</b><extra></extra>`);
+  });
+
+  const trace = {
+    type: 'sankey',
+    orientation: 'h',
+    valueformat: '.0f',
+    valuesuffix: ' seats/yr',
+    node: {
+      pad: 14,
+      thickness: 18,
+      line: { color: '#111111', width: 1 },
+      label: nodeLabels,
+      color: nodeColors,
+      customdata: nodeMetadata,
+      hovertemplate: '<b>%{label}</b><br>Seat Capacity: <b>%{value}</b> seats/yr<extra></extra>'
+    },
+    link: {
+      source: sources,
+      target: targets,
+      value: values,
+      color: linkColors,
+      hovertemplate: '%{customdata}<extra></extra>',
+      customdata: linkHover
+    }
+  };
+
+  const layout = {
+    paper_bgcolor: '#ffffff',
+    plot_bgcolor: '#ffffff',
+    margin: { t: 25, r: 25, l: 25, b: 25 },
+    font: {
+      family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      size: 11,
+      color: '#111827'
+    },
+    hoverlabel: {
+      bgcolor: '#111111',
+      font: { color: '#ffffff', size: 12 }
+    },
+    autosize: true
+  };
+
+  Plotly.react(container, [trace], layout, { responsive: true, displayModeBar: false });
+
+  container.removeAllListeners?.('plotly_click');
+  container.on('plotly_click', (eventData) => {
+    if (eventData.points && eventData.points[0]) {
+      const pt = eventData.points[0];
+      if (pt.customdata && pt.customdata.iso) {
+        displayCountryQuotaDossier(pt.customdata.iso, pt.customdata.type);
+      }
+    }
+  });
+}
+
+function renderStudentQuotasCapacity() {
+  if (!globalData || !globalData.quotas) return;
+  const container = document.getElementById('matrix-heatmap');
+
+  let quotas = globalData.quotas;
+  if (selectedDiscipline !== 'all') {
+    quotas = quotas.filter(q => q.discipline === selectedDiscipline);
+  }
+
+  const isByProvider = (quotaGroupBy === 'provider');
+  const primaryKey = isByProvider ? 'provider_iso' : 'beneficiary_iso';
+
+  const countries = Array.from(new Set(quotas.map(q => q[primaryKey]))).sort();
+  const disciplines = Object.keys(DISCIPLINE_COLORS);
+
+  const traces = disciplines.map(disc => {
+    const yVals = countries.map(c => {
+      const match = quotas.filter(q => q[primaryKey] === c && q.discipline === disc);
+      return match.reduce((sum, item) => sum + (item.seats_annual || 0), 0);
+    });
+
+    const xLabels = countries.map(c => `${COUNTRY_FLAGS[c] || ''} ${c}`);
+
+    return {
+      name: disc,
+      type: 'bar',
+      x: xLabels,
+      y: yVals,
+      customdata: countries,
+      marker: {
+        color: DISCIPLINE_COLORS[disc] || '#8b5cf6',
+        line: { color: '#ffffff', width: 1 }
+      },
+      hovertemplate: `<b>%{x}</b><br>${disc}: <b>%{y}</b> annual seats<extra></extra>`
+    };
+  }).filter(t => t.y.some(val => val > 0));
+
+  const layout = {
+    barmode: 'stack',
+    paper_bgcolor: '#ffffff',
+    plot_bgcolor: '#ffffff',
+    margin: { t: 30, r: 25, l: 60, b: 65 },
+    legend: {
+      orientation: 'h',
+      y: 1.15,
+      x: 0,
+      font: { size: 11, color: '#111827' }
+    },
+    xaxis: {
+      title: {
+        text: isByProvider ? 'Host / Provider State' : 'Beneficiary / Recipient State',
+        font: { color: '#111827', size: 12 }
+      },
+      tickfont: { color: '#111827', size: 12, weight: '700' },
+      linecolor: '#111111',
+      linewidth: 1.5
+    },
+    yaxis: {
+      title: {
+        text: 'Total Reserved Seats (Annual Quota)',
+        font: { color: '#111827', size: 12 }
+      },
+      gridcolor: '#f3f4f6',
+      zeroline: true,
+      zerolinecolor: '#111111'
+    },
+    hoverlabel: {
+      bgcolor: '#111111',
+      font: { color: '#ffffff', size: 12 }
+    },
+    autosize: true
+  };
+
+  Plotly.react(container, traces, layout, { responsive: true, displayModeBar: false });
+
+  container.removeAllListeners?.('plotly_click');
+  container.on('plotly_click', (eventData) => {
+    if (eventData.points && eventData.points[0]) {
+      const countryIso = eventData.points[0].customdata;
+      if (countryIso) {
+        displayCountryQuotaDossier(countryIso, isByProvider ? 'provider' : 'beneficiary');
+      }
+    }
+  });
+}
+
+/**
+ * Display Country-Level Student Quotas Dossier in Inspector Panel
+ */
+function displayCountryQuotaDossier(countryIso, role = 'provider') {
+  const placeholder = document.getElementById('placeholder-msg');
+  const container = document.getElementById('provisions-container');
+  if (placeholder) placeholder.style.display = 'none';
+
+  const flag = COUNTRY_FLAGS[countryIso] || '';
+  const name = COUNTRY_NAMES[countryIso] || countryIso;
+  const isHost = (role === 'provider');
+
+  const matchingQuotas = (globalData.quotas || []).filter(q => {
+    return isHost ? (q.provider_iso === countryIso) : (q.beneficiary_iso === countryIso);
+  });
+
+  const totalSeats = matchingQuotas.reduce((sum, q) => sum + (q.seats_annual || 0), 0);
+  const disciplines = Array.from(new Set(matchingQuotas.map(q => q.discipline)));
+
+  let listHtml = '';
+  if (matchingQuotas.length === 0) {
+    listHtml = `<p class="empty-notice">No specific quota programs recorded for ${name}.</p>`;
+  } else {
+    listHtml = matchingQuotas.map(q => {
+      const partnerIso = isHost ? q.beneficiary_iso : q.provider_iso;
+      const partnerFlag = COUNTRY_FLAGS[partnerIso] || '';
+      const partnerName = COUNTRY_NAMES[partnerIso] || partnerIso;
+      const concClass = q.concession_type === 'Full Scholarship' ? 'scholarship' : (q.concession_type === 'Domestic Parity' ? 'parity' : 'subsidized');
+
+      return `
+        <article class="quota-dossier-card">
+          <div class="quota-dossier-header">
+            <div>
+              <span class="quota-tag ${concClass}">${escapeHtml(q.concession_type)}</span>
+              <h4 class="quota-dossier-title">${escapeHtml(q.program_name)}</h4>
+            </div>
+            <span class="quota-seats-badge">${q.seats_annual} seats/yr</span>
+          </div>
+
+          <div class="quota-tags-row">
+            <span class="quota-tag">${DISCIPLINE_ICONS[q.discipline] || '🎓'} ${escapeHtml(q.discipline)}</span>
+            <span class="quota-tag">${escapeHtml(q.degree_level)}</span>
+            <span class="quota-tag" style="border-style: dashed;">
+              ${isHost ? 'Allocated to' : 'Host'}: ${partnerFlag} ${escapeHtml(partnerName)}
+            </span>
+          </div>
+
+          <p class="provision-desc" style="font-size: 0.825rem; margin-bottom: 0.6rem;">
+            ${escapeHtml(q.fee_benefit_description)}
+          </p>
+
+          <div class="provision-meta-grid" style="margin-bottom: 0.6rem;">
+            <div class="meta-item">
+              <span class="meta-label">Legal Basis</span>
+              <span class="meta-val">${escapeHtml(q.legal_framework)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Administering Agency</span>
+              <span class="meta-val">${escapeHtml(q.source_name)}</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a href="${escapeHtml(q.source_url)}" target="_blank" rel="noopener noreferrer" class="source-link">
+              Official Portal / Circular ↗
+            </a>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  container.innerHTML = `
+    <div class="inspector-header">
+      <div class="inspector-top-badge">${isHost ? 'HOST NATION QUOTA DOSSIER' : 'RECIPIENT QUOTA PROFILE'}</div>
+      <h3 class="inspector-pair-title">
+        <span>${flag} ${escapeHtml(name)}</span>
+      </h3>
+      <p class="inspector-direction-tag">
+        ${isHost ? 'Host & Provider of Regional Academic Quotas' : 'Beneficiary of Regional Reserved Seats'}
+      </p>
+
+      <div class="inspector-metrics">
+        <div class="inspector-ring-card">
+          <div class="inspector-metric-score-wrap">
+            <span class="inspector-ring-val">${totalSeats}</span>
+            <span class="inspector-ring-sub">seats/yr</span>
+          </div>
+          <div class="inspector-ring-lbl">Annual Capacity</div>
+          <p class="inspector-metric-explain">${isHost ? 'Total reserved seats granted to SAARC neighbors' : 'Total inbound reserved seats allocated'}</p>
+        </div>
+
+        <div class="inspector-ring-card">
+          <div class="inspector-metric-score-wrap">
+            <span class="inspector-ring-val">${matchingQuotas.length}</span>
+            <span class="inspector-ring-sub">schemes</span>
+          </div>
+          <div class="inspector-ring-lbl">Programs & Pathways</div>
+          <p class="inspector-metric-explain">Across ${disciplines.length} academic disciplines</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="provisions-container">
+      <div class="provisions-heading">
+        <span>Reserved Educational Quotas & Scholarships</span>
+        <span class="provision-count-pill">${matchingQuotas.length} records</span>
+      </div>
+      <div class="cards-list">
+        ${listHtml}
+      </div>
+    </div>
+  `;
+}
+
 function buildSegmentedMeter(score, maxScore = 4, color = '#111111') {
   const totalSegments = 5;
   const filledCount = Math.min(Math.round((score / maxScore) * totalSegments), totalSegments);
@@ -1035,6 +1497,67 @@ function displayDetails(provider, beneficiary) {
   });
 
   container.querySelector('.provisions-container').appendChild(list);
+
+  // Append Bilateral Student Quotas if any exist between this pair
+  const pairQuotas = (globalData.quotas || []).filter(q => q.provider_iso === provider && q.beneficiary_iso === beneficiary);
+  if (pairQuotas.length > 0) {
+    const quotaSection = document.createElement('div');
+    quotaSection.className = 'pair-quota-section';
+    quotaSection.style.marginTop = '1.25rem';
+    const totalQSeats = pairQuotas.reduce((sum, q) => sum + (q.seats_annual || 0), 0);
+
+    const qCards = pairQuotas.map(q => {
+      const concClass = q.concession_type === 'Full Scholarship' ? 'scholarship' : (q.concession_type === 'Domestic Parity' ? 'parity' : 'subsidized');
+      return `
+        <article class="quota-dossier-card">
+          <div class="quota-dossier-header">
+            <div>
+              <span class="quota-tag ${concClass}">${escapeHtml(q.concession_type)}</span>
+              <h4 class="quota-dossier-title">${escapeHtml(q.program_name)}</h4>
+            </div>
+            <span class="quota-seats-badge">${q.seats_annual} seats/yr</span>
+          </div>
+
+          <div class="quota-tags-row">
+            <span class="quota-tag">${DISCIPLINE_ICONS[q.discipline] || '🎓'} ${escapeHtml(q.discipline)}</span>
+            <span class="quota-tag">${escapeHtml(q.degree_level)}</span>
+          </div>
+
+          <p class="provision-desc" style="font-size: 0.825rem; margin-bottom: 0.6rem;">
+            ${escapeHtml(q.fee_benefit_description)}
+          </p>
+
+          <div class="provision-meta-grid" style="margin-bottom: 0.6rem;">
+            <div class="meta-item">
+              <span class="meta-label">Legal Basis</span>
+              <span class="meta-val">${escapeHtml(q.legal_framework)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Agency</span>
+              <span class="meta-val">${escapeHtml(q.source_name)}</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a href="${escapeHtml(q.source_url)}" target="_blank" rel="noopener noreferrer" class="source-link">
+              Official Portal / Circular ↗
+            </a>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    quotaSection.innerHTML = `
+      <div class="provisions-heading">
+        <span>🎓 Bilateral Student Quotas</span>
+        <span class="provision-count-pill">${totalQSeats} seats/yr</span>
+      </div>
+      <div class="cards-list">
+        ${qCards}
+      </div>
+    `;
+    container.querySelector('.provisions-container').appendChild(quotaSection);
+  }
 }
 
 /**

@@ -539,6 +539,158 @@ body {
   background-color: var(--color-hover);
 }
 
+/* Student Quota Controls */
+.view-quota-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.quota-subview-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--color-gray-100);
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-gray-200);
+}
+
+.quota-toggle-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--transition);
+}
+
+.quota-toggle-btn:hover {
+  color: var(--color-black);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.quota-toggle-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.quota-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.quota-filter-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+}
+
+.quota-filter-select {
+  font-family: inherit;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.quota-filter-select:hover,
+.quota-filter-select:focus {
+  background-color: var(--color-hover);
+}
+
+/* Quota Dossier Cards in Inspector */
+.quota-dossier-card {
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-squircle);
+  padding: 0.9rem;
+  margin-bottom: 0.75rem;
+  background-color: var(--color-card);
+  transition: var(--transition);
+}
+
+.quota-dossier-card:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.quota-dossier-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.quota-dossier-title {
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.25;
+}
+
+.quota-seats-badge {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.quota-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.quota-tag {
+  font-size: 0.675rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-black);
+  background-color: var(--color-gray-100);
+  color: var(--color-black);
+}
+
+.quota-tag.scholarship {
+  background-color: rgba(139, 92, 246, 0.15);
+  border-color: #8b5cf6;
+  color: #6d28d9;
+}
+
+.quota-tag.parity {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #047857;
+}
+
+.quota-tag.subsidized {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #b45309;
+}
+
 /* Category Filter Bar (Pill Buttons) */
 .filter-bar {
   display: flex;

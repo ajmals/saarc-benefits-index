@@ -212,6 +212,9 @@
               <button class="view-tab-btn" data-view="rankings" role="tab" aria-selected="false">
                 <span>≡</span> Partner Rankings
               </button>
+              <button class="view-tab-btn" data-view="quotas" role="tab" aria-selected="false">
+                <span>🎓</span> Student Quotas
+              </button>
               <button class="view-tab-btn" data-view="reciprocity" role="tab" aria-selected="false">
                 <span>⇄</span> Reciprocity Balance
               </button>
@@ -220,7 +223,7 @@
               </button>
             </div>
 
-            <!-- Focus Country Dropdown (Active in Single Country / Partner views) -->
+            <!-- Focus Country Dropdown (Active in Partner Rankings / Reciprocity / Radar views) -->
             <div class="view-focus-controls" id="view-focus-controls" style="display: none;">
               <label for="focus-country-select" class="focus-country-label">Focus State:</label>
               <select id="focus-country-select" class="focus-country-select">
@@ -233,6 +236,37 @@
                 <option value="PAK">🇵🇰 Pakistan (PAK)</option>
                 <option value="AFG">🇦🇫 Afghanistan (AFG)</option>
               </select>
+            </div>
+
+            <!-- Student Quota Controls (Active in Quotas View) -->
+            <div class="view-quota-controls" id="view-quota-controls" style="display: none;">
+              <div class="quota-subview-toggle" role="group" aria-label="Student Quota Graph Mode">
+                <button class="quota-toggle-btn active" data-subview="flow" type="button" title="Sankey Flow Diagram">
+                  <span>🌊</span> Seat Flow
+                </button>
+                <button class="quota-toggle-btn" data-subview="capacity" type="button" title="Stacked Bar Allocations">
+                  <span>📊</span> Quota Capacity
+                </button>
+              </div>
+
+              <div class="quota-filter-group">
+                <label for="quota-discipline-select" class="quota-filter-label">Field:</label>
+                <select id="quota-discipline-select" class="quota-filter-select">
+                  <option value="all">All Fields</option>
+                  <option value="Medicine & Health">🩺 Medicine & Health</option>
+                  <option value="Engineering & Tech">⚙️ Engineering & Tech</option>
+                  <option value="Postgraduate & Research">🎓 Postgraduate (SAU/ICCR)</option>
+                  <option value="Forestry & Environment">🌲 Forestry & Climate (SAF)</option>
+                </select>
+              </div>
+
+              <div class="quota-filter-group" id="quota-group-by-container" style="display: none;">
+                <label for="quota-group-by-select" class="quota-filter-label">Group:</label>
+                <select id="quota-group-by-select" class="quota-filter-select">
+                  <option value="provider">By Host Country</option>
+                  <option value="beneficiary">By Recipient Country</option>
+                </select>
+              </div>
             </div>
           </div>
 
