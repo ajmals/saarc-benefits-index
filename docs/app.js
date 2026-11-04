@@ -591,6 +591,10 @@ function renderCountryPopoverHtml(cCode) {
         </div>
       </div>
 
+      <div class="popover-source-citation" style="font-size: 0.65rem; color: var(--color-gray-500); padding: 0.35rem 0.2rem 0; border-top: 1px dashed var(--color-gray-200); margin-top: 0.35rem; text-align: right;">
+        Sources: World Bank WDI, IMF World Economic Outlook, National Central Banks
+      </div>
+
       <!-- Footer Action -->
       <div class="popover-footer">
         <button type="button" class="popover-focus-btn" data-focus-country="${p.code}">

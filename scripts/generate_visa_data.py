@@ -138,7 +138,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Porous land border; routine land crossing requires no visa or entry stamps. Air travel requires Voter Card or Passport.",
             "legal_framework": "Indo-Nepal Treaty of Peace and Friendship (1950), Articles 6 & 7",
             "source_name": "Ministry of External Affairs India / Nepal Dept of Immigration",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://www.mea.gov.in/bilateral-documents.htm?dtl/6295/Treaty+of+Peace+and+Friendship"
         }
     if orig == "NPL" and dest == "IND":
         return {
@@ -150,7 +150,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "No visa or foreigner registration (FRRO) required; open border transit across all official Land Customs Stations.",
             "legal_framework": "Indo-Nepal Treaty of Peace and Friendship (1950), Articles 6 & 7",
             "source_name": "Ministry of External Affairs India",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://www.mea.gov.in/bilateral-documents.htm?dtl/6295/Treaty+of+Peace+and+Friendship"
         }
 
     # 2. India - Bhutan (1949/2007 Friendship Treaty)
@@ -164,7 +164,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Entry permit issued on arrival at Phuntsholing, Gelephu, Samdrup Jongkhar, or Paro Airport (or online permit portal).",
             "legal_framework": "Treaty of Friendship (1949 / Revised 2007) & Tourism Levy Act 2022",
             "source_name": "Department of Immigration Bhutan / Department of Tourism",
-            "source_url": "https://www.doi.gov.bt"
+            "source_url": "https://immi.gov.bt/"
         }
     if orig == "BTN" and dest == "IND":
         return {
@@ -176,7 +176,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Zero visa or immigration clearance required; complete freedom of transit across land and air routes.",
             "legal_framework": "Treaty of Friendship (1949 / Revised 2007)",
             "source_name": "Ministry of External Affairs India",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://www.mea.gov.in/bilateral-documents?dtl/5515/IndianBhutan_Friendship_Treaty_enters_into_force"
         }
 
     # 3. India - Maldives (1979 / 2018 Visa Facilitation Agreement)
@@ -190,7 +190,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "90 days visa-free for tourism, medical visits, and business under the 2018 bilateral agreement.",
             "legal_framework": "India-Maldives Visa Facilitation Agreement 2018",
             "source_name": "Maldives Immigration",
-            "source_url": "https://immigration.gov.mv"
+            "source_url": "https://www.immigration.gov.mv/"
         }
     if orig == "MDV" and dest == "IND":
         return {
@@ -202,7 +202,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Maldivian nationals enjoy 90 days visa-free entry for tourism, medical treatment, and commerce without prior visa.",
             "legal_framework": "India-Maldives Visa Facilitation Agreement 2018",
             "source_name": "Ministry of External Affairs India / Bureau of Immigration",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://indianvisaonline.gov.in"
         }
 
     # 4. Inbound to Maldives (Unilateral Free 30-Day VoA for all SAARC)
@@ -216,7 +216,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "All SAARC passport holders receive 30 days tourist entry upon arrival. Extendable up to 90 days at immigration HQ.",
             "legal_framework": "Maldives Immigration Act No. 1/2007",
             "source_name": "Maldives Immigration",
-            "source_url": "https://immigration.gov.mv"
+            "source_url": "https://www.immigration.gov.mv/"
         }
 
     # 5. Inbound to Nepal (Rule 29: 30-day Free Tourist VoA for SAARC, except AFG)
@@ -258,7 +258,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
                 "special_conditions": "Reciprocal visa facilitation and extended stay privileges for Maldivian visitors.",
                 "legal_framework": "Bilateral Visa Facilitation MoU Sri Lanka - Maldives",
                 "source_name": "Department of Immigration & Emigration Sri Lanka",
-                "source_url": "https://www.eta.gov.lk"
+                "source_url": "https://www.eta.gov.lk/slvisa/"
             }
         else:
             return {
@@ -270,7 +270,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
                 "special_conditions": "Subsidized Electronic Travel Authorization (ETA) issued online within 24 hours. Concessionary rate applies to all SAARC members.",
                 "legal_framework": "Sri Lanka Immigrants and Emigrants Act & ETA Statutory Orders",
                 "source_name": "Department of Immigration and Emigration Sri Lanka",
-                "source_url": "https://www.eta.gov.lk"
+                "source_url": "https://www.eta.gov.lk/slvisa/"
             }
 
     # 7. Bhutan & Bangladesh Bilateral Protocol
@@ -284,7 +284,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Concessionary tourism levy and reciprocal visa waivers for diplomatic/official passport holders under the 2023 Tourism MoU.",
             "legal_framework": "Bhutan-Bangladesh Bilateral Tourism Protocol & Visa Exemption Agreement (2023)",
             "source_name": "Department of Tourism Bhutan / MOFA Bangladesh",
-            "source_url": "https://bhutan.travel"
+            "source_url": "https://bhutan.travel/visa"
         }
     if orig == "BTN" and dest == "BGD":
         return {
@@ -313,7 +313,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": f"{cities_note} {port_note} {police_note}",
             "legal_framework": "Bilateral Visa Agreement of 1974 (Revised in 2012)",
             "source_name": "Ministry of External Affairs India / Ministry of Interior Pakistan",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://indianvisaonline.gov.in"
         }
 
     # 9. Afghanistan Corridors (Post-2021 Security Frameworks)
@@ -365,7 +365,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "Streamlined medical visas, 5-year multi-entry visas for Muktijoddhas, and local Border Haat passes for border residents within 5 km.",
             "legal_framework": "Revised Travel Arrangement (RTA 2018) between India and Bangladesh",
             "source_name": "High Commission of India, Dhaka / MEA",
-            "source_url": "https://www.mea.gov.in"
+            "source_url": "https://indianvisaonline.gov.in"
         }
     if orig == "IND" and dest == "BGD":
         return {
@@ -377,7 +377,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "VoA available for limited business/transit delegates without mission presence; standard visitors apply through mission network.",
             "legal_framework": "Revised Travel Arrangement (RTA 2018)",
             "source_name": "Bangladesh High Commission New Delhi",
-            "source_url": "https://bdhcdelhi.peoplesrepublicofbangladesh.org"
+            "source_url": "https://bdhcdelhi.org"
         }
 
     # 11. Pakistan - Bangladesh
@@ -405,7 +405,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "special_conditions": "All international visitors (except Indian nationals and subsidized Bangladeshi quota) must pay statutory USD 100/night SDF and book through certified operators.",
             "legal_framework": "Tourism Levy Act of Bhutan 2022",
             "source_name": "Department of Tourism Bhutan",
-            "source_url": "https://bhutan.travel"
+            "source_url": "https://bhutan.travel/visa"
         }
 
     # 13. Inbound to Bangladesh (from remaining countries)

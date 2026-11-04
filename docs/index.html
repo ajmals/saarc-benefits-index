@@ -69,35 +69,43 @@
             <span class="scope-countries-hint">Hover country for population, GDP & currency metrics</span>
           </div>
           <div class="scope-countries-list" id="scope-countries-list">
-            <button class="scope-country-chip" type="button" data-country="AFG" aria-label="Afghanistan: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="AFG"
+              aria-label="Afghanistan: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇦🇫</span>
               <span class="chip-name">Afghanistan</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="BGD" aria-label="Bangladesh: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="BGD"
+              aria-label="Bangladesh: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇧🇩</span>
               <span class="chip-name">Bangladesh</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="BTN" aria-label="Bhutan: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="BTN"
+              aria-label="Bhutan: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇧🇹</span>
               <span class="chip-name">Bhutan</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="IND" aria-label="India: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="IND"
+              aria-label="India: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇮🇳</span>
               <span class="chip-name">India</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="MDV" aria-label="Maldives: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="MDV"
+              aria-label="Maldives: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇲🇻</span>
               <span class="chip-name">Maldives</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="NPL" aria-label="Nepal: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="NPL"
+              aria-label="Nepal: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇳🇵</span>
               <span class="chip-name">Nepal</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="PAK" aria-label="Pakistan: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="PAK"
+              aria-label="Pakistan: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇵🇰</span>
               <span class="chip-name">Pakistan</span>
             </button>
-            <button class="scope-country-chip" type="button" data-country="LKA" aria-label="Sri Lanka: view population, GDP, and currency exchange rate">
+            <button class="scope-country-chip" type="button" data-country="LKA"
+              aria-label="Sri Lanka: view population, GDP, and currency exchange rate">
               <span class="chip-flag">🇱🇰</span>
               <span class="chip-name">Sri Lanka</span>
             </button>
@@ -371,8 +379,7 @@
                   title="UNESCO Monument Entry Fees">
                   <span>🏛️</span> Monument Parity
                 </button>
-                <button class="tourism-toggle-btn" data-subview="sdf" type="button"
-                  title="Bhutan SDF & Tourism Levies">
+                <button class="tourism-toggle-btn" data-subview="sdf" type="button" title="Bhutan SDF & Tourism Levies">
                   <span>🇧🇹</span> Bhutan SDF
                 </button>
                 <button class="tourism-toggle-btn" data-subview="circuit" type="button"
@@ -525,9 +532,93 @@
           </div>
 
           <div class="modal-section" style="margin-top: 1rem;">
-            <h4 class="modal-subtitle">Official Legal Sources</h4>
-            <p>Every concession links directly to verifiable statutory acts, Ministry of External Affairs publications,
-              central bank regulations, or institutional charters.</p>
+            <h4 class="modal-subtitle">Official Legal Sources & Verified Reference Index</h4>
+            <p style="margin-bottom: 0.6rem;">Every concession, visa regime, quota, and tariff line in this index links
+              directly to official primary sources published by statutory authorities and national ministries:</p>
+            <div class="sources-directory-grid"
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; font-size: 0.825rem; line-height: 1.45;">
+              <div
+                style="background: var(--color-gray-50); padding: 0.75rem; border-radius: 6px; border: 1px solid var(--color-gray-200);">
+                <strong style="color: var(--color-black); display: block; margin-bottom: 0.3rem;">🤝 Bilateral &
+                  Regional Treaties</strong>
+                <ul style="margin: 0; padding-left: 1.1rem; color: var(--color-gray-700);">
+                  <li><a
+                      href="https://www.mea.gov.in/bilateral-documents.htm?dtl/5535/Agreement+on+South+Asian+Free+Trade+Area+SAFTA"
+                      target="_blank" rel="noopener noreferrer">SAFTA Agreement Full Text (MEA)</a></li>
+                  <li><a href="https://www.mea.gov.in/bilateral-documents.htm?dtl/6295/Treaty+of+Peace+and+Friendship"
+                      target="_blank" rel="noopener noreferrer">Indo-Nepal Treaty of Peace & Friendship 1950</a></li>
+                  <li><a
+                      href="https://www.mea.gov.in/bilateral-documents?dtl/5515/IndianBhutan_Friendship_Treaty_enters_into_force"
+                      target="_blank" rel="noopener noreferrer">India-Bhutan Friendship Treaty (2007)</a></li>
+                  <li><a
+                      href="https://www.mea.gov.in/lok-sabha.htm?dtl/11910/Q_1137_Liberalising_Visas_to_Neighbouring_Countries"
+                      target="_blank" rel="noopener noreferrer">SAARC Visa Exemption Scheme (SVES) Directives</a></li>
+                </ul>
+              </div>
+
+              <div
+                style="background: var(--color-gray-50); padding: 0.75rem; border-radius: 6px; border: 1px solid var(--color-gray-200);">
+                <strong style="color: var(--color-black); display: block; margin-bottom: 0.3rem;">🚢 Trade, Transit &
+                  Financial Liquidity</strong>
+                <ul style="margin: 0; padding-left: 1.1rem; color: var(--color-gray-700);">
+                  <li><a
+                      href="https://content.dgft.gov.in/Website/dgftprod/ee62a9f9-1bf2-4e5a-b651-f7bb78ce00b5/Notification%2001%20dt%2001-04-2026.pdf"
+                      target="_blank" rel="noopener noreferrer">DGFT India–Maldives Essential Commodities Quota</a></li>
+                  <li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=58170" target="_blank"
+                      rel="noopener noreferrer">RBI SAARC Currency Swap Framework 2024–2027</a></li>
+                  <li><a href="https://www.slpa.lk" target="_blank" rel="noopener noreferrer">Sri Lanka Ports Authority
+                      (SLPA) Transshipment</a></li>
+                  <li><a href="https://nbr.gov.bd" target="_blank" rel="noopener noreferrer">National Board of Revenue
+                      (NBR) Bangladesh Corridors</a></li>
+                </ul>
+              </div>
+
+              <div
+                style="background: var(--color-gray-50); padding: 0.75rem; border-radius: 6px; border: 1px solid var(--color-gray-200);">
+                <strong style="color: var(--color-black); display: block; margin-bottom: 0.3rem;">🎓 Higher Education &
+                  Student Quotas</strong>
+                <ul style="margin: 0; padding-left: 1.1rem; color: var(--color-gray-700);">
+                  <li><a href="https://dghs.gov.bd" target="_blank" rel="noopener noreferrer">DGHS Bangladesh Foreign
+                      MBBS/BDS Admissions</a></li>
+                  <li><a href="https://entrance.mec.gov.np" target="_blank" rel="noopener noreferrer">Nepal Medical
+                      Education Commission (MECEE Quota Portal)</a></li>
+                  <li><a href="https://www.ead.gov.pk/Detail/NDczNzA5ZGUtMTc2Zi00ZjVlLWI5OWUtNWZiMTlmMmFhZWRi"
+                      target="_blank" rel="noopener noreferrer">Pakistan EAD Technical Assistance Programme (PTAP)</a>
+                  </li>
+                  <li><a href="https://sau.int" target="_blank" rel="noopener noreferrer">South Asian University (SAU
+                      Statutory Quotas)</a></li>
+                  <li><a href="https://iccr.gov.in" target="_blank" rel="noopener noreferrer">Indian Council for
+                      Cultural Relations (ICCR Schemes)</a></li>
+                  <li><a href="https://www.cnr.edu.bt/?p=6362" target="_blank" rel="noopener noreferrer">College of
+                      Natural Resources Bhutan (SAF Scholarships)</a></li>
+                </ul>
+              </div>
+
+              <div
+                style="background: var(--color-gray-50); padding: 0.75rem; border-radius: 6px; border: 1px solid var(--color-gray-200);">
+                <strong style="color: var(--color-black); display: block; margin-bottom: 0.3rem;">🏛️ Tourism, Heritage
+                  & Immigration Portals</strong>
+                <ul style="margin: 0; padding-left: 1.1rem; color: var(--color-gray-700);">
+                  <li><a href="https://asi.nic.in/fee-to-visit-monuments/" target="_blank"
+                      rel="noopener noreferrer">Archaeological Survey of India (ASI Ticketed Monuments)</a></li>
+                  <li><a href="https://eservices.ccf.gov.lk/eticketing/" target="_blank"
+                      rel="noopener noreferrer">Central Cultural Fund Sri Lanka (e-Ticketing Concessions)</a></li>
+                  <li><a href="https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees"
+                      target="_blank" rel="noopener noreferrer">Nepal Tourism Board (Kathmandu Valley Heritage Fees)</a>
+                  </li>
+                  <li><a href="https://bhutan.travel/visa" target="_blank" rel="noopener noreferrer">Bhutan Department
+                      of Tourism (SDF & Visa Policies)</a></li>
+                  <li><a href="https://immi.gov.bt/" target="_blank" rel="noopener noreferrer">Department of Immigration
+                      Bhutan (Entry Permits)</a></li>
+                  <li><a href="https://www.immigration.gov.mv/" target="_blank" rel="noopener noreferrer">Maldives
+                      Immigration (30-Day Free VoA Portal)</a></li>
+                  <li><a href="https://www.eta.gov.lk/slvisa/" target="_blank" rel="noopener noreferrer">Sri Lanka
+                      Electronic Travel Authorization (ETA Portal)</a></li>
+                  <li><a href="https://bdhcdelhi.org" target="_blank" rel="noopener noreferrer">Bangladesh High
+                      Commission New Delhi</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div class="modal-section" style="margin-top: 1rem;">
@@ -561,14 +652,14 @@
       <div class="footer-inner">
         <div class="footer-badge">OPEN RESEARCH REPOSITORY</div>
         <p>South Asian Bilateral Relations & Benefits Index</p>
-        <p class="footer-sub">Member States: 
-          <span class="footer-country-pill" data-country="AFG" title="Afghanistan">AFG</span> • 
-          <span class="footer-country-pill" data-country="BGD" title="Bangladesh">BGD</span> • 
-          <span class="footer-country-pill" data-country="BTN" title="Bhutan">BTN</span> • 
-          <span class="footer-country-pill" data-country="IND" title="India">IND</span> • 
-          <span class="footer-country-pill" data-country="MDV" title="Maldives">MDV</span> • 
-          <span class="footer-country-pill" data-country="NPL" title="Nepal">NPL</span> • 
-          <span class="footer-country-pill" data-country="PAK" title="Pakistan">PAK</span> • 
+        <p class="footer-sub">Member States:
+          <span class="footer-country-pill" data-country="AFG" title="Afghanistan">AFG</span> •
+          <span class="footer-country-pill" data-country="BGD" title="Bangladesh">BGD</span> •
+          <span class="footer-country-pill" data-country="BTN" title="Bhutan">BTN</span> •
+          <span class="footer-country-pill" data-country="IND" title="India">IND</span> •
+          <span class="footer-country-pill" data-country="MDV" title="Maldives">MDV</span> •
+          <span class="footer-country-pill" data-country="NPL" title="Nepal">NPL</span> •
+          <span class="footer-country-pill" data-country="PAK" title="Pakistan">PAK</span> •
           <span class="footer-country-pill" data-country="LKA" title="Sri Lanka">LKA</span>
         </p>
         <div class="footer-downloads">

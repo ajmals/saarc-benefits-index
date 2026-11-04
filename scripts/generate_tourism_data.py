@@ -58,7 +58,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
         "authority": "Archaeological Survey of India (ASI)",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "SAARC citizens pay identical ticket rates as Indian citizens (₹50 vs ₹1,100 foreign visitors). Additional ₹200 fee for main mausoleum dome applies uniformly.",
     },
     {
@@ -82,7 +82,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "ASI Ticketed Monuments Schedule 2018; Section 38 of AMASR Act",
         "authority": "Archaeological Survey of India (ASI)",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "Online cashless booking parity: SAARC visitors use Indian domestic portal tier without foreign card surcharges.",
     },
     {
@@ -106,7 +106,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "ASI Schedule A Monuments Notification",
         "authority": "Archaeological Survey of India (ASI)",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "Includes access to Iron Pillar and Quwwat-ul-Islam mosque complex at domestic rates.",
     },
     {
@@ -130,7 +130,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "ASI Group B Monument Tariff Classification",
         "authority": "Archaeological Survey of India (ASI)",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "Covers rock-cut Buddhist, Hindu, and Jain monuments carved between 2nd century BCE and 10th century CE.",
     },
     {
@@ -154,7 +154,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "Bodh Gaya Temple Management Act & ASI Nalanda Excavated Site Rules",
         "authority": "ASI & Bodhgaya Temple Management Committee",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "Epicentre of the Pan-South Asian Buddhist pilgrimage circuit; domestic entry parity extended to all SAARC pilgrims.",
     },
     {
@@ -178,7 +178,7 @@ MONUMENTS = [
         "parity_tier_label": "Full Domestic Parity",
         "legal_basis": "ASI Ticketed Monuments Schedule 2018",
         "authority": "Archaeological Survey of India (ASI)",
-        "source_url": "https://asi.nic.in",
+        "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
         "notes": "Preserves Mughal Emperor Akbar's 16th-century ceremonial capital and Buland Darwaza.",
     },
 
@@ -204,7 +204,7 @@ MONUMENTS = [
         "parity_tier_label": "50% Regional Concession",
         "legal_basis": "Central Cultural Fund Act No. 57 of 1980; CCF Tariff Directive 2024",
         "authority": "Central Cultural Fund (CCF) Sri Lanka",
-        "source_url": "https://www.ccf.gov.lk",
+        "source_url": "https://eservices.ccf.gov.lk/eticketing/",
         "notes": "Standard foreign adult fee is $36 (approx LKR 10,800). SAARC passport holders pay exactly 50% ($18).",
     },
     {
@@ -228,7 +228,7 @@ MONUMENTS = [
         "parity_tier_label": "50% Regional Concession",
         "legal_basis": "CCF Cultural Triangle Concessionary Tariff Regulations",
         "authority": "Central Cultural Fund (CCF) Sri Lanka",
-        "source_url": "https://www.ccf.gov.lk",
+        "source_url": "https://eservices.ccf.gov.lk/eticketing/",
         "notes": "Covers Gal Vihara, Quadrangle, and Royal Palace complex at flat $15 SAARC rate vs $30 foreign rate.",
     },
     {
@@ -252,7 +252,7 @@ MONUMENTS = [
         "parity_tier_label": "50% Regional Concession",
         "legal_basis": "CCF Sacred Sites Regulatory Tariff",
         "authority": "Central Cultural Fund (CCF) Sri Lanka",
-        "source_url": "https://www.ccf.gov.lk",
+        "source_url": "https://eservices.ccf.gov.lk/eticketing/",
         "notes": "Access to ancient monastic stupas including Ruwanwelisaya and Jetavanaramaya.",
     },
     {
@@ -276,7 +276,7 @@ MONUMENTS = [
         "parity_tier_label": "25% Regional Concession",
         "legal_basis": "Dambulla Temple Trust Board Bylaws",
         "authority": "Dambulla Golden Temple Administrative Trust",
-        "source_url": "https://www.ccf.gov.lk",
+        "source_url": "https://eservices.ccf.gov.lk/eticketing/",
         "notes": "Largest cave temple complex in Sri Lanka containing 153 Buddha statues and ancient murals.",
     },
 
@@ -302,7 +302,7 @@ MONUMENTS = [
         "parity_tier_label": "72% Regional Concession",
         "legal_basis": "Bhaktapur Municipality Tourism Entry Service Fee Bylaws",
         "authority": "Bhaktapur Municipality Heritage Section",
-        "source_url": "https://bhaktapurmun.gov.np",
+        "source_url": "https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees",
         "notes": "Preserves 55-Window Palace, Nyatapola Temple, and pottery squares. Free for Nepalese citizens.",
     },
     {
@@ -326,7 +326,7 @@ MONUMENTS = [
         "parity_tier_label": "50% Regional Concession",
         "legal_basis": "Kathmandu Metropolitan City (KMC) Heritage Service Charge Directive",
         "authority": "Kathmandu Metropolitan City",
-        "source_url": "https://kathmandu.gov.np",
+        "source_url": "https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees",
         "notes": "Historical seat of Malla and Shah dynasties; SAARC nationals receive a 50% discount on municipal entry tickets.",
     },
     {
@@ -522,7 +522,7 @@ MONUMENTS = [
         "parity_tier_label": "80% Regional Concession",
         "legal_basis": "Antiquities Act 1968 (amended 1976); Dept of Archaeology SRO 2021",
         "authority": "Department of Archaeology Bangladesh",
-        "source_url": "http://www.archaeology.gov.bd",
+        "source_url": "https://archaeology.gov.bd/",
         "notes": "Somapura Mahavihara, the 8th-century intellectual hub that influenced Buddhist architecture throughout Southeast Asia.",
     },
     {
@@ -546,7 +546,7 @@ MONUMENTS = [
         "parity_tier_label": "80% Regional Concession",
         "legal_basis": "Department of Archaeology Ticket Tariff Schedule",
         "authority": "Department of Archaeology Bangladesh",
-        "source_url": "http://www.archaeology.gov.bd",
+        "source_url": "https://archaeology.gov.bd/",
         "notes": "Includes Sixty Dome Mosque (Shat Gombuj Masjid) and Khan Jahan Ali mausoleum.",
     },
     {
@@ -570,7 +570,7 @@ MONUMENTS = [
         "parity_tier_label": "80% Regional Concession",
         "legal_basis": "Department of Archaeology Entry Fee Schedule",
         "authority": "Department of Archaeology Bangladesh",
-        "source_url": "http://www.archaeology.gov.bd",
+        "source_url": "https://archaeology.gov.bd/",
         "notes": "17th-century Mughal fort complex of Prince Muhammad Azam in Old Dhaka.",
     },
 
@@ -596,7 +596,7 @@ MONUMENTS = [
         "parity_tier_label": "50% Regional Concession",
         "legal_basis": "Department of Culture & Dzongkha Development Monument Entry Fee Schedule 2022",
         "authority": "Department of Tourism & Central Monastic Body Bhutan",
-        "source_url": "https://bhutan.travel",
+        "source_url": "https://bhutan.travel/visa",
         "notes": "Himalayan cliffside sacred site; SAARC passport holders pay Nu 1,000 (~$12) vs Nu 2,000 (~$24) third-country tourists.",
     },
     {
@@ -620,7 +620,7 @@ MONUMENTS = [
         "parity_tier_label": "Flat Fee (Domestic Free)",
         "legal_basis": "National Monument Entry Regulations",
         "authority": "Department of Tourism Bhutan",
-        "source_url": "https://bhutan.travel",
+        "source_url": "https://bhutan.travel/visa",
         "notes": "Winter residence of the Je Khenpo and Central Monastic Body; free for Bhutanese citizens.",
     },
 ]
@@ -630,7 +630,7 @@ BHUTAN_SDF_DATA = {
     "title": "Bhutan Sustainable Development Fee (SDF) Regional Concession",
     "legal_framework": "Tourism Levy Act of Bhutan 2022 (Act No. 13 of 2022) as amended by Tourism Levy Amendment Act 2023",
     "authority": "Department of Tourism, Royal Government of Bhutan",
-    "official_url": "https://bhutan.travel",
+    "official_url": "https://bhutan.travel/visa",
     "rates_per_night": {
         "international": {
             "rate_usd": 100.0,
