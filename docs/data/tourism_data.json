@@ -56,7 +56,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "ASI Gazette Notification F. No. 33/7/2018-M; Rule 8 of AMASR Rules 1959",
       "authority": "Archaeological Survey of India (ASI)",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "SAARC citizens pay identical ticket rates as Indian citizens (₹50 vs ₹1,100 foreign visitors). Additional ₹200 fee for main mausoleum dome applies uniformly."
     },
     {
@@ -80,7 +80,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "ASI Ticketed Monuments Schedule 2018; Section 38 of AMASR Act",
       "authority": "Archaeological Survey of India (ASI)",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "Online cashless booking parity: SAARC visitors use Indian domestic portal tier without foreign card surcharges."
     },
     {
@@ -104,7 +104,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "ASI Schedule A Monuments Notification",
       "authority": "Archaeological Survey of India (ASI)",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "Includes access to Iron Pillar and Quwwat-ul-Islam mosque complex at domestic rates."
     },
     {
@@ -128,7 +128,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "ASI Group B Monument Tariff Classification",
       "authority": "Archaeological Survey of India (ASI)",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "Covers rock-cut Buddhist, Hindu, and Jain monuments carved between 2nd century BCE and 10th century CE."
     },
     {
@@ -152,7 +152,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "Bodh Gaya Temple Management Act & ASI Nalanda Excavated Site Rules",
       "authority": "ASI & Bodhgaya Temple Management Committee",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "Epicentre of the Pan-South Asian Buddhist pilgrimage circuit; domestic entry parity extended to all SAARC pilgrims."
     },
     {
@@ -176,7 +176,7 @@
       "parity_tier_label": "Full Domestic Parity",
       "legal_basis": "ASI Ticketed Monuments Schedule 2018",
       "authority": "Archaeological Survey of India (ASI)",
-      "source_url": "https://asi.nic.in/fee-to-visit-monuments/",
+      "source_url": "https://www.tajmahal.gov.in/ticketing.aspx",
       "notes": "Preserves Mughal Emperor Akbar's 16th-century ceremonial capital and Buland Darwaza."
     },
     {
@@ -344,7 +344,7 @@
       "parity_tier_label": "75% Regional Concession",
       "legal_basis": "Lalitpur Metropolitan City Heritage Conservation Rules",
       "authority": "Lalitpur Metropolitan City & Patan Museum Board",
-      "source_url": "https://patanmuseum.gov.np",
+      "source_url": "https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees",
       "notes": "Renowned for Newar metalcraft and Krishna Mandir stone temple; SAARC passport holders pay NPR 250 vs NPR 1,000."
     },
     {
@@ -368,7 +368,7 @@
       "parity_tier_label": "60% Regional Concession",
       "legal_basis": "Lumbini Development Trust Act 2042 (1985); Fee Schedule 2023",
       "authority": "Lumbini Development Trust",
-      "source_url": "https://lumbinidevtrust.gov.np",
+      "source_url": "https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees",
       "notes": "Sacred Garden and Maya Devi Temple complex; SAARC rate is NPR 200 vs NPR 500 for third-country tourists."
     },
     {
@@ -392,7 +392,7 @@
       "parity_tier_label": "75% Regional Concession",
       "legal_basis": "Federation of Swayambhu Peace Committee Management Schedule",
       "authority": "Swayambhu Management & Conservation Committee",
-      "source_url": "https://ntb.gov.np",
+      "source_url": "https://ntb.gov.np/plan-your-trip/before-you-come/heritage-site-entry-fees",
       "notes": "Ancient hilltop stupa sacred to both Buddhists and Hindus."
     },
     {
@@ -416,7 +416,7 @@
       "parity_tier_label": "85% Regional Concession",
       "legal_basis": "Walled City of Lahore Authority (WCLA) Act 2012; Punjab Tourism Tariff",
       "authority": "Walled City of Lahore Authority & Directorate General of Archaeology",
-      "source_url": "https://walledcitylahore.gop.pk",
+      "source_url": "https://walledcitylahore.gop.pk/lahore-fort/",
       "notes": "Mughal monument complex featuring Sheesh Mahal (Palace of Mirrors) and Naulakha Pavilion."
     },
     {
