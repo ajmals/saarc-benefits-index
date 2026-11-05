@@ -162,7 +162,7 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "id_required": "Voter ID Card or Indian Passport (No Visa required)",
             "work_rights": "Treaty-based national treatment in trade and approved business partnerships",
             "special_conditions": "Entry permit issued on arrival at Phuntsholing, Gelephu, Samdrup Jongkhar, or Paro Airport (or online permit portal).",
-            "legal_framework": "Treaty of Friendship (1949 / Revised 2007) & Tourism Levy Act 2022",
+            "legal_framework": "India-Bhutan Friendship Treaty (2007) & Tourism Levy Act 2022",
             "source_name": "Department of Immigration Bhutan / Department of Tourism",
             "source_url": "https://immi.gov.bt/"
         }
@@ -174,9 +174,9 @@ def build_pair_record(orig: str, dest: str) -> Dict[str, Any]:
             "id_required": "Bhutanese Citizenship Identity Card or Passport",
             "work_rights": "Unrestricted freedom of residence, education, and employment across all Indian states",
             "special_conditions": "Zero visa or immigration clearance required; complete freedom of transit across land and air routes.",
-            "legal_framework": "Treaty of Friendship (1949 / Revised 2007)",
-            "source_name": "Ministry of External Affairs India",
-            "source_url": "https://www.mea.gov.in/Images/pdf/india-bhutan-treaty-07.pdf"
+            "legal_framework": "India-Bhutan Friendship Treaty (2007)",
+            "source_name": "Ministry of External Affairs India (Treaty No. 895)",
+            "source_url": "https://www.mea.gov.in/treatydetail?895"
         }
 
     # 3. India - Maldives (1979 / 2018 Visa Facilitation Agreement)
